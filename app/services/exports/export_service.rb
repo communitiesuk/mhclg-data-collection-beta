@@ -33,7 +33,7 @@ module Exports
         sales_archives_for_manifest = get_sales_archives(start_time, full_update, year) if Time.zone.now >= Time.zone.local(2025, 4, 1)
       end
 
-      write_master_manifest(daily_run_number, lettings_archives_for_manifest.merge(sales_archives_for_manifest || {}).merge(users_archives_for_manifest).merge(organisations_archives_for_manifest))
+      write_master_manifest(daily_run_number, lettings_archives_for_manifest.merge(sales_archives_for_manifest).merge(users_archives_for_manifest).merge(organisations_archives_for_manifest))
     end
 
   private

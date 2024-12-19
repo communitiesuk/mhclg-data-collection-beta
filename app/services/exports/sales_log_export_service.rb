@@ -42,7 +42,6 @@ module Exports
 
     def apply_cds_transformation(sales_log, _export_mode)
       sales_log.attributes_before_type_cast
-      # attribute_hash["formid"] = attribute_hash["old_form_id"] || (attribute_hash["id"] + LOG_ID_OFFSET)
     end
 
     def is_omitted_field?(field_name, _sales_log)

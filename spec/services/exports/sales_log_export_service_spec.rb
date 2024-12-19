@@ -16,7 +16,6 @@ RSpec.describe Exports::SalesLogExportService do
   let(:user) { FactoryBot.create(:user, email: "test1@example.com", organisation:) }
 
   def replace_entity_ids(sales_log, export_template)
-    # export_template.sub!(/\{id\}/, (sales_log["id"] + Exports::SalesLogExportService::LOG_ID_OFFSET).to_s)
     export_template.sub!(/\{owning_org_id\}/, sales_log["owning_organisation_id"].to_s)
     export_template.sub!(/\{managing_org_id\}/, sales_log["managing_organisation_id"].to_s)
     export_template.sub!(/\{assigned_to_id\}/, sales_log["assigned_to_id"].to_s)
