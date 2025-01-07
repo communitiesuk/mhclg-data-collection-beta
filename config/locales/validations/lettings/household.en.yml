@@ -57,6 +57,15 @@ en:
         uprn:
           same_la_just_moved_to_area: "You told us the tenant had just moved into the local authority, but this location is in the same local authority. Check your answers are correct"
 
+        uprn_selection:
+          same_la_just_moved_to_area: "You told us the tenant had just moved into the local authority, but this location is in the same local authority. Check your answers are correct"
+
+        scheme:
+          same_la_just_moved_to_area: "You told us the tenant had just moved into the local authority, but this location is in the same local authority. Check your answers are correct"
+
+        location:
+          same_la_just_moved_to_area: "You told us the tenant had just moved into the local authority, but this location is in the same local authority. Check your answers are correct"
+
         age:
           child_under_16_relat: "Answer cannot be under 16 as person %{person_num}'s relationship to the lead tenant is ‘partner’."
           child_under_16_ecstat: "Answer cannot be under 16 as person %{person_num}’s working situation is not ‘child under 16’, ‘other’ or ‘prefers not to say’."

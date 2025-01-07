@@ -202,12 +202,15 @@ module Validations::HouseholdValidations
     return unless record.layear && record.la && record.prevloc && record.collection_start_year
 
     if record.la == record.prevloc && record.layear == 1 && record.collection_start_year >= 2023
-      record.errors.add :layear, :renewal_just_moved, message: I18n.t("validations.lettings.household.layear.same_la_just_moved_to_area")
-      record.errors.add :la, :renewal_just_moved, message: I18n.t("validations.lettings.household.la.same_la_just_moved_to_area")
-      record.errors.add :postcode_full, :renewal_just_moved, message: I18n.t("validations.lettings.household.postcode_full.same_la_just_moved_to_area")
-      record.errors.add :uprn, :renewal_just_moved, message: I18n.t("validations.lettings.household.uprn.same_la_just_moved_to_area")
-      record.errors.add :ppostcode_full, :renewal_just_moved, message: I18n.t("validations.lettings.household.ppostcode_full.same_la_just_moved_to_area")
-      record.errors.add :prevloc, :renewal_just_moved, message: I18n.t("validations.lettings.household.prevloc.same_la_just_moved_to_area")
+      record.errors.add :layear, I18n.t("validations.lettings.household.layear.same_la_just_moved_to_area")
+      record.errors.add :la, I18n.t("validations.lettings.household.la.same_la_just_moved_to_area")
+      record.errors.add :postcode_full, I18n.t("validations.lettings.household.postcode_full.same_la_just_moved_to_area")
+      record.errors.add :uprn, I18n.t("validations.lettings.household.uprn.same_la_just_moved_to_area")
+      record.errors.add :uprn_selection, I18n.t("validations.lettings.household.uprn_selection.same_la_just_moved_to_area")
+      record.errors.add :ppostcode_full, I18n.t("validations.lettings.household.ppostcode_full.same_la_just_moved_to_area")
+      record.errors.add :prevloc, I18n.t("validations.lettings.household.prevloc.same_la_just_moved_to_area")
+      record.errors.add :scheme_id, :skip_bu_error, message: I18n.t("validations.lettings.household.scheme.same_la_just_moved_to_area")
+      record.errors.add :location_id, :skip_bu_error, message: I18n.t("validations.lettings.household.location.same_la_just_moved_to_area")
     end
   end
 
