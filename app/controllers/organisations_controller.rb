@@ -176,7 +176,7 @@ class OrganisationsController < ApplicationController
   end
 
   def lettings_logs
-    organisation_logs = LettingsLog.visible.filter_by_organisation(@organisation).filter_by_years_or_nil(FormHandler.instance.years_of_available_lettings_forms)
+    organisation_logs = LettingsLog.visible.filter_by_organisation(@organisation.absorbed_organisations + [@organisation]).filter_by_years_or_nil(FormHandler.instance.years_of_available_lettings_forms)
     unpaginated_filtered_logs = filter_manager.filtered_logs(organisation_logs, search_term, session_filters)
 
     @search_term = search_term
@@ -206,7 +206,7 @@ class OrganisationsController < ApplicationController
   end
 
   def sales_logs
-    organisation_logs = SalesLog.visible.filter_by_organisation(@organisation).filter_by_years_or_nil(FormHandler.instance.years_of_available_sales_forms)
+    organisation_logs = SalesLog.visible.filter_by_organisation(@organisation.absorbed_organisations + [@organisation]).filter_by_years_or_nil(FormHandler.instance.years_of_available_sales_forms)
     unpaginated_filtered_logs = filter_manager.filtered_logs(organisation_logs, search_term, session_filters)
 
     respond_to do |format|

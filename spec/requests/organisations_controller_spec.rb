@@ -1307,6 +1307,37 @@ RSpec.describe OrganisationsController, type: :request do
               end
             end
           end
+
+          context "when the organisation has absorbed another organisation" do
+            let(:absorbed_organisation) { create(:organisation) }
+            let(:number_of_absorbed_org_lettings_logs) { 3 }
+            let(:lettings_log) { create(:lettings_log, owning_organisation: absorbed_organisation) }
+
+            before do
+              organisation.update!(absorbed_organisations: [absorbed_organisation])
+              create_list(:lettings_log, number_of_absorbed_org_lettings_logs, owning_organisation: absorbed_organisation)
+            end
+
+            context "without search query" do
+              before do
+                get "/organisations/#{organisation.id}/lettings-logs", headers:, params: {}
+              end
+
+              it "returns a count of all logs for both the merging and absorbed organisations" do
+                expect(page).to have_content("#{total_number_of_org1_logs + number_of_absorbed_org_lettings_logs} total logs")
+              end
+            end
+
+            context "when searching for an absorbing organisation by ID" do
+              before do
+                get "/organisations/#{organisation.id}/lettings-logs?search=#{lettings_log.id}", headers:, params: {}
+              end
+
+              it "displays the lettings log from the absorbed organisation" do
+                expect(page).to have_content(lettings_log.id)
+              end
+            end
+          end
         end
 
         context "when viewing a specific organisation's sales logs" do
@@ -1395,6 +1426,37 @@ RSpec.describe OrganisationsController, type: :request do
                 logs.each do |log|
                   expect(page).not_to have_link(log.id.to_s)
                 end
+              end
+            end
+          end
+
+          context "when the organisation has absorbed another organisation" do
+            let(:absorbed_organisation) { create(:organisation) }
+            let(:number_of_absorbed_org_sales_logs) { 3 }
+            let(:sales_log) { create(:sales_log, owning_organisation: absorbed_organisation) }
+
+            before do
+              organisation.update!(absorbed_organisations: [absorbed_organisation])
+              create_list(:sales_log, number_of_absorbed_org_sales_logs, owning_organisation: absorbed_organisation)
+            end
+
+            context "without search query" do
+              before do
+                get "/organisations/#{organisation.id}/sales-logs", headers:, params: {}
+              end
+
+              it "returns a count of all logs for both the merging and absorbed organisations" do
+                expect(page).to have_content("#{number_of_org1_sales_logs + number_of_absorbed_org_sales_logs} total logs")
+              end
+            end
+
+            context "when searching for an absorbing organisation by ID" do
+              before do
+                get "/organisations/#{organisation.id}/sales-logs?search=#{sales_log.id}", headers:, params: {}
+              end
+
+              it "displays the sales log from the absorbed organisation" do
+                expect(page).to have_content(sales_log.id)
               end
             end
           end
