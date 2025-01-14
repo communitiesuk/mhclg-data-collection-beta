@@ -150,7 +150,7 @@ private
 
   def formatted_local_authority_timeline(location)
     sorted_linked_authorities = location.linked_local_authorities.sort_by(&:start_date)
-    return sorted_linked_authorities.first["name"] if sorted_linked_authorities.count == 1
+    return sorted_linked_authorities.first["name"] if sorted_linked_authorities.count == 1 || sorted_linked_authorities.map(&:name).uniq.count == 1
 
     sorted_linked_authorities.map { |linked_local_authority|
       formatted_start_date = linked_local_authority.start_date.year == 2021 ? "until" : "#{linked_local_authority.start_date&.to_formatted_s(:govuk_date)} -"

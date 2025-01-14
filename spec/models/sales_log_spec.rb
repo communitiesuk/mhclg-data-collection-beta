@@ -571,7 +571,7 @@ RSpec.describe SalesLog, type: :model do
 
       before do
         WebMock.stub_request(:get, /api\.postcodes\.io\/postcodes\/CA101AA/)
-        .to_return(status: 200, body: '{"status":200,"result":{"admin_district":"Eden","codes":{"admin_district":"E07000030"}}}', headers: {})
+        .to_return(status: 200, body: '{"status":200,"result":{"admin_district":"Eden","codes":{"admin_district":"E06000064"}}}', headers: {})
       end
 
       it "sets previous postcode for discounted sale" do
@@ -606,6 +606,124 @@ RSpec.describe SalesLog, type: :model do
         it "correctly derives economic status for tenants under 16" do
           record_from_db = described_class.find(household_sales_log.id)
           expect(record_from_db["ecstat6"]).to eq(9)
+        end
+      end
+    end
+
+    context "when saving address with LAs that have changed E-codes (LA inferred from postcode)" do
+      context "when LA is inferred from postcode" do
+        let(:address_sales_log_24_25) do
+          create(:sales_log, :shared_ownership_setup_complete, uprn_known: 0, uprn: nil, postcode_full: "CA10 1AA", saledate: Time.zone.local(2024, 5, 2))
+        end
+
+        let(:address_sales_log_25_26) do
+          create(:sales_log, :shared_ownership_setup_complete, postcode_full: "CA10 1AA", saledate: Time.zone.local(2025, 5, 2))
+        end
+
+        before do
+          Timecop.freeze(Time.zone.local(2025, 5, 10))
+          Singleton.__init__(FormHandler)
+        end
+
+        after do
+          Timecop.return
+        end
+
+        context "when old(2024) E-code gets returned" do
+          before do
+            WebMock.stub_request(:get, /api\.postcodes\.io\/postcodes\/CA101AA/)
+            .to_return(status: 200, body: '{"status":200,"result":{"admin_district":"Barnsley","codes":{"admin_district":"E08000016"}}}', headers: {})
+          end
+
+          context "with 2024 log" do
+            it "keeps 2024 E-code" do
+              expect(address_sales_log_24_25.la).to eq("E08000016")
+            end
+          end
+
+          context "with 2025 log" do
+            it "uses new 2025 E-code if" do
+              expect(address_sales_log_25_26.la).to eq("E08000038")
+            end
+          end
+        end
+
+        context "when new(2025) E-code gets returned" do
+          before do
+            WebMock.stub_request(:get, /api\.postcodes\.io\/postcodes\/CA101AA/)
+            .to_return(status: 200, body: '{"status":200,"result":{"admin_district":"Barnsley","codes":{"admin_district":"E08000038"}}}', headers: {})
+          end
+
+          context "with 2024 log" do
+            it "uses 2024 E-code" do
+              expect(address_sales_log_24_25.la).to eq("E08000016")
+            end
+          end
+
+          context "with 2025 log" do
+            it "keeps 2025 E-code if new(2025) E-code gets returned" do
+              expect(address_sales_log_25_26.la).to eq("E08000038")
+            end
+          end
+        end
+      end
+    end
+
+    context "when saving address with LAs that have changed E-codes" do
+      context "when address inferred from uprn - we still get LA from postcode" do
+        let(:address_sales_log_24_25) do
+          create(:sales_log, :shared_ownership_setup_complete, uprn_known: 1, uprn: 1, saledate: Time.zone.local(2024, 5, 2))
+        end
+
+        let(:address_sales_log_25_26) do
+          create(:sales_log, :shared_ownership_setup_complete, uprn_known: 1, uprn: 1, saledate: Time.zone.local(2025, 5, 2))
+        end
+
+        before do
+          Timecop.freeze(Time.zone.local(2025, 5, 10))
+          Singleton.__init__(FormHandler)
+        end
+
+        after do
+          Timecop.return
+        end
+
+        context "when old(2024) E-code gets returned" do
+          before do
+            WebMock.stub_request(:get, /api\.postcodes\.io\/postcodes\/AA11AA/)
+            .to_return(status: 200, body: '{"status":200,"result":{"admin_district":"Barnsley","codes":{"admin_district":"E08000016"}}}', headers: {})
+          end
+
+          context "with 2024 log" do
+            it "keeps 2024 E-code" do
+              expect(address_sales_log_24_25.la).to eq("E08000016")
+            end
+          end
+
+          context "with 2025 log" do
+            it "uses new 2025 E-code if" do
+              expect(address_sales_log_25_26.la).to eq("E08000038")
+            end
+          end
+        end
+
+        context "when new(2025) E-code gets returned" do
+          before do
+            WebMock.stub_request(:get, /api\.postcodes\.io\/postcodes\/AA11AA/)
+            .to_return(status: 200, body: '{"status":200,"result":{"admin_district":"Barnsley","codes":{"admin_district":"E08000038"}}}', headers: {})
+          end
+
+          context "with 2024 log" do
+            it "uses 2024 E-code" do # currently returns nil
+              expect(address_sales_log_24_25.la).to eq("E08000016")
+            end
+          end
+
+          context "with 2025 log" do
+            it "keeps 2025 E-code if new(2025) E-code gets returned" do
+              expect(address_sales_log_25_26.la).to eq("E08000038")
+            end
+          end
         end
       end
     end

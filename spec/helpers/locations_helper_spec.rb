@@ -368,4 +368,27 @@ RSpec.describe LocationsHelper do
       end
     end
   end
+
+  describe "formatted_local_authority_timeline" do
+    before do
+      LocalAuthorityLink.create!(local_authority_id: LocalAuthority.find_by(code: "E07000030").id, linked_local_authority_id: LocalAuthority.find_by(code: "E06000063").id)
+      LocalAuthorityLink.create!(local_authority_id: LocalAuthority.find_by(code: "E08000016").id, linked_local_authority_id: LocalAuthority.find_by(code: "E08000038").id)
+    end
+
+    context "when the location LA's have changed" do
+      let(:location) { FactoryBot.create(:location, location_code: "E07000030") }
+
+      it "displays a timeline of LAs" do
+        expect(formatted_local_authority_timeline(location)).to eq("Eden (until 31 March 2023)\nCumberland (1 April 2023 - present)")
+      end
+    end
+
+    context "when the LA name hasn't changed but Ecode has changed" do
+      let(:location) { FactoryBot.create(:location, location_code: "E08000016") }
+
+      it "only displays the location name once" do
+        expect(formatted_local_authority_timeline(location)).to eq("Barnsley")
+      end
+    end
+  end
 end

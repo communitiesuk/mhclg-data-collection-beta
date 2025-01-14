@@ -130,3 +130,11 @@ en:
               question_text: "Are you sure the property has been vacant for this long?"
               title_text: "You told us the property has been vacant for 2 years."
               informative_text: "This is longer than we would expect."
+                   
+          no_address_found:
+              page_header: ""
+              check_answer_label: "No address found"
+              hint_text: ""
+              question_text: "We could not find an address that matches your search. You can search again or continue to enter the address manually."
+              title_text: "No address found"
+              informative_text: "We could not find an address that matches your search. You can search again or continue to enter the address manually."
