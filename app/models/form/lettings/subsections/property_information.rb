@@ -25,6 +25,7 @@ class Form::Lettings::Subsections::PropertyInformation < ::Form::Subsection
       Form::Lettings::Pages::VoidDateValueCheck.new(nil, nil, self),
       Form::Lettings::Pages::PropertyMajorRepairs.new(nil, nil, self),
       Form::Lettings::Pages::PropertyMajorRepairsValueCheck.new(nil, nil, self),
+      (Form::Lettings::Pages::ShelteredAccommodation.new(nil, nil, self) if form.start_year_2025_or_later?),
     ].flatten.compact
   end
 

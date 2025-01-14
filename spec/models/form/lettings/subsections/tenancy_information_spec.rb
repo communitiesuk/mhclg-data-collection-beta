@@ -16,11 +16,17 @@ RSpec.describe Form::Lettings::Subsections::TenancyInformation, type: :model do
     let(:form) { instance_double(Form, start_date:) }
 
     before do
-      allow(form).to receive(:start_year_2024_or_later?).and_return(false)
+      allow(form).to receive(:start_year_2024_or_later?).and_return(true)
+      allow(form).to receive(:start_year_2025_or_later?).and_return(false)
     end
 
     context "when 2023" do
       let(:start_date) { Time.utc(2023, 2, 8) }
+
+      before do
+        allow(form).to receive(:start_year_2024_or_later?).and_return(false)
+        allow(form).to receive(:start_year_2025_or_later?).and_return(false)
+      end
 
       it "has correct pages" do
         expect(tenancy_information.pages.map(&:id)).to eq(
@@ -34,11 +40,27 @@ RSpec.describe Form::Lettings::Subsections::TenancyInformation, type: :model do
 
       before do
         allow(form).to receive(:start_year_2024_or_later?).and_return(true)
+        allow(form).to receive(:start_year_2025_or_later?).and_return(false)
       end
 
       it "has correct pages" do
         expect(tenancy_information.pages.map(&:id)).to eq(
           %w[joint starter_tenancy tenancy_type starter_tenancy_type tenancy_length tenancy_length_affordable_rent tenancy_length_intermediate_rent tenancy_length_periodic sheltered_accommodation],
+        )
+      end
+    end
+
+    context "when 2025" do
+      let(:start_date) { Time.utc(2025, 2, 8) }
+
+      before do
+        allow(form).to receive(:start_year_2024_or_later?).and_return(true)
+        allow(form).to receive(:start_year_2025_or_later?).and_return(true)
+      end
+
+      it "has correct pages" do
+        expect(tenancy_information.pages.map(&:id)).to eq(
+          %w[joint starter_tenancy tenancy_type starter_tenancy_type tenancy_length tenancy_length_affordable_rent tenancy_length_intermediate_rent tenancy_length_periodic],
         )
       end
     end

@@ -125,3 +125,9 @@ en:
               check_answer_label: "Completion date of repairs"
               hint_text: ""
               question_text: "When were the repairs completed?"
+              
+          sheltered:
+            page_header: ""
+            check_answer_label: "Is this letting in sheltered accommodation?"
+            hint_text: "Sheltered housing and special retirement housing are for tenants with low-level care and support needs. This typically provides some limited support to enable independent living, such as alarm-based assistance or a scheme manager.</br></br>Extra care housing is for tenants with medium to high care and support needs, often with 24 hour access to support staff provided by an agency registered with the Care Quality Commission."
+            question_text: "Is this letting in sheltered accommodation?"

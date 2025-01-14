@@ -16,7 +16,7 @@ class Form::Lettings::Subsections::TenancyInformation < ::Form::Subsection
       Form::Lettings::Pages::TenancyLengthAffordableRent.new(nil, nil, self),
       Form::Lettings::Pages::TenancyLengthIntermediateRent.new(nil, nil, self),
       (Form::Lettings::Pages::TenancyLengthPeriodic.new(nil, nil, self) if form.start_year_2024_or_later?),
-      Form::Lettings::Pages::ShelteredAccommodation.new(nil, nil, self),
+      (Form::Lettings::Pages::ShelteredAccommodation.new(nil, nil, self) unless form.start_year_2025_or_later?),
     ].flatten.compact
   end
 end
