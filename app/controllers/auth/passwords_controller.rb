@@ -35,7 +35,7 @@ class Auth::PasswordsController < Devise::PasswordsController
     yield resource if block_given?
 
     if resource.errors.empty?
-      resource.unlock_access! if unlockable?(resource)
+      resource.unlock_access! if resource.respond_to?(:unlock_access!)
       if Devise.sign_in_after_reset_password
         set_flash_message!(:notice, password_update_flash_message)
         resource.after_database_authentication
