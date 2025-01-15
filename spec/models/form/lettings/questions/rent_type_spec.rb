@@ -12,7 +12,7 @@ RSpec.describe Form::Lettings::Questions::RentType, type: :model do
   before do
     allow(page).to receive(:subsection).and_return(subsection)
     allow(subsection).to receive(:form).and_return(form)
-    allow(form).to receive(:start_year_2024_or_later?).and_return(false)
+    allow(form).to receive(:start_year_2025_or_later?).and_return(false)
   end
 
   it "has correct page" do
@@ -35,9 +35,9 @@ RSpec.describe Form::Lettings::Questions::RentType, type: :model do
     expect(question.derived?(nil)).to be false
   end
 
-  context "when 2023" do
+  context "when 2025" do
     before do
-      allow(form).to receive(:start_year_2024_or_later?).and_return(false)
+      allow(form).to receive(:start_year_2025_or_later?).and_return(true)
     end
 
     it "has the correct answer_options" do
@@ -48,6 +48,7 @@ RSpec.describe Form::Lettings::Questions::RentType, type: :model do
         "3" => { "value" => "Rent to Buy" },
         "0" => { "value" => "Social Rent" },
         "5" => { "value" => "Other intermediate rent product" },
+        "6" => { "value" => "Specified accommodation - exempt accommodation, managed properties, refuges and local authority hostels" },
       })
     end
 
@@ -58,7 +59,7 @@ RSpec.describe Form::Lettings::Questions::RentType, type: :model do
 
   context "when 2024" do
     before do
-      allow(form).to receive(:start_year_2024_or_later?).and_return(true)
+      allow(form).to receive(:start_year_2025_or_later?).and_return(false)
     end
 
     it "has the correct answer_options" do

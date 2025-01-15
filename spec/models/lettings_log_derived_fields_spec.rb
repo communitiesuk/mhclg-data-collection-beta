@@ -187,6 +187,18 @@ RSpec.describe LettingsLog, type: :model do
           needstype: 1,
           expected_lettype: 1,
         },
+        {
+          context: "when the rent type is Specified accommodation and supported housing",
+          rent_type: 6,
+          needstype: 2,
+          expected_lettype: 14,
+        },
+        {
+          context: "when the rent type is Specified accommodation and general needs housing",
+          rent_type: 6,
+          needstype: 1,
+          expected_lettype: 13,
+        },
       ].each do |test_case|
         context test_case[:context] do
           it "correctly derives lettype" do
@@ -953,6 +965,11 @@ RSpec.describe LettingsLog, type: :model do
       log.rent_type = 5
       expect { log.set_derived_fields! }.to change(log, :renttype).to 3
     end
+
+    it "when rent_type is Specified accommodation derives renttype as Specified accommodation" do
+      log.rent_type = 6
+      expect { log.set_derived_fields! }.to change(log, :renttype).to 4
+    end
   end
 
   describe "variables dependent on whether a letting is a renewal" do
@@ -1160,6 +1177,25 @@ RSpec.describe LettingsLog, type: :model do
 
         it "derives the most recent let type as London Living Rent basis if it is a renewal" do
           log.assign_attributes(renewal: 1, rent_type:, irproduct_other:)
+
+          expect { log.set_derived_fields! }.to change(log, :unitletas).to expected_unitletas
+        end
+
+        it "clears the most recent let type if it is not a renewal" do
+          expect { persisted_renewal_lettings_log.update!(renewal: 0) }.to change(persisted_renewal_lettings_log, :unitletas).from(expected_unitletas).to nil
+        end
+      end
+
+      context "when rent_type is Specified accommodation " do
+        let(:rent_type) { 6 }
+        let(:expected_unitletas) { 9 }
+
+        before do
+          Timecop.freeze(Time.zone.local(2025, 5, 5))
+        end
+
+        it "derives the most recent let type as London Living Rent basis if it is a renewal" do
+          log.assign_attributes(renewal: 1, rent_type:)
 
           expect { log.set_derived_fields! }.to change(log, :unitletas).to expected_unitletas
         end

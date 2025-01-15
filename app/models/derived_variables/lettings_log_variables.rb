@@ -8,6 +8,7 @@ module DerivedVariables::LettingsLogVariables
     3 => 3, # "Rent to Buy"  => "Intermediate Rent"
     4 => 3, # "London Living Rent"  => "Intermediate Rent"
     5 => 3, # "Other intermediate rent product"  => "Intermediate Rent"
+    6 => 4, # "Specified accommodation - exempt accommodation, managed properties, refuges and local authority hostels"  => "Specified accommodation"
   }.freeze
 
   UNITLETAS_MAPPING = {
@@ -17,6 +18,7 @@ module DerivedVariables::LettingsLogVariables
     3 => 6, # "Rent to Buy"  => "Rent to Buy basis"
     4 => 7, # "London Living Rent"  => "London Living Rent basis"
     5 => 8, # "Other intermediate rent product"  => "Another Intermediate Rent basis"
+    6 => 9, # "Specified accommodation - exempt accommodation, managed properties, refuges and local authority hostels"  => "Specified accommodation - exempt accommodation, manged properties, refuges and local authority hostels"
   }.freeze
 
   RENTTYPE_DETAIL_MAPPING = {
@@ -26,6 +28,7 @@ module DerivedVariables::LettingsLogVariables
     3 => 4,
     4 => 5,
     5 => 6,
+    6 => 7,
   }.freeze
 
   def set_derived_fields!
