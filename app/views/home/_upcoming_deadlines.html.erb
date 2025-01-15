@@ -1,17 +1,17 @@
 <h1 class="govuk-heading-l">Upcoming deadlines</h1>
 
 <% open_lettings_form = FormHandler.instance.in_crossover_period? ? FormHandler.instance.previous_lettings_form : FormHandler.instance.current_lettings_form %>
-<% formatted_deadline = "#{open_lettings_form.submission_deadline.strftime('%A')} #{open_lettings_form.submission_deadline.to_formatted_s(:govuk_date)}" %>
+<% formatted_deadline = open_lettings_form.submission_deadline.strftime("%A %-d %B %Y") %>
 <% if FormHandler.instance.in_crossover_period? %>
   <p class="govuk-body govuk-body-m"><strong>End of year deadline - <%= formatted_deadline %>:</strong> Deadline to submit logs for tenancies starting between <%= open_lettings_form.start_date.to_formatted_s(:govuk_date) %> to <%= collection_end_date(open_lettings_form.start_date).to_formatted_s(:govuk_date) %></p>
 <% end %>
 
 <% current_quarter = quarter_for_date(date: Time.zone.now) %>
 <% if current_quarter.present? %>
-  <p class="govuk-body govuk-body-m"><strong><%= "#{current_quarter.quarter} - #{current_quarter.cutoff_date.strftime('%A')} #{current_quarter.cutoff_date.to_formatted_s(:govuk_date)}" %>:</strong> Quarterly cut off date for tenancies and sales starting between <%= current_quarter.quarter_start_date.to_formatted_s(:govuk_date) %> and <%= current_quarter.quarter_end_date.to_formatted_s(:govuk_date) %>.</p>
+  <p class="govuk-body govuk-body-m"><strong><%= "#{current_quarter.quarter} - #{current_quarter.cutoff_date.strftime('%A %-d %B %Y')}" %>:</strong> Quarterly cut off date for tenancies and sales starting between <%= current_quarter.quarter_start_date.to_formatted_s(:govuk_date) %> and <%= current_quarter.quarter_end_date.to_formatted_s(:govuk_date) %>.</p>
 <% end %>
 
-<% if !FormHandler.instance.in_crossover_period? %>
+<% unless FormHandler.instance.in_crossover_period? %>
 <p class="govuk-body govuk-body-m">Try to complete your logs for each quarter by the cut-off date.</p>
 <p class="govuk-body govuk-body-m">You can still create logs for a previous quarter after its cut-off date, as long as you complete them by the <strong>end-of-year deadline: <%= formatted_deadline %>.</strong></p>
 <% end %>
@@ -21,13 +21,13 @@
 <p class="govuk-body govuk-body-m">Prioritise completing logs for the closing collection year. You must complete all <%= previous_lettings_form.start_date.year %> to <%= previous_lettings_form.submission_deadline.year %> logs must by the end-of-year deadline. You can still create <%= open_lettings_form.start_date.year %> to <%= open_lettings_form.submission_deadline.year %> logs for this quarter after the quarterly cut-off date.</p>
 <% end %>
 
-<%= govuk_details(summary_text: "Quarterly cut-off dates for 2024 to 2025") do %>
-  <p class="govuk-body govuk-body-m">The 2024 to 2025 quarterly cut-off dates are:</p>
+<%= govuk_details(summary_text: "Quarterly cut-off dates for #{current_collection_start_year} to #{current_collection_end_year}") do %>
+  <p class="govuk-body govuk-body-m">The <%= current_collection_start_year %> to <%= current_collection_end_year %> quarterly cut-off dates are:</p>
   <ul class="govuk-list govuk-list--bullet">
-    <li class="govuk-!-padding-bottom-4"><strong>Q1 - Friday 12 July 2024:</strong> Quarterly cut-off date for tenancies and sales starting between 1 April 2024 and 30 June 2024.</li>
-    <li class="govuk-!-padding-bottom-4"><strong>Q2 - Friday 11 October 2024:</strong> Quarterly cut-off date for tenancies and sales starting between 1 July 2024 and 30 September 2024.</li>
-    <li class="govuk-!-padding-bottom-4"><strong>Q3 - Friday 10 January 2025:</strong> Quarterly cut-off date for tenancies and sales starting between 1 October 2024 and 31 December 2024.</li>
-    <li class="govuk-!-padding-bottom-4"><strong>End of year deadline - Friday 6 June 2025:</strong> Deadline for tenancies and sales starting between 1 January 2025 and 31 March 2025, plus any late submissions for the 2024 to 2025 collection year.</li>
+    <li class="govuk-!-padding-bottom-4"><strong>Q1 - <%= quarterly_cutoff_date("first", current_collection_start_year) %>:</strong> Quarterly cut-off date for tenancies and sales starting between 1 April <%= current_collection_start_year %> and 30 June <%= current_collection_start_year %>.</li>
+    <li class="govuk-!-padding-bottom-4"><strong>Q2 - <%= quarterly_cutoff_date("second", current_collection_start_year) %>:</strong> Quarterly cut-off date for tenancies and sales starting between 1 July <%= current_collection_start_year %> and 30 September <%= current_collection_start_year %>.</li>
+    <li class="govuk-!-padding-bottom-4"><strong>Q3 - <%= quarterly_cutoff_date("third", current_collection_start_year) %>:</strong> Quarterly cut-off date for tenancies and sales starting between 1 October <%= current_collection_start_year %> and 31 December <%= current_collection_start_year %>.</li>
+    <li class="govuk-!-padding-bottom-4"><strong>End of year deadline - <%= quarterly_cutoff_date("fourth", current_collection_start_year) %>:</strong> Deadline for tenancies and sales starting between 1 January <%= current_collection_end_year %> and 31 March <%= current_collection_end_year %>, plus any late submissions for the <%= current_collection_start_year %> to <%= current_collection_end_year %> collection year.</li>
   </ul>
   <p class="govuk-body govuk-body-m">It is important that you meet these cut-off dates because we submit data to the Office for National Statistics quarterly, helping them create essential inflation statistics.</p>
   <p class="govuk-body govuk-body-m">Meeting these cut-off dates also gives you more accurate data for your own analysis, and reduces the burden at the end of the year.</p>
