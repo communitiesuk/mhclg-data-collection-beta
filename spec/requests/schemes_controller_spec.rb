@@ -2749,7 +2749,7 @@ RSpec.describe SchemesController, type: :request do
       end
 
       context "with other date" do
-        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "10", "deactivation_date(2i)": "10", "deactivation_date(1i)": "2022" } } }
+        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "10/10/2022" } } }
 
         context "and affected logs" do
           it "redirects to the confirmation page" do
@@ -2901,7 +2901,7 @@ RSpec.describe SchemesController, type: :request do
       end
 
       context "when invalid date is entered" do
-        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "10", "deactivation_date(2i)": "44", "deactivation_date(1i)": "2022" } } }
+        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "10/44/2022" } } }
 
         it "displays the new page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -2910,7 +2910,7 @@ RSpec.describe SchemesController, type: :request do
       end
 
       context "when the date is entered is before the beginning of current collection window" do
-        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "10", "deactivation_date(2i)": "4", "deactivation_date(1i)": "2020" } } }
+        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "10/4/2020" } } }
 
         it "displays the new page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -2919,7 +2919,7 @@ RSpec.describe SchemesController, type: :request do
       end
 
       context "when the day is not entered" do
-        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "", "deactivation_date(2i)": "2", "deactivation_date(1i)": "2022" } } }
+        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "/2/2022" } } }
 
         it "displays page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -2928,7 +2928,7 @@ RSpec.describe SchemesController, type: :request do
       end
 
       context "when the month is not entered" do
-        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "2", "deactivation_date(2i)": "", "deactivation_date(1i)": "2022" } } }
+        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "2//2022" } } }
 
         it "displays page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -2937,7 +2937,7 @@ RSpec.describe SchemesController, type: :request do
       end
 
       context "when the year is not entered" do
-        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "2", "deactivation_date(2i)": "2", "deactivation_date(1i)": "" } } }
+        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "2/2/" } } }
 
         it "displays page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -2947,7 +2947,7 @@ RSpec.describe SchemesController, type: :request do
 
       context "when there is an earlier open deactivation" do
         let(:deactivation_date) { Time.zone.local(2022, 10, 10) }
-        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "8", "deactivation_date(2i)": "9", "deactivation_date(1i)": "2023" } } }
+        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "8/9/2023" } } }
         let(:add_deactivations) { create(:scheme_deactivation_period, deactivation_date: Time.zone.local(2023, 6, 5), reactivation_date: nil, scheme:) }
 
         before do
@@ -2968,7 +2968,7 @@ RSpec.describe SchemesController, type: :request do
 
       context "when there is a later open deactivation" do
         let(:deactivation_date) { Time.zone.local(2022, 10, 10) }
-        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "8", "deactivation_date(2i)": "9", "deactivation_date(1i)": "2022" } } }
+        let(:params) { { scheme_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "8/9/2022" } } }
         let(:add_deactivations) { create(:scheme_deactivation_period, deactivation_date: Time.zone.local(2023, 6, 5), reactivation_date: nil, scheme:) }
 
         it "redirects to the confirmation page" do

@@ -34,9 +34,8 @@ RSpec.describe "Sales Log Features" do
         it "includes the purchaser code and sale completion date questions" do
           click_button "Create a new sales log"
           click_link "Set up this sales log"
-          fill_in("sales_log[saledate(1i)]", with: Time.zone.today.year)
-          fill_in("sales_log[saledate(2i)]", with: Time.zone.today.month)
-          fill_in("sales_log[saledate(3i)]", with: Time.zone.today.day)
+          date = Time.zone.today.strftime("%d/%m/%Y")
+          fill_in("sales_log[saledate]", with: date)
           click_button "Save and continue"
           fill_in "sales_log[purchid]", with: "PC123"
           click_button "Save and continue"

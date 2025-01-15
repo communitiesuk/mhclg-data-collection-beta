@@ -137,9 +137,7 @@ private
         @merge_request.errors.add(:absorbing_organisation_id, :blank)
       end
     when "merge_date"
-      day = merge_request_params["merge_date(3i)"]
-      month = merge_request_params["merge_date(2i)"]
-      year = merge_request_params["merge_date(1i)"]
+      day, month, year = merge_request_params["merge_date"].split("/")
 
       return @merge_request.errors.add(:merge_date, :blank) if [day, month, year].all?(&:blank?)
 

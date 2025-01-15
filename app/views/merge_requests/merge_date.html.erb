@@ -11,11 +11,15 @@
       <h2 class="govuk-heading-l">What is the merge date?</h2>
       <p class="govuk-hint">
         Enter the official merge date. Log and organisation page data will show the new organisation name from this date. <br><br>
-        For example, <%= date_mid_collection_year_formatted(Time.zone.now) %></p>
-      <%= f.govuk_date_field :merge_date,
-        legend: { hidden: true },
-        width: 20 do %>
-      <% end %>
+        For example, <%= date_mid_collection_year_formatted(Time.zone.now).tr(" ", "/") %></p>
+      <%= render partial: "components/date_picker", locals: {
+          resource: @merge_request,
+          question_id: "merge_date",
+          legend: nil,
+          resource_type: "merge_request",
+          hint: "",
+          f:,
+      } %>
       <%= f.hidden_field :page, value: "merge_date" %>
         <div class="govuk-button-group">
           <%= f.govuk_submit submit_merge_request_button_text(request.query_parameters["referrer"]) %>

@@ -41,7 +41,8 @@ module.exports = {
   resolve: {
     alias: {
       'govuk-frontend-styles': path.resolve(__dirname, 'node_modules/govuk-frontend/dist/govuk/all.scss'),
-      'govuk-prototype-styles': path.resolve(__dirname, 'node_modules/@x-govuk/govuk-prototype-components/x-govuk/all.scss')
+      'govuk-prototype-styles': path.resolve(__dirname, 'node_modules/@x-govuk/govuk-prototype-components/x-govuk/all.scss'),
+      'moj-frontend': path.resolve(__dirname, 'node_modules/@ministryofjustice/frontend/moj/all.js')
     },
     modules: ['node_modules', 'node_modules/govuk-frontend/dist/govuk']
   },
@@ -62,7 +63,8 @@ module.exports = {
         { from: 'node_modules/govuk-frontend/dist/govuk/assets/fonts', to: 'fonts' },
         { from: 'node_modules/html5shiv/dist/html5shiv.min.js', to: 'vendor' },
         { from: 'app/frontend/vendor/outerHTML.js', to: 'vendor' },
-        { from: 'app/frontend/vendor/polyfill-output-value.js', to: 'vendor' }
+        { from: 'app/frontend/vendor/polyfill-output-value.js', to: 'vendor' },
+        { from: 'node_modules/@ministryofjustice/frontend/moj/all.js', to: 'vendor' }
       ]
     })
   ]

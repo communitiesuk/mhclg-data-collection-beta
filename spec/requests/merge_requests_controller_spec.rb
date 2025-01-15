@@ -354,7 +354,7 @@ RSpec.describe MergeRequestsController, type: :request do
         context "when not answering the question" do
           let(:merge_request) { MergeRequest.create!(requesting_organisation: organisation, absorbing_organisation: other_organisation) }
           let(:params) do
-            { merge_request: { page: "merge_date" } }
+            { merge_request: { merge_date: "", page: "merge_date" } }
           end
           let(:request) do
             patch "/merge-request/#{merge_request.id}", headers:, params:
@@ -375,7 +375,7 @@ RSpec.describe MergeRequestsController, type: :request do
         context "when merge date set to an invalid date" do
           let(:merge_request) { MergeRequest.create!(requesting_organisation: organisation) }
           let(:params) do
-            { merge_request: { page: "merge_date", "merge_date(3i)": "10", "merge_date(2i)": "44", "merge_date(1i)": "2022" } }
+            { merge_request: { page: "merge_date", "merge_date": "10/44/2022" } }
           end
 
           let(:request) do
@@ -393,7 +393,7 @@ RSpec.describe MergeRequestsController, type: :request do
         context "when merge date set to a valid date" do
           let(:merge_request) { MergeRequest.create!(requesting_organisation: organisation) }
           let(:params) do
-            { merge_request: { page: "merge_date", "merge_date(3i)": "10", "merge_date(2i)": "4", "merge_date(1i)": "2022" } }
+            { merge_request: { page: "merge_date", "merge_date": "10/4/2022" } }
           end
 
           let(:request) do
@@ -416,7 +416,7 @@ RSpec.describe MergeRequestsController, type: :request do
         context "when merge date set to a date more than 1 year in the future" do
           let(:merge_request) { MergeRequest.create!(requesting_organisation: organisation) }
           let(:params) do
-            { merge_request: { page: "merge_date", "merge_date(3i)": (Time.zone.now.day + 1).to_s, "merge_date(2i)": Time.zone.now.month.to_s, "merge_date(1i)": (Time.zone.now.year + 1).to_s } }
+            { merge_request: { page: "merge_date", "merge_date": [(Time.zone.now.day + 1).to_s, Time.zone.now.month.to_s, (Time.zone.now.year + 1).to_s].join("/") } }
           end
 
           let(:request) do

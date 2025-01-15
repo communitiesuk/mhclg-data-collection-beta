@@ -1,12 +1,14 @@
 <%= render partial: "form/guidance/#{question.top_guidance_partial}" if question.top_guidance? %>
+<%= render partial: "components/date_picker", locals:
+        {
+          resource: @log,
+          question_id: question.id,
+          legend: { text: legend(question, page_header, conditional)[:text], size: "l", caption: caption(caption_text, page_header, conditional) },
+          resource_type: @log.log_type,
+          hint: (question.hint_text.blank? ? "" : (question.hint_text.html_safe + "</br></br>".html_safe)) + "For example, #{date_mid_collection_year_formatted(@log.startdate).tr(' ', '/')}",
+          f:,
+        } %>
 
-<%= f.govuk_date_field question.id.to_sym,
-  caption: caption(caption_text, page_header, conditional),
-  legend: legend(question, page_header, conditional),
-  hint: { text: (question.hint_text.blank? ? "" : (question.hint_text.html_safe + "</br></br>".html_safe)) + "For example, #{date_mid_collection_year_formatted(@log.startdate)}" },
-  width: 20,
-  **stimulus_html_attributes(question) do %>
-  <%= govuk_inset_text(text: question.unresolved_hint_text) if question.unresolved_hint_text.present? && @log.unresolved %>
-<% end %>
+<%= govuk_inset_text(text: question.unresolved_hint_text) if question.unresolved_hint_text.present? && @log.unresolved %>
 
 <%= render partial: "form/guidance/#{question.bottom_guidance_partial}" if question.bottom_guidance? %>

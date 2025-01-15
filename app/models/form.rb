@@ -135,7 +135,7 @@ class Form
   end
 
   def cancel_path(page, log)
-    "#{log.class.name.underscore}_#{page.subsection.id}_check_answers_path"
+    "#{log.log_type}_#{page.subsection.id}_check_answers_path"
   end
 
   def unresolved_log_path

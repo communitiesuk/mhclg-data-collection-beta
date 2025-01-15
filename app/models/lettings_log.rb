@@ -735,6 +735,10 @@ class LettingsLog < Log
     scheme_locations_count > 19
   end
 
+  def log_type
+    "lettings_log"
+  end
+
 private
 
   def reset_invalid_unresolved_log_fields!

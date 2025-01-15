@@ -12,11 +12,13 @@
       <%= f.govuk_error_summary %>
 
       <%= render partial: "organisations/headings", locals: { main: I18n.t("questions.location.startdate"), sub: "Add a location to #{@scheme.service_name}" } %>
-
-      <%= f.govuk_date_field :startdate,
-                             hint: { text: I18n.t("hints.location.startdate") },
-                             legend: nil,
-                             width: 20 %>
+      <%= render partial: "components/date_picker", locals: { 
+        resource: @location,
+        question_id: "startdate",
+        legend: nil,
+        resource_type: "location",
+        hint: I18n.t("hints.location.startdate"),
+        f: } %>
 
       <div class="govuk-button-group">
         <% if params[:referrer] == "check_answers" %>

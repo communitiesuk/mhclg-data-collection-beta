@@ -78,9 +78,9 @@ private
 
   def next_page_or_check_answers(subsection, log, current_user)
     path = if subsection.is_started?(log)
-             "#{log.class.name.underscore}_#{subsection.id}_check_answers_path"
+             "#{log.log_type}_#{subsection.id}_check_answers_path"
            else
-             "#{log.class.name.underscore}_#{next_question_page(subsection, log, current_user)}_path"
+             "#{log.log_type}_#{next_question_page(subsection, log, current_user)}_path"
            end
 
     send(path, log)

@@ -24,6 +24,6 @@ class Form::Sales::Pages::AddressMatcher < ::Form::Page
   def skip_href(log = nil)
     return unless log
 
-    "/#{log.model_name.param_key.dasherize}s/#{log.id}/property-number-of-bedrooms"
+    "/#{log.log_type.dasherize}s/#{log.id}/property-number-of-bedrooms"
   end
 end

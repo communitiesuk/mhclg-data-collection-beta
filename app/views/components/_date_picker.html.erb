@@ -1,0 +1,25 @@
+<div class="moj-datepicker" data-module="moj-date-picker">
+  <% question_has_errors = resource.errors[question_id].any? %>
+  <div class="govuk-form-group<%= " govuk-form-group--error" if question_has_errors %>">
+    <% if legend.present? %>
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--<%= legend[:size] %>">
+        <h1 class="govuk-fieldset__heading">
+            <span class="govuk-caption-l">
+            <%= legend[:caption][:text] if legend[:caption].present? %>
+            </span>
+            <%= legend[:text] %>
+        </h1>
+        </legend>
+    <% end %>
+
+    <div class="govuk-hint" id="<%= [resource_type.dasherize, question_id.to_s.dasherize, "hint"].join("-") %>">
+        <%= hint %>
+    </div>
+    <% if question_has_errors %>
+    <p class="govuk-error-message" id="<%= [resource_type.dasherize, question_id.to_s.dasherize, "error"].join("-") %>">
+      <span class="govuk-visually-hidden">Error:</span> <%= resource.errors[question_id].first %>
+    </p>
+    <% end %>
+    <%= f.text_field question_id.to_sym, class: "govuk-input moj-js-datepicker-input#{' govuk-input--error' if question_has_errors}", id: [resource_type, question_id].join("_"), aria: { describedby: "#{[resource_type, question_id].join('_')}-hint#{"#{[resource_type, question_id].join('_')} -error" if question_has_errors}" }, autocomplete: "off", value: resource[question_id]&.strftime("%d/%m/%Y") %>
+  </div>
+</div>

@@ -1151,7 +1151,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when startdate is submitted" do
-        let(:params) { { location: { "startdate(1i)": "2022", "startdate(2i)": "1", "startdate(3i)": "2" } } }
+        let(:params) { { location: { "startdate": "2/1/2022" } } }
 
         before do
           patch "/schemes/#{scheme.id}/locations/#{location.id}/availability", params:
@@ -1168,7 +1168,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when startdate is submitted with leading zeroes" do
-        let(:params) { { location: { "startdate(1i)": "2022", "startdate(2i)": "01", "startdate(3i)": "02" } } }
+        let(:params) { { location: { "startdate": "02/01/2022" } } }
 
         before do
           patch "/schemes/#{scheme.id}/locations/#{location.id}/availability", params:
@@ -1185,7 +1185,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when startdate is missing" do
-        let(:params) { { location: { "startdate(1i)": "", "startdate(2i)": "", "startdate(3i)": "" } } }
+        let(:params) { { location: { "startdate": "" } } }
 
         before do
           patch "/schemes/#{scheme.id}/locations/#{location.id}/availability", params:
@@ -1225,7 +1225,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when startdate is submitted" do
-        let(:params) { { location: { "startdate(1i)": "2022", "startdate(2i)": "1", "startdate(3i)": "2" } } }
+        let(:params) { { location: { "startdate": "2/1/2022" } } }
 
         before do
           patch "/schemes/#{scheme.id}/locations/#{location.id}/availability", params:
@@ -1242,7 +1242,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when startdate is submitted with leading zeroes" do
-        let(:params) { { location: { "startdate(1i)": "2022", "startdate(2i)": "01", "startdate(3i)": "02" } } }
+        let(:params) { { location: { "startdate": "02/01/2022" } } }
 
         before do
           patch "/schemes/#{scheme.id}/locations/#{location.id}/availability", params:
@@ -1259,7 +1259,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when startdate is missing" do
-        let(:params) { { location: { "startdate(1i)": "", "startdate(2i)": "", "startdate(3i)": "" } } }
+        let(:params) { { location: { "startdate": "" } } }
 
         before do
           patch "/schemes/#{scheme.id}/locations/#{location.id}/availability", params:
@@ -1548,7 +1548,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "with other date" do
-        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "10", "deactivation_date(2i)": "10", "deactivation_date(1i)": "2022" } } }
+        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "10/10/2022" } } }
 
         context "and affected logs" do
           it "redirects to the confirmation page" do
@@ -1708,7 +1708,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when invalid date is entered" do
-        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "10", "deactivation_date(2i)": "44", "deactivation_date(1i)": "2022" } } }
+        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "10/44/2022" } } }
 
         it "displays the new page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -1717,7 +1717,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when the date entered is before the beginning of current collection window" do
-        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "10", "deactivation_date(2i)": "4", "deactivation_date(1i)": "2020" } } }
+        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "10/4/2020" } } }
 
         it "displays the new page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -1726,7 +1726,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when the day is not entered" do
-        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "", "deactivation_date(2i)": "2", "deactivation_date(1i)": "2022" } } }
+        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "/2/2022" } } }
 
         it "displays page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -1735,7 +1735,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when the month is not entered" do
-        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "2", "deactivation_date(2i)": "", "deactivation_date(1i)": "2022" } } }
+        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "2//2022" } } }
 
         it "displays page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -1744,7 +1744,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when the year is not entered" do
-        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "2", "deactivation_date(2i)": "2", "deactivation_date(1i)": "" } } }
+        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "2/2/" } } }
 
         it "displays page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -1754,7 +1754,7 @@ RSpec.describe LocationsController, type: :request do
 
       context "when deactivation date is during a deactivated period" do
         let(:deactivation_date) { Time.zone.local(2022, 10, 10) }
-        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "8", "deactivation_date(2i)": "9", "deactivation_date(1i)": "2022" } } }
+        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "8/9/2022" } } }
         let(:add_deactivations) { create(:location_deactivation_period, deactivation_date: Time.zone.local(2022, 5, 5), reactivation_date: Time.zone.local(2022, 10, 12), location:) }
 
         it "displays page with an error message" do
@@ -1765,7 +1765,7 @@ RSpec.describe LocationsController, type: :request do
 
       context "when there is an earlier open deactivation" do
         let(:deactivation_date) { Time.zone.local(2023, 10, 10) }
-        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "8", "deactivation_date(2i)": "9", "deactivation_date(1i)": "2024" } } }
+        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "8/9/2024" } } }
         let(:add_deactivations) { create(:location_deactivation_period, deactivation_date: Time.zone.local(2024, 6, 5), reactivation_date: nil, location:) }
 
         it "redirects to the location page and updates the existing deactivation period" do
@@ -1780,7 +1780,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when there is a later open deactivation" do
-        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date(3i)": "8", "deactivation_date(2i)": "9", "deactivation_date(1i)": "2022" } } }
+        let(:params) { { location_deactivation_period: { deactivation_date_type: "other", "deactivation_date": "8/9/2022" } } }
         let(:add_deactivations) { create(:location_deactivation_period, deactivation_date: Time.zone.local(2024, 6, 5), reactivation_date: nil, location:) }
 
         it "redirects to the confirmation page" do
@@ -2078,7 +2078,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "with other date" do
-        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date(3i)": "10", "reactivation_date(2i)": "9", "reactivation_date(1i)": "2022" } } }
+        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date": "10/9/2022" } } }
 
         it "redirects to the location page and displays a success banner" do
           expect(response).to redirect_to("/schemes/#{scheme.id}/locations/#{location.id}")
@@ -2096,7 +2096,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "with other future date" do
-        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date(3i)": "14", "reactivation_date(2i)": "12", "reactivation_date(1i)": "2023" } } }
+        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date": "14/12/2023" } } }
 
         it "redirects to the location page and displays a success banner" do
           expect(response).to redirect_to("/schemes/#{scheme.id}/locations/#{location.id}")
@@ -2116,7 +2116,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when invalid date is entered" do
-        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date(3i)": "10", "reactivation_date(2i)": "44", "reactivation_date(1i)": "2022" } } }
+        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date": "10/44/2022" } } }
 
         it "displays the new page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -2125,7 +2125,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when the date is entered is before the beginning of current collection window" do
-        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date(3i)": "10", "reactivation_date(2i)": "4", "reactivation_date(1i)": "2020" } } }
+        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date": "10/4/2020" } } }
 
         it "displays the new page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -2134,7 +2134,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when the day is not entered" do
-        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date(3i)": "", "reactivation_date(2i)": "2", "reactivation_date(1i)": "2022" } } }
+        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date": "/2/2022" } } }
 
         it "displays page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -2143,7 +2143,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when the month is not entered" do
-        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date(3i)": "2", "reactivation_date(2i)": "", "reactivation_date(1i)": "2022" } } }
+        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date": "2//2022" } } }
 
         it "displays page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -2152,7 +2152,7 @@ RSpec.describe LocationsController, type: :request do
       end
 
       context "when the year is not entered" do
-        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date(3i)": "2", "reactivation_date(2i)": "2", "reactivation_date(1i)": "" } } }
+        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date": "2/2/" } } }
 
         it "displays page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)
@@ -2162,7 +2162,7 @@ RSpec.describe LocationsController, type: :request do
 
       context "when the reactivation date is before deactivation date" do
         let(:deactivation_date) { Time.zone.local(2022, 10, 10) }
-        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date(3i)": "8", "reactivation_date(2i)": "9", "reactivation_date(1i)": "2022" } } }
+        let(:params) { { location_deactivation_period: { reactivation_date_type: "other", "reactivation_date": "8/9/2022" } } }
 
         it "displays page with an error message" do
           expect(response).to have_http_status(:unprocessable_content)

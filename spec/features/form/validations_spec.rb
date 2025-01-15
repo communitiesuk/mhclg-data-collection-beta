@@ -63,9 +63,7 @@ RSpec.describe "validations" do
   describe "date validation", js: true do
     def fill_in_date(lettings_log_id, question, day, month, year, path)
       visit("/lettings-logs/#{lettings_log_id}/#{path}")
-      fill_in("lettings_log[#{question}(1i)]", with: year)
-      fill_in("lettings_log[#{question}(2i)]", with: month)
-      fill_in("lettings_log[#{question}(3i)]", with: day)
+      fill_in("lettings_log[#{question}]", with: [day, month, year].join("/"))
     end
 
     it "does not allow out of range dates to be submitted" do

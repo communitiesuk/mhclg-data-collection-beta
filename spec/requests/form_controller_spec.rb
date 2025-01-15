@@ -329,9 +329,7 @@ RSpec.describe FormController, type: :request do
           id: sales_log.id,
           sales_log: {
             page: "completion_date",
-            "saledate(3i)" => 30,
-            "saledate(2i)" => 6,
-            "saledate(1i)" => 2023,
+            "saledate" => "30/6/2023",
           },
         }
       end
@@ -609,9 +607,7 @@ RSpec.describe FormController, type: :request do
                 id: lettings_log.id,
                 lettings_log: {
                   page: page_id,
-                  "startdate(3i)" => 31,
-                  "startdate(2i)" => 6,
-                  "startdate(1i)" => 2022,
+                  "startdate" => "31/6/2022",
                 },
               }
             end
@@ -635,9 +631,7 @@ RSpec.describe FormController, type: :request do
                   id: lettings_log.id,
                   lettings_log: {
                     page: page_id,
-                    "startdate(3i)" => 1,
-                    "startdate(2i)" => 1,
-                    "startdate(1i)" => 1,
+                    "startdate" => "1/1/1",
                   },
                 }
               end
@@ -658,9 +652,7 @@ RSpec.describe FormController, type: :request do
                   id: sales_log.id,
                   sales_log: {
                     page: page_id,
-                    "saledate(3i)" => 1,
-                    "saledate(2i)" => 1,
-                    "saledate(1i)" => 1,
+                    "saledate" => "1/1/1",
                   },
                 }
               end
@@ -687,9 +679,7 @@ RSpec.describe FormController, type: :request do
                   id: lettings_log.id,
                   lettings_log: {
                     page: page_id,
-                    "startdate(3i)" => 1,
-                    "startdate(2i)" => 1,
-                    "startdate(1i)" => 1,
+                    "startdate" => "1/1/1",
                   },
                 }
               end
@@ -708,9 +698,7 @@ RSpec.describe FormController, type: :request do
                   id: sales_log.id,
                   sales_log: {
                     page: page_id,
-                    "saledate(3i)" => 1,
-                    "saledate(2i)" => 1,
-                    "saledate(1i)" => 1,
+                    "saledate" => "1/1/1",
                   },
                 }
               end
@@ -1326,9 +1314,7 @@ RSpec.describe FormController, type: :request do
               id: sales_log.id,
               sales_log: {
                 page: "completion_date",
-                "saledate(3i)" => 30,
-                "saledate(2i)" => 6,
-                "saledate(1i)" => 2023,
+                "saledate" => "30/6/2023",
               },
             }
           end
@@ -1364,9 +1350,7 @@ RSpec.describe FormController, type: :request do
               id: sales_log.id,
               sales_log: {
                 page: "completion_date",
-                "saledate(3i)" => 30,
-                "saledate(2i)" => 6,
-                "saledate(1i)" => 2024,
+                "saledate" => "30/06/2024",
               },
             }
           end

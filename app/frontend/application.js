@@ -14,11 +14,16 @@ import 'regenerator-runtime/runtime'
 //
 import { initAll as GOVUKFrontend } from 'govuk-frontend'
 import { initAll as GOVUKPrototypeComponents } from '@x-govuk/govuk-prototype-components'
+import { initAll as MOJFrontend } from '@ministryofjustice/frontend'
 import './controllers'
 import './cookie-banner'
 import './styles/application.scss'
+import 'moj-frontend'
+import $ from 'jquery'
+window.$ = $
 
 require.context('govuk-frontend/dist/govuk/assets')
 
 GOVUKFrontend()
 GOVUKPrototypeComponents()
+MOJFrontend()

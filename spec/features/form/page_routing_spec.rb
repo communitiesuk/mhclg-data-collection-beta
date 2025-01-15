@@ -95,50 +95,36 @@ RSpec.describe "Form Page Routing" do
       it "does not reset the displayed date if it's an invalid date" do
         lettings_log.update!(startdate: "2021/10/13")
         visit("/lettings-logs/#{id}/tenancy-start-date")
-        fill_in("lettings_log[startdate(1i)]", with: "202")
-        fill_in("lettings_log[startdate(2i)]", with: "32")
-        fill_in("lettings_log[startdate(3i)]", with: "0")
+        fill_in("lettings_log[startdate]", with: "0/32/202")
         click_button("Save and continue")
 
         expect(page).to have_current_path("/lettings-logs/#{id}/tenancy-start-date")
-        expect(find_field("lettings_log[startdate(3i)]").value).to eq("13")
-        expect(find_field("lettings_log[startdate(2i)]").value).to eq("10")
-        expect(find_field("lettings_log[startdate(1i)]").value).to eq("2021")
+        expect(find_field("lettings_log[startdate]").value).to eq("13/10/2021")
       end
 
       it "displays the entered date if it's in a valid format" do
         lettings_log.update!(startdate: "2021/10/13")
         visit("/lettings-logs/#{id}/tenancy-start-date")
-        fill_in("lettings_log[startdate(1i)]", with: "202")
-        fill_in("lettings_log[startdate(2i)]", with: "12")
-        fill_in("lettings_log[startdate(3i)]", with: "1")
+        fill_in("lettings_log[startdate]", with: "1/12/202")
         click_button("Save and continue")
 
         expect(page).to have_current_path("/lettings-logs/#{id}/tenancy-start-date")
-        expect(find_field("lettings_log[startdate(3i)]").value).to eq("1")
-        expect(find_field("lettings_log[startdate(2i)]").value).to eq("12")
-        expect(find_field("lettings_log[startdate(1i)]").value).to eq("202")
+        expect(find_field("lettings_log[startdate]").value).to eq("01/12/0202")
       end
 
       it "does not reset the displayed date if it's empty" do
         lettings_log.update!(startdate: nil)
         visit("/lettings-logs/#{id}/tenancy-start-date")
-        fill_in("lettings_log[startdate(1i)]", with: "202")
-        fill_in("lettings_log[startdate(2i)]", with: "32")
-        fill_in("lettings_log[startdate(3i)]", with: "0")
+        fill_in("lettings_log[startdate]", with: "0/32/202")
         click_button("Save and continue")
 
         expect(page).to have_current_path("/lettings-logs/#{id}/tenancy-start-date")
-        expect(find_field("lettings_log[startdate(3i)]").value).to eq(nil)
-        expect(find_field("lettings_log[startdate(2i)]").value).to eq(nil)
-        expect(find_field("lettings_log[startdate(1i)]").value).to eq(nil)
+        expect(find_field("lettings_log[startdate]").value).to eq(nil)
       end
 
       it "does not show see all related answers link if only 1 field has an error" do
         visit("/lettings-logs/#{id}/tenancy-start-date")
-        fill_in("lettings_log[startdate(1i)]", with: "202")
-        fill_in("lettings_log[startdate(2i)]", with: "32")
-        fill_in("lettings_log[startdate(3i)]", with: "0")
+        fill_in("lettings_log[startdate]", with: "0/32/202")
         click_button("Save and continue")
 
         expect(page).not_to have_link("See all related answers")

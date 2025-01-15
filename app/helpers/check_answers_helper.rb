@@ -26,7 +26,7 @@ module CheckAnswersHelper
   end
 
   def next_incomplete_section_path(log, redirect_path)
-    "#{log.class.name.underscore}_#{redirect_path.underscore.tr('/', '_')}_path"
+    "#{log.log_type}_#{redirect_path.underscore.tr('/', '_')}_path"
   end
 
 private

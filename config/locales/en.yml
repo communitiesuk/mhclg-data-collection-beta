@@ -413,7 +413,7 @@ en:
       name: "This is how you refer to this location within your organisation."
       units: "A unit is the space being let. For example, the property might be a block of flats and the unit would be the specific flat being let. A unit can also be a bedroom in a shared house or flat. Do not include spaces used for staff."
       toggle_active: "If the date is before %{date}, select ‘From the start of the open collection period’ because the previous period has now closed."
-      startdate: "For example, 27 3 2021."
+      startdate: "For example, 27/3/2024."
     scheme:
       toggle_active: "If the date is before %{date}, select ‘From the start of the open collection period’ because the previous period has now closed."
     bulk_upload:

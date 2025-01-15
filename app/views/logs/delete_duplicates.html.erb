@@ -19,12 +19,12 @@
 
     <div class="govuk-button-group">
       <%= govuk_button_to @duplicate_logs.count == 1 ? "Delete this log" : "Delete these logs",
-        send("delete_logs_#{@log.class.name.underscore}s_path"),
+        send("delete_logs_#{@log.log_type}s_path"),
         method: "delete",
         params: { ids: @duplicate_logs.map(&:id), original_log_id: @original_log.id, remaining_log_id: @log.id, referrer: params[:referrer], organisation_id: params[:organisation_id] } %>
       <%= govuk_button_link_to(
         "Cancel",
-        send("#{@log.class.name.underscore}_duplicate_logs_path", @original_log, original_log_id: @original_log.id, referrer: params[:referrer], organisation_id: params[:organisation_id]),
+        send("#{@log.log_type}_duplicate_logs_path", @original_log, original_log_id: @original_log.id, referrer: params[:referrer], organisation_id: params[:organisation_id]),
         secondary: true,
       ) %>
     </div>

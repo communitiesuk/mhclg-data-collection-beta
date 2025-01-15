@@ -1,7 +1,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
 
-    <%= form_with model: @log, url: send("#{@log.model_name.param_key}_confirm_clear_answer_path", @log), method: "post", local: true do |f| %>
+    <%= form_with model: @log, url: send("#{@log.log_type}_confirm_clear_answer_path", @log), method: "post", local: true do |f| %>
       <% remove_duplicate_page_errors(@log) %>
       <%= f.govuk_error_summary %>
       <%= f.hidden_field :page_id, value: @page.id %>
@@ -62,6 +62,6 @@
       </div>
     <% end %>
 
-    <%= govuk_button_link_to "Confirm and continue", @original_page_id ? send("#{@log.model_name.param_key}_#{@original_page_id}_path", @log) : send("#{@log.model_name.param_key}_#{@page.id}_path", @log) %>
+    <%= govuk_button_link_to "Confirm and continue", @original_page_id ? send("#{@log.log_type}_#{@original_page_id}_path", @log) : send("#{@log.log_type}_#{@page.id}_path", @log) %>
   </div>
 </div>

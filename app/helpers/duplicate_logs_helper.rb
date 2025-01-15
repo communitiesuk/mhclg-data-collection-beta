@@ -7,7 +7,7 @@ module DuplicateLogsHelper
       return govuk_button_link_to "Keep this log and delete duplicates", url_for(
         controller: "duplicate_logs",
         action: "delete_duplicates",
-        "#{duplicate_log.class.name.underscore}_id": duplicate_log.id,
+        "#{duplicate_log.log_type}_id": duplicate_log.id,
         original_log_id: original_log.id,
         referrer: params[:referrer],
         organisation_id: params[:organisation_id],
@@ -16,7 +16,7 @@ module DuplicateLogsHelper
     if params[:referrer] == "duplicate_logs_banner"
       current_user.support? ? govuk_button_link_to("Review other duplicates", organisation_duplicates_path(organisation_id: params[:organisation_id], referrer: params[:referrer])) : govuk_button_link_to("Review other duplicates", duplicate_logs_path(referrer: params[:referrer]))
     elsif !original_log.deleted?
-      govuk_button_link_to "Back to Log #{original_log.id}", send("#{original_log.class.name.underscore}_path", original_log)
+      govuk_button_link_to "Back to Log #{original_log.id}", send("#{original_log.log_type}_path", original_log)
     else
       type = duplicate_log.lettings? ? "lettings" : "sales"
       govuk_button_link_to "Back to #{type} logs", url_for(duplicate_log.class)
@@ -24,12 +24,12 @@ module DuplicateLogsHelper
   end
 
   def duplicate_logs_action_href(log, page_id, original_log_id)
-    send("#{log.model_name.param_key}_#{page_id}_path", log, referrer: "interruption_screen", original_log_id:)
+    send("#{log.log_type}_#{page_id}_path", log, referrer: "interruption_screen", original_log_id:)
   end
 
   def change_duplicate_logs_action_href(log, page_id, all_duplicates, original_log_id)
     first_remaining_duplicate_id = all_duplicates.map(&:id).reject { |id| id == log.id }.first
-    send("#{log.model_name.param_key}_#{page_id}_path", log, referrer: params[:referrer] == "duplicate_logs_banner" ? "duplicate_logs_banner" : "duplicate_logs", first_remaining_duplicate_id:, original_log_id:, organisation_id: params[:organisation_id])
+    send("#{log.log_type}_#{page_id}_path", log, referrer: params[:referrer] == "duplicate_logs_banner" ? "duplicate_logs_banner" : "duplicate_logs", first_remaining_duplicate_id:, original_log_id:, organisation_id: params[:organisation_id])
   end
 
   def duplicates_for_user(user)

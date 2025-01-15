@@ -25,10 +25,14 @@
                                  "other",
                                  label: { text: "For tenancies starting after a certain date" },
                                  **basic_conditional_html_attributes({ "deactivation_date" => %w[other] }, "scheme") do %>
-          <%= f.govuk_date_field date_question(action),
-                                 legend: { text: "Date", size: "m" },
-                                 hint: { text: "For example, 27 3 2025" },
-                                 width: 20 %>
+          <%= render partial: "components/date_picker", locals: {
+                    resource: @scheme,
+                    question_id: date_question(action),
+                    legend: { text: "Date", size: "m" },
+                    resource_type: "scheme",
+                    hint: "For example, 27/3/2025",
+                    f:,
+          } %>
         <% end %>
       <% end %>
       <%= f.govuk_submit "Continue" %>

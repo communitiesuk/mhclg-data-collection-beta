@@ -7,8 +7,8 @@ class CheckErrorsController < ApplicationController
   def confirm_clear_answer
     return render_not_found unless @log
 
-    @related_question_ids = params[@log.model_name.param_key].keys.reject { |id| id == "page_id" }
-    @page = @log.form.get_page(params[@log.model_name.param_key]["page_id"])
+    @related_question_ids = params[@log.log_type].keys.reject { |id| id == "page_id" }
+    @page = @log.form.get_page(params[@log.log_type]["page_id"])
 
     if params["clear_all"]
       @questions_to_clear = @related_question_ids.map { |id|

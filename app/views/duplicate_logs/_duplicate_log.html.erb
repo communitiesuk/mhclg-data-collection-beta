@@ -4,7 +4,7 @@
           <div class="govuk-grid-column-one-third">
             <header class="app-log-summary__header">
               <h2 class="app-log-summary__title">
-                <%= govuk_link_to "Log #{log.id}", send("#{log.class.name.underscore}_path", log) %>
+                <%= govuk_link_to "Log #{log.id}", send("#{log.log_type}_path", log) %>
               </h2>
             </header>
           </div>

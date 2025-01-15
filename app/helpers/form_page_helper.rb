@@ -1,6 +1,6 @@
 module FormPageHelper
   def action_href(log, page_id, referrer = "check_answers")
-    send("#{log.model_name.param_key}_#{page_id}_path", log, referrer:)
+    send("#{log.log_type}_#{page_id}_path", log, referrer:)
   end
 
   def returning_to_question_page?(page, referrer)
@@ -12,11 +12,11 @@ module FormPageHelper
   end
 
   def duplicate_log_set_path(log, original_log_id)
-    send("#{log.class.name.underscore}_duplicate_logs_path", log, original_log_id:)
+    send("#{log.log_type}_duplicate_logs_path", log, original_log_id:)
   end
 
   def relevant_check_answers_path(log, subsection)
-    send("#{log.class.name.underscore}_#{subsection.id}_check_answers_path", log)
+    send("#{log.log_type}_#{subsection.id}_check_answers_path", log)
   end
 
   def submit_button_text(page, referrer)

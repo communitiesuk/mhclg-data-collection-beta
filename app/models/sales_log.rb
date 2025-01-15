@@ -538,4 +538,8 @@ class SalesLog < Log
   def is_firststair?
     firststair == 1
   end
+
+  def log_type
+    "sales_log"
+  end
 end

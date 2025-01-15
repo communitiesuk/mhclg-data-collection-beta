@@ -368,9 +368,7 @@ RSpec.describe "Schemes scheme Features" do
                   click_button "Save and continue"
                   choose "location-mobility-type-none-field"
                   click_button "Save and continue"
-                  fill_in "Day", with: 2
-                  fill_in "Month", with: 2
-                  fill_in "Year", with: 2022
+                  fill_in "location_startdate", with: "2/2/2022"
                   click_button "Save and continue"
                 end
 
@@ -989,9 +987,7 @@ RSpec.describe "Schemes scheme Features" do
                   click_button "Save and continue"
                   choose "location-mobility-type-none-field"
                   click_button "Save and continue"
-                  fill_in "Day", with: 2
-                  fill_in "Month", with: 2
-                  fill_in "Year", with: 2022
+                  fill_in "location_startdate", with: "2/2/2022"
                   click_button "Save and continue"
                 end
 

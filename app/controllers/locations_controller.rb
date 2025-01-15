@@ -137,9 +137,7 @@ class LocationsController < ApplicationController
   def availability; end
 
   def update_availability
-    day = location_params["startdate(3i)"]
-    month = location_params["startdate(2i)"]
-    year = location_params["startdate(1i)"]
+    day, month, year = location_params["startdate"].split("/")
     @location.startdate = if [day, month, year].none?(&:blank?) && Date.valid_date?(year.to_i, month.to_i, day.to_i)
                             Time.zone.local(year.to_i, month.to_i, day.to_i)
                           end
@@ -258,7 +256,7 @@ private
   end
 
   def location_params
-    required_params = params.require(:location).permit(:postcode, :location_admin_district, :location_code, :name, :units, :type_of_unit, :mobility_type, "startdate(1i)", "startdate(2i)", "startdate(3i)").merge(scheme_id: @scheme.id)
+    required_params = params.require(:location).permit(:postcode, :location_admin_district, :location_code, :name, :units, :type_of_unit, :mobility_type, :startdate).merge(scheme_id: @scheme.id)
     required_params[:postcode] = PostcodeService.clean(required_params[:postcode]) if required_params[:postcode]
     required_params[:location_admin_district] = nil if required_params[:location_admin_district] == "Select an option"
     required_params
@@ -297,13 +295,9 @@ private
       return
     elsif params[:location_deactivation_period]["#{key}_type".to_sym] == "default"
       return FormHandler.instance.start_date_of_earliest_open_for_editing_collection_period
-    elsif params[:location_deactivation_period][key.to_sym].present?
-      return params[:location_deactivation_period][key.to_sym]
     end
 
-    day = params[:location_deactivation_period]["#{key}(3i)"]
-    month = params[:location_deactivation_period]["#{key}(2i)"]
-    year = params[:location_deactivation_period]["#{key}(1i)"]
+    day, month, year = params[:location_deactivation_period][key.to_s].split("/")
     return nil if [day, month, year].any?(&:blank?)
 
     Time.zone.local(year.to_i, month.to_i, day.to_i) if Date.valid_date?(year.to_i, month.to_i, day.to_i)

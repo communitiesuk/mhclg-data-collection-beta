@@ -9,7 +9,7 @@ class FormController < ApplicationController
 
   def submit_form
     if @log
-      @page = form.get_page(params[@log.model_name.param_key][:page])
+      @page = form.get_page(params[@log.log_type][:page])
       return render_check_errors_page if params["check_errors"]
 
       shown_page_ids_with_unanswered_questions_before_update = @page.subsection.pages
@@ -47,7 +47,7 @@ class FormController < ApplicationController
         flash[:log_data] = responses_for_page
         question_ids = (@log.errors.map(&:attribute) - [:base]).uniq
         flash[:pages_with_errors_count] = question_ids.map { |id| @log.form.get_question(id, @log)&.page&.id }.compact.uniq.count
-        redirect_to send("#{@log.class.name.underscore}_#{@page.id}_path", @log, { referrer: request.params["referrer"], original_page_id: request.params["original_page_id"], related_question_ids: request.params["related_question_ids"] })
+        redirect_to send("#{@log.log_type}_#{@page.id}_path", @log, { referrer: request.params["referrer"], original_page_id: request.params["original_page_id"], related_question_ids: request.params["related_question_ids"] })
       end
     else
       render_not_found
@@ -136,11 +136,9 @@ private
 
   def responses_for_page(page)
     page.questions.each_with_object({}) do |question, result|
-      question_params = params[@log.model_name.param_key][question.id]
+      question_params = params[@log.log_type][question.id]
       if question.type == "date"
-        day = params[@log.model_name.param_key]["#{question.id}(3i)"]
-        month = params[@log.model_name.param_key]["#{question.id}(2i)"]
-        year = params[@log.model_name.param_key]["#{question.id}(1i)"]
+        day, month, year = params[@log.log_type][question.id].split("/")
         next unless [day, month, year].any?(&:present?)
 
         result[question.id] = if Date.valid_date?(year.to_i, month.to_i, day.to_i) && year.to_i.positive?
@@ -160,7 +158,7 @@ private
         question.answer_keys_without_dividers.each do |option|
           result[option] = question_params.include?(option) ? 1 : 0
         end
-      else
+      elsif question.type != "date"
         result[question.id] = question_params
       end
 
@@ -215,11 +213,11 @@ private
   end
 
   def previous_interruption_screen_page_id
-    params[@log.model_name.param_key]["interruption_page_id"]
+    params[@log.log_type]["interruption_page_id"]
   end
 
   def previous_interruption_screen_referrer
-    params[@log.model_name.param_key]["interruption_page_referrer_type"].presence
+    params[@log.log_type]["interruption_page_referrer_type"].presence
   end
 
   def page_has_duplicate_check_question
@@ -229,7 +227,7 @@ private
   def update_duplication_tracking
     return unless page_has_duplicate_check_question
 
-    class_name = @log.class.name.underscore
+    class_name = @log.log_type
     dynamic_duplicates = current_user.send(class_name.pluralize).duplicate_logs(@log)
 
     if dynamic_duplicates.any?
@@ -245,7 +243,7 @@ private
   end
 
   def successful_redirect_path(pages_to_check)
-    class_name = @log.class.name.underscore
+    class_name = @log.log_type
 
     if is_referrer_type?("duplicate_logs") || is_referrer_type?("duplicate_logs_banner")
       original_log = current_user.send(class_name.pluralize).find_by(id: from_referrer_query("original_log_id"))
@@ -262,7 +260,7 @@ private
     end
 
     unless @log.duplicate_set_id.nil?
-      return send("#{@log.class.name.underscore}_duplicate_logs_path", @log, original_log_id: @log.id)
+      return send("#{@log.log_type}_duplicate_logs_path", @log, original_log_id: @log.id)
     end
 
     if is_referrer_type?("check_answers")
@@ -275,25 +273,25 @@ private
       elsif pages_to_check.any?
         return redirect_path_to_question(pages_to_check[0], pages_to_check)
       else
-        return send("#{@log.model_name.param_key}_#{form.subsection_for_page(@page).id}_check_answers_path", @log)
+        return send("#{@log.log_type}_#{form.subsection_for_page(@page).id}_check_answers_path", @log)
       end
     end
     if previous_interruption_screen_page_id.present?
-      return send("#{@log.class.name.underscore}_#{previous_interruption_screen_page_id}_path", @log, { referrer: previous_interruption_screen_referrer, original_log_id: original_duplicate_log_id_from_query }.compact)
+      return send("#{@log.log_type}_#{previous_interruption_screen_page_id}_path", @log, { referrer: previous_interruption_screen_referrer, original_log_id: original_duplicate_log_id_from_query }.compact)
     end
 
-    if params[@log.model_name.param_key]["check_errors"]
-      @page = form.get_page(params[@log.model_name.param_key]["page"])
+    if params[@log.log_type]["check_errors"]
+      @page = form.get_page(params[@log.log_type]["page"])
       flash[:notice] = "You have successfully updated #{@page.questions.map(&:check_answer_label).to_sentence}"
-      original_page_id = params[@log.model_name.param_key]["original_page_id"]
-      related_question_ids = params[@log.model_name.param_key]["related_question_ids"].split(" ")
-      return send("#{@log.class.name.underscore}_#{original_page_id}_path", @log, { check_errors: true, related_question_ids: }.compact)
+      original_page_id = params[@log.log_type]["original_page_id"]
+      related_question_ids = params[@log.log_type]["related_question_ids"].split(" ")
+      return send("#{@log.log_type}_#{original_page_id}_path", @log, { check_errors: true, related_question_ids: }.compact)
     end
 
     if params["referrer"] == "check_errors"
-      @page = form.get_page(params[@log.model_name.param_key]["page"])
+      @page = form.get_page(params[@log.log_type]["page"])
       flash[:notice] = "You have successfully updated #{@page.questions.map(&:check_answer_label).to_sentence}"
-      return send("#{@log.class.name.underscore}_#{params['original_page_id']}_path", @log, { check_errors: true, related_question_ids: params["related_question_ids"] }.compact)
+      return send("#{@log.log_type}_#{params['original_page_id']}_path", @log, { check_errors: true, related_question_ids: params["related_question_ids"] }.compact)
     end
 
     is_new_answer_from_check_answers = is_referrer_type?("check_answers_new_answer")
@@ -306,7 +304,7 @@ private
   def redirect_path_to_question(page_to_show, unanswered_pages)
     remaining_pages = unanswered_pages.excluding(page_to_show)
     remaining_page_ids = remaining_pages.any? ? remaining_pages.map(&:id).join(",") : nil
-    send("#{@log.class.name.underscore}_#{page_to_show.id}_path", @log, { referrer: "check_answers", unanswered_pages: remaining_page_ids })
+    send("#{@log.log_type}_#{page_to_show.id}_path", @log, { referrer: "check_answers", unanswered_pages: remaining_page_ids })
   end
 
   def pages_requiring_update(previously_visible_empty_page_ids)
@@ -350,8 +348,8 @@ private
   def question_missing_response?(responses_for_page, question)
     if %w[checkbox validation_override].include?(question.type)
       answered = question.answer_keys_without_dividers.map do |option|
-        session["fields"][option] = @log[option] = params[@log.model_name.param_key][question.id].include?(option) ? 1 : 0
-        params[@log.model_name.param_key][question.id].exclude?(option)
+        session["fields"][option] = @log[option] = params[@log.log_type][question.id].include?(option) ? 1 : 0
+        params[@log.log_type][question.id].exclude?(option)
       end
       answered.all?
     else
@@ -371,7 +369,7 @@ private
   CONFIRMATION_PAGE_IDS = %w[uprn_confirmation uprn_selection].freeze
 
   def deduplication_success_banner
-    deduplicated_log_link = "<a class=\"govuk-notification-banner__link govuk-!-font-weight-bold\" href=\"#{send("#{@log.class.name.underscore}_path", @log)}\">Log #{@log.id}</a>"
+    deduplicated_log_link = "<a class=\"govuk-notification-banner__link govuk-!-font-weight-bold\" href=\"#{send("#{@log.log_type}_path", @log)}\">Log #{@log.id}</a>"
     changed_labels = {
       property_postcode: "postcode",
       lead_tenant_age: "lead tenant’s age",
@@ -430,8 +428,8 @@ private
   end
 
   def render_check_errors_page
-    if params[@log.model_name.param_key]["clear_question_ids"].present?
-      question_ids = params[@log.model_name.param_key]["clear_question_ids"].split(" ")
+    if params[@log.log_type]["clear_question_ids"].present?
+      question_ids = params[@log.log_type]["clear_question_ids"].split(" ")
       question_ids.each do |question_id|
         question = @log.form.get_question(question_id, @log)
         next if question.subsection.id == "setup"
@@ -440,7 +438,7 @@ private
         @log.previous_la_known = nil if question.id == "ppostcode_full"
       end
       @log.save!
-      @questions = params[@log.model_name.param_key].keys.reject { |id| %w[clear_question_ids page].include?(id) }.map { |id| @log.form.get_question(id, @log) }
+      @questions = params[@log.log_type].keys.reject { |id| %w[clear_question_ids page].include?(id) }.map { |id| @log.form.get_question(id, @log) }
     else
       responses_for_page = responses_for_page(@page)
       @log.assign_attributes(responses_for_page)

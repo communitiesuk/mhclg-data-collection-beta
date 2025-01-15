@@ -6,6 +6,6 @@ module GuidanceHelper
     question = log.form.get_question(question_id, log)
     return "" unless question.page.routed_to?(log, user)
 
-    "(#{govuk_link_to "Q#{question.question_number}", send("#{log.class.name.underscore}_#{question.page.id}_path", log)})".html_safe
+    "(#{govuk_link_to "Q#{question.question_number}", send("#{log.log_type}_#{question.page.id}_path", log)})".html_safe
   end
 end
