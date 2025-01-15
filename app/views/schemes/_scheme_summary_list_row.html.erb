@@ -7,17 +7,17 @@
             <p class="govuk-error-message">
                 <span class="govuk-error-message govuk-visually-hidden">Error:</span> <%= scheme.errors[attribute[:id].to_sym][0] %>
             </p>
-            <%= details_html(attribute) %>
+            <%= details_html(attribute, @scheme) %>
         </dd>
     <% else %>
         <dd class="govuk-summary-list__value">
-            <%= details_html(attribute) %>
+            <%= details_html(attribute, @scheme) %>
         </dd>
     <% end %>
 
-    <% if can_change_scheme_answer?(attribute[:name], scheme) && attribute[:edit] %>
+    <% if can_change_scheme_answer?(attribute[:name], scheme) && attribute[:edit] && attribute[:value] %>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="<%= change_link %>">Change</a>
+        <a class="govuk-link" href="<%= change_link %>"><%= change_link_text(attribute[:id], @scheme) %></a>
       </dd>
     <% end %>
 </div>

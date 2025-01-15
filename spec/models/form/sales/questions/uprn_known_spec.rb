@@ -37,7 +37,7 @@ RSpec.describe Form::Sales::Questions::UprnKnown, type: :model do
   end
 
   it "has the correct unanswered_error_message" do
-    expect(question.unanswered_error_message).to eq("You must answer #{format_ending(I18n.t('forms.2023.sales.property_information.uprn.uprn_known.check_answer_label'))}")
+    expect(question.unanswered_error_message).to eq(I18n.t("validations.sales.property_information.uprn_known.invalid"))
   end
 
   it "has the correct hidden_in_check_answers" do

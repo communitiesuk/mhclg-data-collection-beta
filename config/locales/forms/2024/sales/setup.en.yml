@@ -6,36 +6,42 @@ en:
           owning_organisation_id:
             page_header: ""
             check_answer_label: "Owning organisation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which organisation owns this log?"
 
           managing_organisation_id:
             page_header: ""
             check_answer_label: "Reported by"
+            check_answer_prompt: "Select reporting organisation"
             hint_text: ""
             question_text: "Which organisation is reporting this sale?"
 
           assigned_to_id:
             page_header: ""
             check_answer_label: "Log owner"
+            check_answer_prompt: "Select user"
             hint_text: ""
             question_text: "Which user are you creating this log for?"
 
           saledate:
             page_header: ""
             check_answer_label: "Sale completion date"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the sale completion date?"
 
           purchid:
             page_header: ""
             check_answer_label: "Purchaser code"
+            check_answer_prompt: ""
             hint_text: "This is how you usually refer to the purchaser on your own systems."
             question_text: "What is the purchaser code?"
 
           ownershipsch:
             page_header: ""
             check_answer_label: "Purchase made under ownership scheme"
+            check_answer_prompt: "Tell us if purchase made under ownership scheme"
             hint_text: ""
             question_text: "Was this purchase made through an ownership scheme?"
 
@@ -43,68 +49,80 @@ en:
             shared_ownership:
               page_header: "Type of shared ownership sale"
               check_answer_label: "Type of shared ownership sale"
+              check_answer_prompt: ""
               hint_text: "When the purchaser buys an initial share of up to 75% of the property value and pays rent to the Private Registered Provider (PRP) on the remaining portion, or a subsequent staircasing transaction"
               question_text: "What is the type of shared ownership sale?"
             discounted_ownership:
               page_header: "Type of discounted ownership sale"
               check_answer_label: "Type of discounted ownership sale"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "What is the type of discounted ownership sale?"
             outright_ownership:
               page_header: "Type of outright sale"
               type:
                 check_answer_label: "Type of outright sale"
+                check_answer_prompt: ""
                 hint_text: ""
                 question_text: "What is the type of outright sale?"
               othtype:
                 check_answer_label: "Type of other sale"
+                check_answer_prompt: ""
                 hint_text: ""
                 question_text: "What type of sale is it?"
 
           companybuy:
             page_header: ""
             check_answer_label: "Company buyer"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Is the buyer a company?"
 
           buylivein:
             page_header: ""
             check_answer_label: "Buyers living in property"
+            check_answer_prompt: "Tell us if buyers live in the property"
             hint_text: ""
             question_text: "Will any buyers live in the property?"
 
           jointpur:
             page_header: ""
             check_answer_label: "Joint purchase"
+            check_answer_prompt: "Tell us if joint purchase"
             hint_text: "This is where two or more people are named as legal owners of the property after the purchase"
             question_text: "Is this a joint purchase?"
 
           jointmore:
             page_header: ""
             check_answer_label: "More than 2 joint buyers"
+            check_answer_prompt: "Tell us if there are more than 2 joint buyers"
             hint_text: ""
             question_text: "Are there more than 2 joint buyers of this property?"
 
           noint:
             joint_purchase:
               page_header: ""
-              check_answer_label: "Buyers interviewed in person?"
+              check_answer_label: "Buyers interviewed in person"
+              check_answer_prompt: "Tell us if buyers interviewed in person"
               hint_text: "You should still try to answer all questions even if the buyers weren’t interviewed in person"
               question_text: "Were the buyers interviewed for any of the answers you will provide on this log?"
             not_joint_purchase:
               page_header: ""
-              check_answer_label: "Buyer interviewed in person?"
+              check_answer_label: "Buyer interviewed in person"
+              check_answer_prompt: "Tell us if buyer interviewed in person"
               hint_text: "You should still try to answer all questions even if the buyer wasn’t interviewed in person"
               question_text: "Was the buyer interviewed for any of the answers you will provide on this log?"
 
           privacynotice:
             joint_purchase:
               page_header: "Ministry of Housing, Communities and Local Government privacy notice"
-              check_answer_label: "Buyers have seen the privacy notice?"
+              check_answer_label: "Buyers have seen the privacy notice"
+              check_answer_prompt: "Tell us if buyers have seen the privacy notice"
               hint_text: ""
               question_text: "Declaration"
             not_joint_purchase:
               page_header: "Ministry of Housing, Communities and Local Government privacy notice"
-              check_answer_label: "Buyer has seen the privacy notice?"
+              check_answer_label: "Buyer has seen the privacy notice"
+              check_answer_prompt: "Tell us if buyer has seen the privacy notice"
               hint_text: ""
               question_text: "Declaration"

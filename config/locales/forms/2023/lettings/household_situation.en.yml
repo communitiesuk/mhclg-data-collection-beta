@@ -6,12 +6,14 @@ en:
           layear:
             page_header: ""
             check_answer_label: "Length of time in local authority area"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "How long has the household continuously lived in the local authority area of the new letting?"
 
           waityear:
             page_header: ""
             check_answer_label: "Length of time on local authority waiting list"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "How long has the household been on the local authority waiting list for the new letting?"
 
@@ -20,78 +22,92 @@ en:
               page_header: ""
               reason:
                 check_answer_label: "Reason for leaving last settled home"
+                check_answer_prompt: ""
                 hint_text: "You told us this letting is a renewal. We have removed some options because of this."
                 question_text: "What is the tenant’s main reason for the household leaving their last settled home?"
               reasonother:
                 check_answer_label: "Length of time on local authority waiting list"
+                check_answer_prompt: ""
                 hint_text: ""
                 question_text: "How long has the household been on the local authority waiting list for the new letting?"
             reason_for_leaving_last_settled_home:
               page_header: ""
               reason:
                 check_answer_label: "Reason for leaving last settled home"
+                check_answer_prompt: ""
                 hint_text: "The tenant’s ‘last settled home’ is their last long-standing home. For tenants who were in temporary accommodation or sleeping rough, their last settled home is where they were living previously."
                 question_text: "What is the tenant’s main reason for the household leaving their last settled home?"
               reasonother:
                 check_answer_label: ""
+                check_answer_prompt: ""
                 hint_text: ""
                 question_text: "What is the reason?"
 
           prevten:
             renewal:
               page_header: ""
-              check_answer_label: "Where was the household immediately before this letting?"
+              check_answer_label: "Where household was immediately before this letting"
+              check_answer_prompt: ""
               hint_text:  "You told us this letting is a renewal. We have removed some options because of this.<br><br>This is where the household was the night before they moved into this new let."
               question_text: "Where was the household immediately before this letting?"
             not_renewal:
               page_header: ""
-              check_answer_label: "Where was the household immediately before this letting?"
+              check_answer_label: "Where household was immediately before this letting"
+              check_answer_prompt: ""
               hint_text: "This is where the household was the night before they moved into this new let."
               question_text: "Where was the household immediately before this letting?"
 
           homeless:
             page_header: ""
             check_answer_label: "Household homeless immediately before letting"
+            check_answer_prompt: "Tell us if household homeless immediately before letting"
             hint_text: ""
             question_text: "Did the household experience homelessness immediately before this letting?"
 
           previous_postcode:
             page_header: ""
             ppcodenk:
-              check_answer_label: ""
+              check_answer_label: "Postcode of the household’s last settled accommodation"
+              check_answer_prompt: "Enter the postcode of the household’s last settled accommodation if known"
               hint_text: "This is also known as the household’s ‘last settled home’."
               question_text: "Do you know the postcode of the household’s last settled accommodation?"
             ppostcode_full:
               check_answer_label: "Postcode of household’s last settled accommodation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Postcode for the previous accommodation"
 
           previous_local_authority:
             page_header: ""
             previous_la_known:
-              check_answer_label: ""
+              check_answer_label: "Local authority of household's last settled accommodation"
+              check_answer_prompt: "Enter the local authority of the buyer's last settled accommodation if known"
               hint_text: "This is also known as the household’s ‘last settled home’."
               question_text: "Do you know the local authority of the household’s last settled accommodation?"
             prevloc:
               check_answer_label: "Location of household’s last settled accommodation"
+              check_answer_prompt: ""
               hint_text: "Select ‘Northern Ireland’, ‘Scotland’, ‘Wales’ or ‘Outside the UK’ if the household’s last settled home was outside England."
               question_text: "Select a local authority"
 
           reasonpref:
             page_header: ""
             check_answer_label: "Household given reasonable preference"
+            check_answer_prompt: "Tell us if the household was given reasonable preference"
             hint_text: "Households may be given ‘reasonable preference’ for social housing, also known as ‘priority need’, by the local authority."
             question_text: "Was the household given ‘reasonable preference’ by the local authority?"
 
           reasonable_preference_reason:
             page_header: ""
             check_answer_label: "Reason for reasonable preference"
+            check_answer_prompt: ""
             hint_text: "Select all that apply."
             question_text: "Why was the household given ‘reasonable preference’?"
 
           letting_allocation:
             page_header: ""
             check_answer_label: "Allocation system"
+            check_answer_prompt: ""
             hint_text: "Select all that apply."
             question_text: "How was this letting allocated?"
 
@@ -100,21 +116,25 @@ en:
               prp:
                 page_header: ""
                 check_answer_label: "Source of referral for letting"
+                check_answer_prompt: ""
                 hint_text: ""
                 question_text: "What was the source of referral for this letting?"
               la:
                 page_header: ""
                 check_answer_label: "Source of referral for letting"
+                check_answer_prompt: ""
                 hint_text: "You told us that you are a local authority. We have removed some options because of this."
                 question_text: "What was the source of referral for this letting?"
             general_needs:
               prp:
                 page_header: ""
                 check_answer_label: "Source of referral for letting"
+                check_answer_prompt: ""
                 hint_text: "You told us that the needs type is general needs. We have removed some options because of this."
                 question_text: "What was the source of referral for this letting?"
               la:
                 page_header: ""
                 check_answer_label: "Source of referral for letting"
+                check_answer_prompt: ""
                 hint_text: "You told us that you are a local authority and that the needs type is general needs. We have removed some options because of this."
                 question_text: "What was the source of referral for this letting?"

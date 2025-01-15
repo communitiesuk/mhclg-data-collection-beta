@@ -22,17 +22,22 @@
           <% if can_edit_org?(current_user) && attr[:editable] %>
             <%= summary_list.with_row do |row| %>
               <% row.with_key { attr[:name] } %>
-              <% row.with_value { details_html(attr) } %>
-              <% row.with_action(
-                visually_hidden_text: attr[:name].to_s.humanize.downcase,
-                href: edit_organisation_path(@organisation),
-                html_attributes: { "data-qa": "change-#{attr[:name].downcase}" },
-              ) %>
+              <% row.with_value { details_html(attr, @organisation) } %>
+              <% if attr[:value] %>
+                <% row.with_action(
+                     text: organisation_action_text(attr, @organisation),
+                     visually_hidden_text: attr[:name].to_s.humanize.downcase,
+                     href: edit_organisation_path(@organisation),
+                     html_attributes: { "data-qa": "change-#{attr[:name].downcase}" },
+                   ) %>
+              <% else %>
+                <% row.with_action %>
+              <% end %>
             <% end %>
           <% else %>
             <%= summary_list.with_row do |row| %>
               <% row.with_key { attr[:name] } %>
-              <% row.with_value { details_html(attr) } %>
+              <% row.with_value { details_html(attr, @organisation) } %>
               <% row.with_action %>
             <% end %>
           <% end %>

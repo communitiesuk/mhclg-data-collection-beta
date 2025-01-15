@@ -5,30 +5,35 @@ en:
         other_household_information:
           hhregres:
             page_header: ""
-            check_answer_label: "Have any of the buyers ever served as a regular in the UK armed forces?"
+            check_answer_label: "Any buyer has served as regulars in the UK armed forces"
+            check_answer_prompt: "Tell us if any buyer has ever served as a regular in the UK armed forces"
             hint_text: "A regular is somebody who has served in the Royal Navy, the Royal Marines, the Royal Airforce or Army full time and does not include reserve forces"
             question_text: "Have any of the buyers ever served as a regular in the UK armed forces?"
 
           hhregresstill:
             page_header: ""
             check_answer_label: "Are they still serving in the UK armed forces?"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Is the buyer still serving in the UK armed forces?"
 
           armedforcesspouse:
             page_header: ""
-            check_answer_label: "Are any of the buyers a spouse or civil partner of a UK armed forces regular who died in service within the last 2 years?"
+            check_answer_label: "Any buyer is a spouse or civil partner of a UK armed forces regular who died in service within the last 2 years"
+            check_answer_prompt: "Tell us if any buyers are a spouse or civil partner of a UK armed forces regular who died in service within the last 2 years"
             hint_text: ""
             question_text: "Are any of the buyers a spouse or civil partner of a UK armed forces regular who died in service within the last 2 years?"
 
           disabled:
             page_header: ""
-            check_answer_label: "Does anyone in the household have a disability?"
+            check_answer_label: "Household member has a disability"
+            check_answer_prompt: "Tell us if someone has a disability"
             hint_text: "This includes any long-term health condition that has an impact on the person's day-to-day life"
             question_text: "Does anyone in the household consider themselves to have a disability?"
 
           wheel:
             page_header: ""
-            check_answer_label: "Does anyone in the household use a wheelchair?"
+            check_answer_label: "Household member uses a wheelchair"
+            check_answer_prompt: "Tell us if someone uses a wheelchair"
             hint_text: "This can be inside or outside the home"
             question_text: "Does anyone in the household use a wheelchair?"

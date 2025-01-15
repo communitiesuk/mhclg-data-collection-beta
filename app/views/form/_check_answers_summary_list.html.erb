@@ -25,7 +25,7 @@
         <% end %>
       <% end %>
 
-      <% if @log.collection_period_open_for_editing? %>
+      <% if @log.collection_period_open_for_editing? && question.answer_label(@log, current_user).present? %>
         <% row.with_action(
           text: question.action_text(@log),
           href: action_href(

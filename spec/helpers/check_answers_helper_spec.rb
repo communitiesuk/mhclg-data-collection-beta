@@ -43,7 +43,7 @@ RSpec.describe CheckAnswersHelper do
     context "when unanswered and bulk upload" do
       let(:question) { log.form.questions.sample }
       let(:bulk_upload) { create(:bulk_upload) }
-      let(:log) { build(:sales_log, creation_method: "bulk upload", bulk_upload:) }
+      let(:log) { create(:sales_log, creation_method: "bulk upload", bulk_upload:) }
 
       it "is red" do
         expect(get_answer_label(question, log)).to include("red")

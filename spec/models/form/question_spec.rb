@@ -129,6 +129,11 @@ RSpec.describe Form::Question, type: :model do
     expect(question).not_to be_value_is_yes("random")
   end
 
+  it "has a check answer prompt" do
+    question_definition["check_answer_prompt"] = "Enter total income"
+    expect(question.check_answer_prompt).to eq("Enter total income")
+  end
+
   context "when type is numeric" do
     it "has a min value" do
       expect(question.min).to eq(0)
@@ -140,6 +145,10 @@ RSpec.describe Form::Question, type: :model do
 
     it "does not map value from label" do
       expect(question.value_from_label("5")).to eq("5")
+    end
+
+    it "has generates a default check answer prompt" do
+      expect(question.check_answer_prompt).to eq("Enter income")
     end
   end
 
@@ -157,6 +166,10 @@ RSpec.describe Form::Question, type: :model do
 
     it "can map label from value" do
       expect(question.label_from_value(1)).to eq("Weekly")
+    end
+
+    it "has generates a default check answer prompt" do
+      expect(question.check_answer_prompt).to eq("Select income")
     end
 
     context "when answer options include yes, no, prefer not to say" do
@@ -222,6 +235,10 @@ RSpec.describe Form::Question, type: :model do
       expect(question.label_from_value("E09000033")).to eq("Westminster")
     end
 
+    it "has generates a default check answer prompt" do
+      expect(question.check_answer_prompt).to eq("Select income")
+    end
+
     context "when the saved answer is not in the value map" do
       it "displays the saved answer umapped" do
         expect(question.label_from_value(9999)).to eq("9999")
@@ -233,6 +250,10 @@ RSpec.describe Form::Question, type: :model do
     let(:type) { "checkbox" }
     let(:page_id) { "illness" }
     let(:answer_options) { { "illness_type_1" => { "value" => "Vision - such as blindness or partial sight" }, "illness_type_2" => { "value" => "Hearing - such as deafness or partial hearing" } } }
+
+    it "has generates a default check answer prompt" do
+      expect(question.check_answer_prompt).to eq("Select income")
+    end
 
     it "has answer options" do
       expected_answer_options = {
@@ -281,7 +302,6 @@ RSpec.describe Form::Question, type: :model do
     end
 
     it "has an update answer link text helper" do
-      expect(question.action_text(lettings_log)).to match(/Answer/)
       lettings_log["incfreq"] = 0
       expect(question.action_text(lettings_log)).to match(/Change/)
     end
@@ -317,6 +337,10 @@ RSpec.describe Form::Question, type: :model do
       it "can handle nils" do
         lettings_log.mrcdate = nil
         expect(question.answer_label(lettings_log)).to eq("")
+      end
+
+      it "has generates a default check answer prompt" do
+        expect(question.check_answer_prompt).to eq("Set income")
       end
     end
 

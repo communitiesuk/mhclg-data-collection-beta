@@ -10,7 +10,7 @@
       <dl class="govuk-summary-list">
         <% @scheme.check_details_attributes.each do |attr| %>
           <% if attr[:name] != "Status" && (attr[:id] != "secondary_client_group" || @scheme.has_other_client_group == "Yes") %>
-            <%= render partial: "scheme_summary_list_row", locals: { scheme: @scheme, attribute: attr, change_link: change_answer_link(@scheme, attr[:id], current_user) } %>
+            <%= render partial: "scheme_summary_list_row", locals: { scheme: @scheme, attribute: attr, change_link: scheme_edit_path(@scheme, attr[:id], current_user) } %>
           <% end %>
         <% end %>
       </dl>

@@ -6,34 +6,40 @@ en:
           buyer_1_income:
             page_header: ""
             income1nk:
-              check_answer_label: "Buyer 1’s gross annual income known?"
+              check_answer_label: "Buyer 1’s gross annual income known"
+              check_answer_prompt: "Enter buyer 1's gross annual income if known"
               hint_text: ""
               question_text: "Do you know buyer 1’s annual income?"
             income1:
               check_answer_label: "Buyer 1’s gross annual income"
+              check_answer_prompt: ""
               hint_text: "Provide the gross annual income (i.e. salary before tax) plus the annual amount of benefits, Universal Credit or pensions, and income from investments."
               question_text: "Buyer 1’s gross annual income"
 
           inc1mort:
             page_header: ""
             check_answer_label: "Buyer 1’s income used for mortgage application"
+            check_answer_prompt: "Tell us if buyer 1’s income used for a mortgage application"
             hint_text: ""
             question_text: "Was buyer 1’s income used for a mortgage application?"
 
           buyer_2_income:
             page_header: ""
             income2nk:
-              check_answer_label: "Buyer 2’s gross annual income known?"
+              check_answer_label: "Buyer 2’s gross annual income known"
+              check_answer_prompt: "Enter buyer 2's gross annual income if known"
               hint_text: ""
               question_text: "Do you know buyer 2’s annual income?"
             income2:
               check_answer_label: "Buyer 2’s gross annual income"
+              check_answer_prompt: ""
               hint_text: "Provide the gross annual income (i.e. salary before tax) plus the annual amount of benefits, Universal Credit or pensions, and income from investments."
               question_text: "Buyer 2’s gross annual income"
 
           inc2mort:
             page_header: ""
-            check_answer_label: "Buyer 2’s income used for mortgage application"
+            check_answer_label:  "Buyer 2’s income used for mortgage application"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Was buyer 2’s income used for a mortgage application?"
 
@@ -53,21 +59,25 @@ en:
             joint_purchase:
               page_header: ""
               savingsnk:
-                check_answer_label: "Buyers’ total savings known?"
+                check_answer_label:  "Buyers’ total savings"
+                check_answer_prompt: "Enter buyers' total savings if known"
                 hint_text: ""
                 question_text: "Do you know how much the buyers had in savings before they paid any deposit for the property?"
               savings:
                 check_answer_label: "Buyers’ total savings before any deposit paid"
+                check_answer_prompt: ""
                 hint_text: "Include any savings, investments, ISAs, premium bonds, shares, or money held in a bank or building society account."
                 question_text: "Enter their total savings to the nearest £10"
             not_joint_purchase:
               page_header: ""
               savingsnk:
-                check_answer_label:  "Buyer’s total savings known?"
+                check_answer_label:  "Buyer’s total savings"
+                check_answer_prompt: "Enter buyer's total savings if known"
                 hint_text: ""
                 question_text: "Do you know how much the buyer had in savings before they paid any deposit for the property?"
               savings:
                 check_answer_label: "Buyer’s total savings before any deposit paid"
+                check_answer_prompt: ""
                 hint_text: "Include any savings, investments, ISAs, premium bonds, shares, or money held in a bank or building society account."
                 question_text: "Enter their total savings to the nearest £10"
 
@@ -75,16 +85,19 @@ en:
             joint_purchase:
               page_header: ""
               check_answer_label: "Buyers previously owned a property."
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Have any of the buyers previously owned a property?"
             not_joint_purchase:
               page_header: ""
-              check_answer_label: "Buyer previously owned a property."
+              check_answer_label: "Buyer previously owned a property"
+              check_answer_prompt: "Tell us if the buyer previously owned a property"
               hint_text: ""
               question_text: "Has the buyer previously owned a property?"
 
           prevshared:
             page_header: ""
             check_answer_label: "Previous property shared ownership?"
+            check_answer_prompt: ""
             hint_text: "For any buyer"
             question_text: "Was the previous property under shared ownership?"

@@ -91,28 +91,24 @@ RSpec.describe "Lettings Log Check Answers Page" do
     # This way only the links in the table will get picked up
     it "has an answer link with the check_answers_new_answer referrer for questions missing an answer" do
       visit("/lettings-logs/#{empty_lettings_log.id}/#{subsection}/check-answers?referrer=check_answers")
-      assert_selector "a", text: /Answer (?!the missing questions)/, count: 4
       assert_selector "a", text: "Change", count: 0
-      expect(page).to have_link("Answer", href: "/lettings-logs/#{empty_lettings_log.id}/person-1-age?referrer=check_answers_new_answer")
+      expect(page).to have_link("Enter lead tenant’s age", href: "/lettings-logs/#{empty_lettings_log.id}/person-1-age?referrer=check_answers_new_answer")
     end
 
-    it "has a change link for answered questions" do
+    it "has a change link for answered question" do
       fill_in_number_question(empty_lettings_log.id, "age1", 28, "person-1-age")
       visit("/lettings-logs/#{empty_lettings_log.id}/#{subsection}/check-answers")
-      assert_selector "a", text: /Answer (?!the missing questions)/, count: 3
       assert_selector "a", text: "Change", count: 1
       expect(page).to have_link("Change", href: "/lettings-logs/#{empty_lettings_log.id}/person-1-age?referrer=check_answers")
     end
 
-    it "updates the change/answer link when answers get updated" do
+    it "updates the add change link when answers get answered" do
       visit("/lettings-logs/#{empty_lettings_log.id}/household-needs/check-answers")
-      assert_selector "a", text: /Answer (?!the missing questions)/, count: 3
       assert_selector "a", text: "Change", count: 1
       visit("/lettings-logs/#{empty_lettings_log.id}/accessibility-requirements")
       check("lettings-log-accessibility-requirements-housingneeds-c-field")
       click_button("Save and continue")
       visit("/lettings-logs/#{empty_lettings_log.id}/household-needs/check-answers")
-      assert_selector "a", text: /Answer (?!the missing questions)/, count: 2
       assert_selector "a", text: "Change", count: 2
       expect(page).to have_link("Change", href: "/lettings-logs/#{empty_lettings_log.id}/accessibility-requirements?referrer=check_answers")
     end

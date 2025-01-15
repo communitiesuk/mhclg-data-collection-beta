@@ -2,8 +2,30 @@ module MergeRequestsHelper
   include GovukLinkHelper
   include GovukVisuallyHiddenHelper
 
-  def display_value_or_placeholder(value, placeholder = "You didn't answer this question")
+  def display_value_or_placeholder(value, placeholder = "No answer provided")
     value.presence || content_tag(:span, placeholder, class: "app-!-colour-muted")
+  end
+
+  def value_exists?(merge_request, attribute)
+    merge_request.send(attribute).present? || (attribute == "helpdesk_ticket" && merge_request.has_helpdesk_ticket == false)
+  end
+
+  def details_prompt_link(page, merge_request)
+    govuk_link_to(merge_request_details_prompt(page), send("#{page}_merge_request_path", merge_request, referrer: "check_answers"), class: "govuk-link govuk-link--no-visited-state")
+  end
+
+  def merge_request_details_prompt(page)
+    messages = {
+      "existing_absorbing_organisation" => "Tell us if absorbing organisation is already active",
+      "helpdesk_ticket" => "Enter helpdesk ticket number",
+      "merging_organisations" => "Add merging organisations",
+      "merge_date" => "Set merge date",
+    }
+    messages[page] || "Enter #{lowercase_first_letter(page.humanize)}"
+  end
+
+  def merge_request_action_text(merge_request, attribute)
+    value_exists?(merge_request, attribute) ? "Change" : ""
   end
 
   def request_details(merge_request)
@@ -16,10 +38,10 @@ module MergeRequestsHelper
 
   def merge_details(merge_request)
     [
-      { label: "Absorbing organisation", value: display_value_or_placeholder(merge_request.absorbing_organisation_name), action: merge_request_action(merge_request, "absorbing_organisation") },
-      { label: "Merging organisations", value: merge_request.merge_request_organisations.any? ? merge_request.merge_request_organisations.map(&:merging_organisation_name).join("<br>").html_safe : display_value_or_placeholder(nil), action: merge_request_action(merge_request, "merging_organisations") },
-      { label: "Merge date", value: display_value_or_placeholder(merge_request.merge_date), action: merge_request_action(merge_request, "merge_date") },
-      { label: "Absorbing organisation already active?", value: display_value_or_placeholder(merge_request.existing_absorbing_organisation_label), action: merge_request_action(merge_request, "existing_absorbing_organisation") },
+      { label: "Absorbing organisation", value: display_value_or_placeholder(merge_request.absorbing_organisation_name, details_prompt_link("absorbing_organisation", merge_request)), action: merge_request_action(merge_request, "absorbing_organisation") },
+      { label: "Merging organisations", value: merge_request.merge_request_organisations.any? ? merge_request.merge_request_organisations.map(&:merging_organisation_name).join("<br>").html_safe : display_value_or_placeholder(nil, details_prompt_link("merging_organisations", merge_request)), action: merge_request_action(merge_request, "merging_organisations") },
+      { label: "Merge date", value: display_value_or_placeholder(merge_request.merge_date, details_prompt_link("merge_date", merge_request)), action: merge_request_action(merge_request, "merge_date") },
+      { label: "Absorbing organisation already active?", value: display_value_or_placeholder(merge_request.existing_absorbing_organisation_label, details_prompt_link("existing_absorbing_organisation", merge_request)), action: merge_request_action(merge_request, "existing_absorbing_organisation") },
     ]
   end
 
@@ -75,9 +97,12 @@ module MergeRequestsHelper
     end
   end
 
-  def merge_request_action(merge_request, page)
+  def merge_request_action(merge_request, page, attribute = nil)
+    attribute = page if attribute.nil?
+    return nil unless value_exists?(merge_request, attribute)
+
     unless merge_request.status == "request_merged" || merge_request.status == "processing"
-      { text: "Change", href: send("#{page}_merge_request_path", merge_request, referrer: "check_answers"), visually_hidden_text: page.humanize }
+      { text: merge_request_action_text(merge_request, attribute), href: send("#{page}_merge_request_path", merge_request, referrer: "check_answers"), visually_hidden_text: page.humanize }
     end
   end
 
@@ -287,7 +312,7 @@ module MergeRequestsHelper
     elsif merge_request.has_helpdesk_ticket == false
       "Not reported by a helpdesk ticket"
     else
-      display_value_or_placeholder(nil)
+      display_value_or_placeholder(nil, details_prompt_link("helpdesk_ticket", merge_request))
     end
   end
 end

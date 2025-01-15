@@ -7,22 +7,26 @@ en:
             page_header: ""
             age1_known:
               check_answer_label: "Buyer 1’s age"
+              check_answer_prompt: "Enter buyer 1's age if known"
               hint_text: "Buyer 1 is the person in the household who does the most paid work. If it’s a joint purchase and the buyers do the same amount of paid work, buyer 1 is whoever is the oldest."
               question_text: "Do you know buyer 1’s age?"
             age1:
               check_answer_label: "Buyer 1’s age"
+              check_answer_prompt: "Enter buyer 1's age"
               hint_text: ""
               question_text: "Age"
 
           sex1:
             page_header: ""
             check_answer_label: "Buyer 1’s gender identity"
+            check_answer_prompt: ""
             hint_text: "This should be however they personally choose to identify from the options below. This may or may not be the same as their biological sex or the sex they were assigned at birth."
             question_text: "Which of these best describes buyer 1’s gender identity?"
 
           ethnic_group:
             page_header: ""
             check_answer_label: "Buyer 1’s ethnic group"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is buyer 1’s ethnic group?"
 
@@ -30,50 +34,59 @@ en:
             ethnic_background_black:
               page_header: ""
               check_answer_label: "Buyer 1’s ethnic background"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of the following best describes buyer 1’s Black, African, Caribbean or Black British background?"
             ethnic_background_asian:
               page_header: ""
               check_answer_label: "Buyer 1’s ethnic background"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of the following best describes buyer 1’s Asian or Asian British background?"
             ethnic_background_arab:
               page_header: ""
               check_answer_label: "Buyer 1’s ethnic background"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of the following best describes buyer 1’s Arab background?"
             ethnic_background_mixed:
               page_header: ""
               check_answer_label: "Buyer 1’s ethnic background"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of the following best describes buyer 1’s Mixed or Multiple ethnic groups background?"
             ethnic_background_white:
               page_header: ""
               check_answer_label: "Buyer 1’s ethnic background"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of the following best describes buyer 1’s White background?"
 
           nationality_all_group:
             page_header: ""
             check_answer_label: "Buyer 1’s nationality"
+            check_answer_prompt: ""
             hint_text: "If buyer 1 is a dual national of the United Kingdom and another country, enter United Kingdom. If they are a dual national of two other countries, the buyer should decide which country to enter."
             question_text: "What is buyer 1’s nationality?"
 
           nationality_all:
             page_header: ""
             check_answer_label: "Buyer 1’s nationality"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Enter a nationality"
 
           ecstat1:
             page_header: ""
             check_answer_label: "Buyer 1's working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes buyer 1's working situation?"
 
           buy1livein:
             page_header: ""
-            check_answer_label: "Will buyer 1 live in the property?"
+            check_answer_label: "Buyer 1 lives in the property"
+            check_answer_prompt: "Tell us if buyer 1 lives in the property"
             hint_text: ""
             question_text: "Will buyer 1 live in the property?"
 
@@ -81,11 +94,13 @@ en:
             buyer:
               page_header: ""
               check_answer_label: "Buyer 2 is the partner of buyer 1"
+              check_answer_prompt: "Tell us if buyer 2 is the partner of buyer 1"
               hint_text: ""
               question_text: "Is buyer 2 the partner of buyer 1?"
             person:
               page_header: ""
               check_answer_label: "Person 2 is the partner of buyer 1"
+              check_answer_prompt: "Tell us if person 2 is the partner of buyer 1"
               hint_text: ""
               question_text: "Is person 2 the partner of buyer 1?"
 
@@ -94,20 +109,24 @@ en:
               page_header: ""
               age2_known:
                 check_answer_label: "Buyer 2’s age"
+                check_answer_prompt: "Enter buyer 2's age if known"
                 hint_text: ""
                 question_text: "Do you know buyer 2’s age?"
               age2:
                 check_answer_label: "Buyer 2’s age"
+                check_answer_prompt: "Enter buyer 2's age"
                 hint_text: ""
                 question_text: "Age"
             person:
               page_header: ""
               age2_known:
-                check_answer_label: "Person 2’s age known?"
+                check_answer_label: "Person 2’s age"
+                check_answer_prompt: "Enter person 2's age if known"
                 hint_text: ""
                 question_text: "Do you know person 2’s age?"
               age2:
                 check_answer_label: "Person 2’s age"
+                check_answer_prompt: "Enter person 2's age"
                 hint_text: ""
                 question_text: "Age"
 
@@ -115,56 +134,66 @@ en:
             buyer:
               page_header: ""
               check_answer_label: "Buyer 2’s gender identity"
+              check_answer_prompt: ""
               hint_text: "This should be however they personally choose to identify from the options below. This may or may not be the same as their biological sex or the sex they were assigned at birth."
               question_text: "Which of these best describes buyer 2’s gender identity?"
             person:
               page_header: ""
               check_answer_label: "Person 2’s gender identity"
+              check_answer_prompt: ""
               hint_text: "This should be however they personally choose to identify from the options below. This may or may not be the same as their biological sex or the sex they were assigned at birth."
               question_text: "Which of these best describes person 2’s gender identity?"
 
           ethnic_group2:
-              page_header: ""
-              check_answer_label: "Buyer 2’s ethnic group"
-              hint_text: ""
-              question_text: "What is buyer 2’s ethnic group?"
+            page_header: ""
+            check_answer_label: "Buyer 2’s ethnic group"
+            check_answer_prompt: ""
+            hint_text: ""
+            question_text: "What is buyer 2’s ethnic group?"
 
           ethnicbuy2:
             ethnic_background_black:
               page_header: ""
               check_answer_label: "Buyer 2’s ethnic background"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of the following best describes buyer 2’s Black, African, Caribbean or Black British background?"
             ethnic_background_asian:
               page_header: ""
               check_answer_label: "Buyer 2’s ethnic background"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of the following best describes buyer 2’s Asian or Asian British background?"
             ethnic_background_arab:
               page_header: ""
               check_answer_label: "Buyer 2’s ethnic background"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of the following best describes buyer 2’s Arab background?"
             ethnic_background_mixed:
               page_header: ""
               check_answer_label: "Buyer 2’s ethnic background"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of the following best describes buyer 2’s Mixed or Multiple ethnic groups background?"
             ethnic_background_white:
               page_header: ""
               check_answer_label: "Buyer 2’s ethnic background"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of the following best describes buyer 2’s White background?"
 
           nationality_all_buyer2_group:
             page_header: ""
             check_answer_label: "Buyer 2’s nationality"
+            check_answer_prompt: ""
             hint_text: "If buyer 1 is a dual national of the United Kingdom and another country, enter United Kingdom. If they are a dual national of two other countries, the buyer should decide which country to enter."
             question_text: "What is buyer 2’s nationality?"
 
           nationality_all_buyer2:
             page_header: ""
             check_answer_label: "Buyer 2’s nationality"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Enter a nationality"
 
@@ -172,17 +201,20 @@ en:
             buyer:
               page_header: ""
               check_answer_label: "Buyer 2's working situation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of these best describes buyer 2's working situation?"
             person:
               page_header: ""
               check_answer_label: "Person 2’s working situation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which of these best describes person 2’s working situation?"
 
           buy2livein:
             page_header: ""
-            check_answer_label: "Will buyer 2 live in the property?"
+            check_answer_label: "Buyer 2 lives in the property"
+            check_answer_prompt: "Tell us if buyer 2 lives in the property"
             hint_text: ""
             question_text: "Will buyer 2 live in the property?"
 
@@ -190,156 +222,183 @@ en:
             joint_purchase:
               page_header: ""
               check_answer_label: "Number of other people living in the property"
+              check_answer_prompt: ""
               hint_text: "You can provide details for a maximum of 4 other people for a joint purchase."
               question_text: "Besides the buyers, how many other people live or will live in the property?"
             not_joint_purchase:
               page_header: ""
               check_answer_label: "Number of other people living in the property"
+              check_answer_prompt: ""
               hint_text: "You can provide details for a maximum of 5 other people if there is only one buyer."
               question_text: "Besides the buyer, how many other people live or will live in the property?"
 
           details_known_2:
             page_header: ""
             check_answer_label: "Details known for person 2?"
+            check_answer_prompt: "Tell us if you know person 2's details"
             hint_text: ""
             question_text: "Do you know the details for person 2?"
 
           details_known_3:
             page_header: ""
             check_answer_label: "Details known for person 3?"
+            check_answer_prompt: "Tell us if you know person 3's details"
             hint_text: ""
             question_text: "Do you know the details for person 3?"
 
           relat3:
             page_header: ""
             check_answer_label: "Person 3 is the partner of buyer 1"
+            check_answer_prompt: "Tell us if person 3 is the partner of buyer 1"
             hint_text: ""
             question_text: "Is person 3 the partner of buyer 1?"
 
           age3:
             page_header: ""
             age3_known:
-              check_answer_label: "Person 3’s age known?"
+              check_answer_label: "Person 3’s age"
+              check_answer_prompt: "Enter person 3's age if known"
               hint_text: ""
               question_text: "Do you know person 3’s age?"
             age3:
               check_answer_label: "Person 3’s age"
+              check_answer_prompt: "Enter person 3's age"
               hint_text: ""
               question_text: "Age"
 
           sex3:
             page_header: ""
             check_answer_label: "Person 3’s gender identity"
+            check_answer_prompt: ""
             hint_text: "This should be however they personally choose to identify from the options below. This may or may not be the same as their biological sex or the sex they were assigned at birth."
             question_text: "Which of these best describes person 3’s gender identity?"
 
           ecstat3:
             page_header: ""
             check_answer_label: "Person 3’s working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 3’s working situation?"
 
           details_known_4:
             page_header: ""
             check_answer_label: "Details known for person 4?"
+            check_answer_prompt: "Tell us if you know person 4's details"
             hint_text: ""
             question_text: "Do you know the details for person 4?"
 
           relat4:
             page_header: ""
             check_answer_label: "Person 4 is the partner of buyer 1"
+            check_answer_prompt: "Tell us if person 4 is the partner of buyer 1"
             hint_text: ""
             question_text: "Is person 4 the partner of buyer 1?"
 
           age4:
             page_header: ""
             age4_known:
-              check_answer_label: "Person 4’s age known?"
+              check_answer_label: "Person 4’s age"
+              check_answer_prompt: "Enter person 4's age if known"
               hint_text: ""
               question_text: "Do you know person 4’s age?"
             age4:
               check_answer_label: "Person 4’s age"
+              check_answer_prompt: "Enter person 4's age"
               hint_text: ""
               question_text: "Age"
 
           sex4:
             page_header: ""
             check_answer_label: "Person 4’s gender identity"
+            check_answer_prompt: ""
             hint_text: "This should be however they personally choose to identify from the options below. This may or may not be the same as their biological sex or the sex they were assigned at birth."
             question_text: "Which of these best describes person 4’s gender identity?"
 
           ecstat4:
             page_header: ""
             check_answer_label: "Person 4’s working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 4’s working situation?"
 
           details_known_5:
             page_header: ""
             check_answer_label: "Details known for person 5?"
+            check_answer_prompt: "Tell us if you know person 5's details"
             hint_text: ""
             question_text: "Do you know the details for person 5?"
 
           relat5:
             page_header: ""
             check_answer_label: "Person 5 is the partner of buyer 1"
+            check_answer_prompt: "Tell us if person 5 is the partner of buyer 1"
             hint_text: ""
             question_text: "Is person 5 the partner of buyer 1?"
 
           age5:
             page_header: ""
             age5_known:
-              check_answer_label: "Person 5’s age known?"
+              check_answer_label: "Person 5’s age"
+              check_answer_prompt: "Enter person 5's age if known"
               hint_text: ""
               question_text: "Do you know person 5’s age?"
             age5:
               check_answer_label: "Person 5’s age"
+              check_answer_prompt: "Enter person 5's age"
               hint_text: ""
               question_text: "Age"
 
           sex5:
             page_header: ""
             check_answer_label: "Person 5’s gender identity"
+            check_answer_prompt: ""
             hint_text: "This should be however they personally choose to identify from the options below. This may or may not be the same as their biological sex or the sex they were assigned at birth."
             question_text: "Which of these best describes person 5’s gender identity?"
 
           ecstat5:
             page_header: ""
             check_answer_label: "Person 5’s working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 5’s working situation?"
 
           details_known_6:
             page_header: ""
             check_answer_label: "Details known for person 6?"
+            check_answer_prompt: "Tell us if you know person 6's details"
             hint_text: ""
             question_text: "Do you know the details for person 6?"
 
           relat6:
             page_header: ""
             check_answer_label: "Person 6 is the partner of buyer 1"
+            check_answer_prompt: "Tell us if person 6 is the partner of buyer 1"
             hint_text: ""
             question_text: "Is person 6 the partner of buyer 1?"
 
           age6:
             page_header: ""
             age6_known:
-              check_answer_label: "Person 6’s age known?"
+              check_answer_label: "Person 6’s age"
+              check_answer_prompt: "Enter person 6's age if known"
               hint_text: ""
               question_text: "Do you know person 6’s age?"
             age6:
               check_answer_label: "Person 6’s age"
+              check_answer_prompt: "Enter person 6's age"
               hint_text: ""
               question_text: "Age"
 
           sex6:
             page_header: ""
             check_answer_label: "Person 6’s gender identity"
+            check_answer_prompt: ""
             hint_text: "This should be however they personally choose to identify from the options below. This may or may not be the same as their biological sex or the sex they were assigned at birth."
             question_text: "Which of these best describes person 6’s gender identity?"
 
           ecstat6:
             page_header: ""
             check_answer_label: "Person 6’s working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 6’s working situation?"

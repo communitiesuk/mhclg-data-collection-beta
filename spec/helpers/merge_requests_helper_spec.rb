@@ -269,4 +269,26 @@ RSpec.describe MergeRequestsHelper do
       end
     end
   end
+
+  describe "#merge_request_details_prompt" do
+    it "returns the correct message for existing_absorbing_organisation" do
+      expect(helper.merge_request_details_prompt("existing_absorbing_organisation")).to eq("Tell us if absorbing organisation is already active")
+    end
+
+    it "returns the correct message for helpdesk_ticket" do
+      expect(helper.merge_request_details_prompt("helpdesk_ticket")).to eq("Enter helpdesk ticket number")
+    end
+
+    it "returns the correct message for merging_organisations" do
+      expect(helper.merge_request_details_prompt("merging_organisations")).to eq("Add merging organisations")
+    end
+
+    it "returns the correct message for merge_date" do
+      expect(helper.merge_request_details_prompt("merge_date")).to eq("Set merge date")
+    end
+
+    it "returns a default message for an unknown page" do
+      expect(helper.merge_request_details_prompt("unknown_page")).to eq("Enter unknown page")
+    end
+  end
 end

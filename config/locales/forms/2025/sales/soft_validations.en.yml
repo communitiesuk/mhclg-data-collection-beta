@@ -7,6 +7,7 @@ en:
             max:
               page_header: ""
               check_answer_label: "Retirement confirmation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Are you sure this person isn't retired?"
               title_text: "You told us this person is over 66 and not retired."
@@ -14,6 +15,7 @@ en:
             min:
               page_header: ""
               check_answer_label: "Retirement confirmation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Are you sure this person is retired?"
               title_text: "You told us this person is aged %{age} years and retired."
@@ -21,6 +23,7 @@ en:
           old_persons_shared_ownership_value_check:
             page_header: ""
             check_answer_label: "Shared ownership confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this is correct?"
             title_text:
@@ -29,6 +32,7 @@ en:
             informative_text: "At least one buyer must be aged 65 years and over to use this scheme."
           income1_value_check:
             check_answer_label: "Buyer 1 income confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this is correct?"
             ecstat:
@@ -41,6 +45,7 @@ en:
 
           income2_value_check:
             check_answer_label: "Buyer 2 income confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this is correct?"
             ecstat:
@@ -54,6 +59,7 @@ en:
           combined_income_value_check:
             page_header: ""
             check_answer_label: "Combined income confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this is correct?"
             title_text: "You told us the combined income of this household is %{combined_income}. This seems high for this sale type.  Are you sure this is correct?"
@@ -61,6 +67,7 @@ en:
           mortgage_value_check:
             page_header: ""
             check_answer_label: "Mortgage confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure that the mortgage is more than 5 times the income used for the mortgage application?"
             title_text: "You told us that the mortgage amount is %{mortgage}."
@@ -69,6 +76,7 @@ en:
           savings_value_check:
             page_header: ""
             check_answer_label: "Savings confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure the savings are higher than £100,000?"
             joint_purchase:
@@ -81,6 +89,7 @@ en:
           staircase_bought_value_check:
             page_header: ""
             check_answer_label: "Percentage bought confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this is correct?"
             title_text: "You told us that %{percentage}% was bought in this staircasing transaction."
@@ -90,6 +99,7 @@ en:
             joint_purchase:
               page_header: ""
               check_answer_label: "Percentage owned confirmation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text:  "Are you sure?"
               title_text: "You told us that the buyers now own %{stairowned} of the property."
@@ -97,6 +107,7 @@ en:
             not_joint_purchase:
               page_header: ""
               check_answer_label: "Percentage owned confirmation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text:  "Are you sure?"
               title_text: "You told us that the buyer now owns %{stairowned} of the property."
@@ -105,6 +116,7 @@ en:
           hodate_check:
             page_header: ""
             check_answer_label: "Practical completion or handover date check"
+            check_answer_prompt: ""
             hint_text: ""
             question_text:  "Are you sure?"
             title_text: "You told us practical completion or handover date is more than 3 years before sale completion date."
@@ -112,6 +124,7 @@ en:
           value_value_check:
             page_header: ""
             check_answer_label: "Purchase price confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text:  "Are you sure?"
             title_text: "You told us the purchase price is %{value}."
@@ -120,6 +133,7 @@ en:
           shared_ownership_deposit_value_check:
             page_header: ""
             check_answer_label: "Shared ownership deposit confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this is correct?"
             title_text: "You told us that the %{mortgage_deposit_and_discount_error_fields} add up to %{mortgage_deposit_and_discount_total}."
@@ -128,6 +142,7 @@ en:
             joint_purchase:
               page_header: ""
               check_answer_label: "Deposit confirmation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Are you sure that the deposit is this much higher than the buyer's savings?"
               title_text: "You told us the buyers’ deposit was %{deposit} and their savings were %{savings}."
@@ -135,6 +150,7 @@ en:
             not_joint_purchase:
               page_header: ""
               check_answer_label: "Deposit confirmation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Are you sure that the deposit is this much higher than the buyer's savings?"
               title_text: "You told us the buyer’s deposit was %{deposit} and their savings were %{savings}."
@@ -143,6 +159,7 @@ en:
           address_search_value_check:
             page_header: ""
             check_answer_label: ""
+            check_answer_prompt: ""
             hint_text: ""
             question_text: ""
             title_text: "No address found."
@@ -150,7 +167,8 @@ en:
 
           wheel_value_check:
             page_header: ""
-            check_answer_label: "Does anyone in the household use a wheelchair?"
+            check_answer_label: "Household member uses a wheelchair"
+            check_answer_prompt: "Tell us if someone uses a wheelchair"
             hint_text: ""
             question_text: "You told us that someone in the household uses a wheelchair."
             title_text: "You told us that someone in the household uses a wheelchair."
@@ -159,6 +177,7 @@ en:
             buyer1:
               page_header: ""
               check_answer_label: "Buyer live in confirmation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Are you sure this is correct?"
               title_text: "You told us that buyer 1 will not live in the property."
@@ -166,6 +185,7 @@ en:
             buyer2:
               page_header: ""
               check_answer_label: "Buyer live in confirmation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Are you sure this is correct?"
               title_text: "You told us that buyer 2 will not live in the property."
@@ -174,6 +194,7 @@ en:
           student_not_child_value_check:
             page_header: ""
             check_answer_label: "Student not a child confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this person is not a child?"
             title_text: "You told us this person is a student aged between 16 and 19."
@@ -182,6 +203,7 @@ en:
           partner_under_16_value_check:
             page_header: ""
             check_answer_label: "Partner under 16 confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this is correct?"
             title_text: "You told us this person is aged %{age} years and has 'Partner' relationship to buyer 1."
@@ -190,6 +212,7 @@ en:
           multiple_partners_value_check:
             page_header: ""
             check_answer_label: "Multiple partners confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this is correct?"
             title_text: "You told us there are more than 1 persons with 'Partner' relationship to buyer 1."
@@ -198,6 +221,7 @@ en:
           monthly_charges_value_check:
             page_header: ""
             check_answer_label: "Monthly charges confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this is correct?"
             title_text: "You told us that the monthly charges were %{mscharge}."
@@ -206,6 +230,7 @@ en:
           extra_borrowing_value_check:
             page_header: ""
             check_answer_label: "Extra borrowing confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure there is no extra borrowing?"
             title_text: "You told us that the mortgage and deposit total is %{mortgage_and_deposit_total}."
@@ -214,6 +239,7 @@ en:
           percentage_discount_value_check:
             page_header: ""
             check_answer_label: "Percentage discount confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this is correct?"
             title_text: "You told us that the percentage discount is %{discount}."
@@ -222,6 +248,7 @@ en:
           grant_value_check:
             page_header: ""
             check_answer_label: "Grant value confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure? Grants are usually £9,000 - £16,000"
             title_text: "You told us that the grant amount is %{grant}."
@@ -230,6 +257,7 @@ en:
           discounted_sale_value_check:
             page_header: ""
             check_answer_label: "Discounted sale value confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure this is correct?"
             title_text: "Mortgage, deposit, and grant total must equal %{value_with_discount}."
@@ -238,6 +266,7 @@ en:
           deposit_and_mortgage_value_check:
             page_header: ""
             check_answer_label: "Deposit and mortgage against discount confirmation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Are you sure? Mortgage and deposit usually equal or are more than (value - discount)"
             title_text: "You told us the mortgage amount was %{mortgage}, the cash deposit was %{deposit} and the discount was %{discount}."

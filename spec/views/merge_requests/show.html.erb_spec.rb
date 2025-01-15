@@ -24,7 +24,7 @@ RSpec.describe "merge_requests/show.html.erb", type: :view do
 
   it "displays the requester details" do
     expect(rendered).to have_selector("dt", text: "Requester")
-    expect(rendered).to have_selector("dd", text: merge_request.requester&.name || "You didn't answer this question")
+    expect(rendered).to have_selector("dd", text: merge_request.requester&.name || "No answer provided")
   end
 
   it "displays the helpdesk ticket details" do
@@ -32,7 +32,7 @@ RSpec.describe "merge_requests/show.html.erb", type: :view do
     if merge_request.helpdesk_ticket.present?
       expect(rendered).to have_link(merge_request.helpdesk_ticket, href: "https://mhclgdigital.atlassian.net/browse/#{merge_request.helpdesk_ticket}")
     else
-      expect(rendered).to have_selector("dd", text: "You didn't answer this question")
+      expect(rendered).to have_selector("dd", text: "No answer provided")
     end
   end
 
@@ -48,7 +48,7 @@ RSpec.describe "merge_requests/show.html.erb", type: :view do
 
   it "displays the merge date details" do
     expect(rendered).to have_selector("dt", text: "Merge date")
-    expect(rendered).to have_selector("dd", text: merge_request.merge_date || "You didn't answer this question")
+    expect(rendered).to have_selector("dd", text: merge_request.merge_date || "No answer provided")
   end
 
   context "when the merge request is complete" do

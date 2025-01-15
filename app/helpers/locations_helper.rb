@@ -8,6 +8,10 @@ module LocationsHelper
     selection_options(%w[Yes No])
   end
 
+  def location_editable_attributes
+    %w[postcode name units type_of_unit mobility_standards]
+  end
+
   def type_of_units_selection
     selection_options(Location.type_of_units)
   end
@@ -64,8 +68,25 @@ module LocationsHelper
     send("scheme_location_#{attribute}_path", location.scheme, location, referrer: "check_answers", route: params[:route])
   end
 
-  def action_text_helper(attr, location)
-    attr[:value].blank? || (attr[:attribute] == "availability" && location.startdate.blank?) ? "Answer" : "Change"
+  def location_action_text(attr, location)
+    return "" if attr[:value].blank? || (attr[:attribute] == "availability" && location.startdate.blank?)
+
+    "Change"
+  end
+
+  def location_action_link(attr, scheme, location, current_user)
+    return unless LocationPolicy.new(current_user, location).update?
+    return unless current_user.support? && attr[:value].present?
+
+    paths = {
+      "postcode" => scheme_location_postcode_path(scheme, location, referrer: "details"),
+      "name" => scheme_location_name_path(scheme, location, referrer: "details"),
+      "units" => scheme_location_units_path(scheme, location, referrer: "details"),
+      "type_of_unit" => scheme_location_type_of_unit_path(scheme, location, referrer: "details"),
+      "mobility_standards" => scheme_location_mobility_standards_path(scheme, location, referrer: "details"),
+    }
+
+    paths[attr[:attribute]]
   end
 
   def toggle_location_link(location)
@@ -93,6 +114,14 @@ module LocationsHelper
     elsif user.data_coordinator? && user.organisation.parent_organisations.include?(scheme.owning_organisation)
       "This location belongs to your stock owner #{scheme.owning_organisation.name}."
     end
+  end
+
+  def location_details_link_message(attribute)
+    text = lowercase_first_letter(attribute[:name])
+    return "Select #{text}" if %w[local_authority type_of_unit mobility_standards].include?(attribute[:attribute])
+    return "Set #{text}" if attribute[:attribute] == "availability"
+
+    "Enter #{text}"
   end
 
 private

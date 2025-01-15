@@ -6,17 +6,20 @@ en:
           uprn:
             page_header: ""
             uprn_known:
-              check_answer_label: "UPRN known?"
+              check_answer_label: "UPRN known"
+              check_answer_prompt: "Enter UPRN if known"
               hint_text: "The Unique Property Reference Number (UPRN) is a unique number system created by Ordnance Survey and used by housing providers and various industries across the UK. An example UPRN is 10010457355.<br><br>The UPRN may not be the same as the property reference assigned by your organisation.<br><br>If you don’t know the UPRN you can enter the address of the property instead on the next screen."
               question_text: "Do you know the property's UPRN?"
             uprn:
               check_answer_label: "UPRN"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "What is the property's UPRN?"
 
           uprn_confirmed:
             page_header: "We found an address that might be this property"
             check_answer_label: "Is this the right address?"
+            check_answer_prompt: "Tell us if this is the right address"
             hint_text: ""
             question_text: "Is this the property address?"
 
@@ -24,16 +27,19 @@ en:
             page_header: "Find an address"
             address_line1_input:
               check_answer_label: "Find address"
+              check_answer_prompt: "Try find address"
               hint_text: ""
               question_text: "Address line 1"
             postcode_full_input:
               check_answer_label: ""
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Postcode"
 
           uprn_selection:
             page_header: "We found an address that might be this property"
-            check_answer_label: "Select the correct address"
+            check_answer_label: "Select correct address"
+            check_answer_prompt: "Select correct address"
             hint_text: ""
             question_text: "Select the correct address"
 
@@ -41,51 +47,61 @@ en:
             page_header: "Q12 - What is the property's address?"
             address_line1:
               check_answer_label: "Address lines 1 and 2"
+              check_answer_prompt: "Enter address lines 1 and 2"
               hint_text: ""
               question_text: "Address line 1"
             address_line2:
               check_answer_label: ""
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Address line 2 (optional)"
             town_or_city:
               check_answer_label: "Town or city"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Town or city"
             county:
               check_answer_label: "County"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "County (optional)"
             postcode_full:
               check_answer_label: "Postcode"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Postcode"
 
           la:
             page_header: ""
             check_answer_label: "Local authority"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the property’s local authority?"
 
           beds:
             page_header: ""
             check_answer_label: "Number of bedrooms"
+            check_answer_prompt: ""
             hint_text: "A bedsit has 1 bedroom."
             question_text: "How many bedrooms does the property have?"
 
           proptype:
             page_header: ""
             check_answer_label: "Type of unit"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What type of unit is the property?"
 
           builtype:
             page_header: ""
             check_answer_label: "Type of building"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What type of building is the property?"
 
           wchair:
             page_header: ""
             check_answer_label: "Property built or adapted to wheelchair-user standards"
+            check_answer_prompt: "Tell us if the property is built or adapted to wheelchair-user standards"
             hint_text: "This is whether someone who uses a wheelchair is able to make full use of all of the property’s rooms and facilities, including use of both inside and outside space, and entering and exiting the property."
             question_text: "Is the property built or adapted to wheelchair-user standards?"

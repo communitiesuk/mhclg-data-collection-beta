@@ -23,14 +23,16 @@
             <% row.with_key { attr[:name] } %>
             <% if attr[:attribute].eql?("postcode") && @location.is_la_inferred %>
                 <% row.with_value do %>
-                <%= details_html(attr) %>
+                <%= details_html(attr, @location) %>
                 <span class="govuk-!-font-weight-regular app-!-colour-muted"><%= formatted_local_authority_timeline(@location) %></span>
                 <% end %>
             <% else %>
-              <% row.with_value { details_html(attr) } %>
+              <% row.with_value { details_html(attr, @location) if user_can_edit_scheme?(current_user, @scheme) } %>
             <% end %>
-            <% if LocationPolicy.new(current_user, @location).update? %>
-              <% row.with_action(text: action_text_helper(attr, @location), href: location_edit_path(@location, attr[:attribute])) %>
+            <% if LocationPolicy.new(current_user, @location).update? && attr[:value] %>
+              <% row.with_action(text: location_action_text(attr, @location), href: location_edit_path(@location, attr[:attribute])) %>
+            <% else %>
+              <% row.with_action %>
             <% end %>
           <% end %>
         <% end %>

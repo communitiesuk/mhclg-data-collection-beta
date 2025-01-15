@@ -1,0 +1,14 @@
+.app-red-link {
+  @include govuk-typography-common;
+  @include govuk-link-decoration;
+  @include govuk-link-style-text;
+}
+
+.app-red-link:link,
+.app-red-link---no-visited-state:visited {
+  color: govuk-colour("red");
+}
+
+.app-red-link:hover {
+  color: govuk-shade(govuk-colour("red"), 20);
+}

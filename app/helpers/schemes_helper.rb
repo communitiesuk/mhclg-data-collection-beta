@@ -64,10 +64,10 @@ module SchemesHelper
     schemes_csv_download_organisation_path(organisation, search:, download_type:)
   end
 
-  def change_answer_link(scheme, question_id, user)
+  def scheme_edit_path(scheme, question_id, user = nil)
     case question_id
     when "service_name", "sensitive", "scheme_type", "registered_under_care_act", "owning_organisation_id", "arrangement_type"
-      user.support? || !scheme.confirmed? ? scheme_details_path(scheme, referrer: "check-answers") : scheme_edit_name_path(scheme)
+      user&.support? || !scheme.confirmed? ? scheme_details_path(scheme, referrer: "check-answers") : scheme_edit_name_path(scheme)
     when "primary_client_group"
       scheme_primary_client_group_path(scheme, referrer: "check-answers")
     when "has_other_client_group"
@@ -77,6 +77,12 @@ module SchemesHelper
     when "support_type", "intended_stay"
       scheme_support_path(scheme, referrer: "check-answers")
     end
+  end
+
+  def change_link_text(question_id, scheme)
+    return "" if scheme.public_send(question_id).nil?
+
+    "Change"
   end
 
   def scheme_status_hint(scheme)
@@ -99,6 +105,14 @@ module SchemesHelper
     return if organisation.schemes_deduplicated_at.present? && organisation.schemes_deduplicated_at > organisation.absorbed_organisations.map(&:merge_date).max
 
     organisation.owned_schemes.duplicate_sets.any? || organisation.owned_schemes.any? { |scheme| scheme.locations.duplicate_sets.any? }
+  end
+
+  def scheme_details_link_message(attribute)
+    text = lowercase_first_letter(attribute[:name])
+    return "Select #{text}" if %w[primary_client_group secondary_client_group support_type intended_stay].include?(attribute[:id])
+    return "Tell us if it #{text}" if attribute[:id] == "has_other_client_group"
+
+    "Enter #{text}"
   end
 
   def scheme_back_button_path(scheme, current_page)

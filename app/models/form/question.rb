@@ -15,6 +15,7 @@ class Form::Question
     @page = page
     if hsh
       @check_answer_label = hsh["check_answer_label"]
+      @check_answer_prompt = hsh["check_answer_prompt"]
       @header = hsh["header"]
       @top_guidance_partial = hsh["top_guidance_partial"]
       @bottom_guidance_partial = hsh["bottom_guidance_partial"]
@@ -56,6 +57,10 @@ class Form::Question
 
   def check_answer_label
     @check_answer_label ||= I18n.t("forms.#{form.start_date.year}.#{copy_key}.check_answer_label", default: "")
+  end
+
+  def check_answer_prompt
+    @check_answer_prompt || I18n.t("forms.#{form.start_date.year}.#{copy_key}.check_answer_prompt", default: nil).presence || generate_check_answer_prompt
   end
 
   def header
@@ -130,7 +135,7 @@ class Form::Question
   end
 
   def action_text(log, correcting_hard_validation: false)
-    return "Answer" unless displayed_as_answered?(log)
+    return "" unless displayed_as_answered?(log)
 
     correcting_hard_validation ? "Clear" : "Change"
   end
@@ -237,6 +242,14 @@ class Form::Question
   def unanswered_error_message
     question_text = error_display_label.presence || "this question."
     I18n.t("validations.not_answered", question: question_text.downcase)
+  end
+
+  def generate_check_answer_prompt
+    prompt_ending = lowercase_first_letter(error_label.presence || check_answer_label.presence || header.presence || id.humanize) || "this question."
+    return "Select #{prompt_ending}" if %w[checkbox radio select].include?(type)
+    return "Set #{prompt_ending}" if type == "date"
+
+    "Enter #{prompt_ending}"
   end
 
   def suffix_label(log)

@@ -5,13 +5,15 @@ en:
         tenancy_information:
           joint:
             page_header: ""
-            check_answer_label: "Is this a joint tenancy?"
+            check_answer_label: "Joint tenancy"
+            check_answer_prompt: "Tell us if it's a joint tenancy"
             hint_text: ""
             question_text: "Is this a joint tenancy?"
 
           startertenancy:
             page_header: ""
-            check_answer_label: "Is this a starter or introductory tenancy?"
+            check_answer_label: "Starter or introductory tenancy"
+            check_answer_prompt: "Tell us if it's a starter or introductory tenancy"
             hint_text: "This is also known as an ‘introductory period’."
             question_text: "Is this a starter tenancy?"
 
@@ -20,20 +22,24 @@ en:
               page_header: ""
               tenancy:
                 check_answer_label: "Type of main tenancy"
+                check_answer_prompt: ""
                 hint_text: ""
                 question_text: "What is the type of tenancy?"
               tenancyother:
                 check_answer_label: ""
+                check_answer_prompt: ""
                 hint_text: ""
                 question_text: "Please state the tenancy type"
             starter_tenancy_type:
               page_header: ""
               tenancy:
                 check_answer_label: "Type of main tenancy after the starter period has ended"
+                check_answer_prompt: ""
                 hint_text: "This is also known as an ‘introductory period’."
                 question_text: "What is the type of tenancy after the starter period has ended?"
               tenancyother:
                 check_answer_label: ""
+                check_answer_prompt: ""
                 hint_text: ""
                 question_text: "Please state the tenancy type"
 
@@ -41,26 +47,31 @@ en:
             tenancy_length:
               page_header: ""
               check_answer_label: "Length of fixed-term tenancy"
+              check_answer_prompt: ""
               hint_text: "Do not include the starter or introductory period."
               question_text: "What is the length of the fixed-term tenancy to the nearest year?"
             tenancy_length_affordable_rent:
               page_header: ""
               check_answer_label: "Length of fixed-term tenancy"
+              check_answer_prompt: ""
               hint_text: "Do not include the starter or introductory period.</br>The minimum period is 2 years for social or affordable rent general needs logs and you do not need a log for shorter tenancies."
               question_text: "What is the length of the fixed-term tenancy to the nearest year?"
             tenancy_length_intermediate_rent:
               page_header: ""
               check_answer_label: "Length of fixed-term tenancy"
+              check_answer_prompt: ""
               hint_text: "Do not include the starter or introductory period.</br>The minimum period is 1 year for intermediate rent general needs logs and you do not need a log for shorter tenancies."
               question_text: "What is the length of the fixed-term tenancy to the nearest year?"
             tenancy_length_periodic:
               page_header: ""
               check_answer_label: "Length of periodic tenancy"
+              check_answer_prompt: ""
               hint_text: "As this is a periodic tenancy, this question is optional. If you do not have the information available click save and continue"
               question_text: "What is the length of the periodic tenancy to the nearest year?"
 
           sheltered:
             page_header: ""
-            check_answer_label: "Is this letting in sheltered accommodation?"
+            check_answer_label: "Letting in sheltered accommodation"
+            check_answer_prompt: "Tell us if letting is in sheltered accommodation"
             hint_text: "Sheltered housing and special retirement housing are for tenants with low-level care and support needs. This typically provides some limited support to enable independent living, such as alarm-based assistance or a scheme manager.</br></br>Extra care housing is for tenants with medium to high care and support needs, often with 24 hour access to support staff provided by an agency registered with the Care Quality Commission."
             question_text: "Is this letting in sheltered accommodation?"

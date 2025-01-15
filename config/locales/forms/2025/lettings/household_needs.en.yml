@@ -6,30 +6,35 @@ en:
           armedforces:
             page_header: ""
             check_answer_label: "Household links to UK armed forces"
+            check_answer_prompt: "Tell us if there are any household links to UK armed forces"
             hint_text: "This excludes national service.<br><br>If there are several people in the household with links to the UK armed forces, you should answer for the regular. If there’s no regular, answer for the reserve. If there’s no reserve, answer for the spouse or civil partner."
             question_text: "Does anybody in the household have any links to the UK armed forces?"
 
           leftreg:
             page_header: ""
             check_answer_label: "Person still serving in UK armed forces"
+            check_answer_prompt: "Tell us if the person is still serving in UK armed forces"
             hint_text: ""
             question_text: "Is the person still serving in the UK armed forces?"
 
           reservist:
             page_header: ""
             check_answer_label: "Person seriously injured or ill as result of serving in UK armed forces"
+            check_answer_prompt: "Tell us if the person is seriously injured or ill as result of serving in UK armed forces"
             hint_text: ""
             question_text: "Was the person seriously injured or ill as a result of serving in the UK armed forces?"
 
           preg_occ:
             page_header: ""
             check_answer_label: "Anybody in household pregnant"
+            check_answer_prompt: "Tell us if anybody in the household is pregnant"
             hint_text: ""
             question_text: "Is anybody in the household pregnant?"
 
           housingneeds:
             page_header: ""
             check_answer_label: "Anybody with disabled access needs"
+            check_answer_prompt: "Tell us if there is anybody with disabled access needs"
             hint_text: ""
             question_text: "Does anybody in the household have any disabled access needs?"
 
@@ -37,21 +42,25 @@ en:
             page_header: "Disabled access needs"
             housingneeds_type:
               check_answer_label: "Disabled access needs"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "What type of access needs do they have?"
             housingneeds_other:
               check_answer_label: "Other disabled access needs"
+              check_answer_prompt: "Tell us if they have any other disabled access needs"
               hint_text: ""
               question_text: "Do they have any other disabled access needs?"
 
           illness:
             page_header: ""
             check_answer_label: "Anybody in household with physical or mental health condition"
+            check_answer_prompt: "Tell us if anybody in the household has a physical or mental health condition"
             hint_text: ""
             question_text: "Does anybody in the household have a physical or mental health condition (or other illness) expected to last 12 months or more?"
 
           condition_effects:
             page_header: ""
             check_answer_label: "How is person affected by condition or illness"
+            check_answer_prompt: "Select how the person is affected by their condition or illness"
             hint_text: "Select all that apply."
             question_text: "How is the person affected by their condition or illness?"

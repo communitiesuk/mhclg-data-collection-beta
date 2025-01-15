@@ -353,7 +353,7 @@ RSpec.describe "Lettings Log Features" do
             let!(:org_rel2) { create(:organisation_relationship, parent_organisation: support_user.organisation, child_organisation: managing_org2) }
 
             context "and the organisation relationship for the selected managing agent is deleted" do
-              it "doesn't change the CYA page text to be 'You didn't answer this question'" do
+              it "doesn't change the CYA page text to be 'No answer provided'" do
                 visit("/lettings-logs")
                 click_button("Create a new lettings log")
                 click_link("Set up this lettings log")
@@ -499,7 +499,7 @@ RSpec.describe "Lettings Log Features" do
           let!(:org_rel2) { create(:organisation_relationship, child_organisation: user.organisation, parent_organisation: owning_org2) }
 
           context "and the organisation relationship for the selected stock owner is deleted" do
-            it "doesn't change the CYA page text to be 'You didn't answer this question'" do
+            it "doesn't change the CYA page text to be 'No answer provided'" do
               visit("/lettings-logs")
               click_button("Create a new lettings log")
               click_link("Set up this lettings log")

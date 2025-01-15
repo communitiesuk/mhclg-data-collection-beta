@@ -1295,9 +1295,9 @@ RSpec.describe LettingsLogsController, type: :request do
         expect(CGI.unescape_html(response.body)).to include("Not known")
       end
 
-      it "shows `you haven't answered this question` if the question wasn’t answered" do
+      it "shows link to answer question if the question wasn’t answered" do
         get "/lettings-logs/#{id}/income-and-benefits/check-answers"
-        expect(CGI.unescape_html(response.body)).to include("You didn’t answer this question")
+        expect(page).to have_link("Enter income", href: "/lettings-logs/#{id}/net-income?referrer=check_answers_new_answer", class: "govuk-link govuk-link--no-visited-state")
       end
 
       it "does not allow you to change the answers for previous collection year logs" do

@@ -294,7 +294,7 @@ RSpec.describe CheckErrorsController, type: :request do
 
         it "displays correct clear links" do
           expect(page).to have_content("Make sure these answers are correct")
-          expect(page).to have_content("You didn’t answer this question")
+          expect(page).to have_link(lettings_log.form.get_question("hhmemb", lettings_log).check_answer_prompt, href: "/lettings-logs/#{lettings_log.id}/household-members?referrer=check_answers_new_answer", class: "govuk-link govuk-link--no-visited-state")
           expect(page).to have_link("Answer")
           expect(lettings_log.reload.earnings).to eq(nil)
         end
@@ -349,7 +349,7 @@ RSpec.describe CheckErrorsController, type: :request do
 
         it "displays correct clear links" do
           expect(page).to have_content("Make sure these answers are correct")
-          expect(page).to have_content("You didn’t answer this question")
+          expect(page).to have_link(sales_log.form.get_question("income1", sales_log).check_answer_prompt, href: "/sales-logs/#{sales_log.id}/buyer-1-income?referrer=check_answers_new_answer", class: "govuk-link govuk-link--no-visited-state")
           expect(page).to have_link("Answer")
           expect(sales_log.reload.income1).to eq(nil)
         end
@@ -409,7 +409,7 @@ RSpec.describe CheckErrorsController, type: :request do
           follow_redirect!
           expect(request.query_parameters["check_errors"]).to eq("true")
           expect(request.query_parameters["related_question_ids"]).to eq(%w[income1 la ownershipsch])
-          expect(page).to have_content("You have successfully updated Buyer 1’s gross annual income known? and Buyer 1’s gross annual income")
+          expect(page).to have_content("You have successfully updated Buyer 1’s gross annual income known and Buyer 1’s gross annual income")
           expect(page).to have_link("Confirm and continue", href: "/sales-logs/#{sales_log.id}/buyer-1-income")
         end
       end
@@ -440,7 +440,7 @@ RSpec.describe CheckErrorsController, type: :request do
 
         it "correctly clears the values" do
           expect(page).to have_content("Make sure these answers are correct")
-          expect(page).to have_content("You didn’t answer this question")
+          expect(page).to have_link(lettings_log.form.get_question("hhmemb", lettings_log).check_answer_prompt, href: "/lettings-logs/#{lettings_log.id}/household-members?referrer=check_answers_new_answer", class: "govuk-link govuk-link--no-visited-state")
           expect(page.all(:button, value: "Clear").count).to eq(0)
           expect(lettings_log.reload.earnings).to eq(nil)
           expect(lettings_log.reload.incfreq).to eq(nil)
@@ -470,7 +470,7 @@ RSpec.describe CheckErrorsController, type: :request do
 
         it "displays correct clear links" do
           expect(page).to have_content("Make sure these answers are correct")
-          expect(page).to have_content("You didn’t answer this question")
+          expect(page).to have_link(sales_log.form.get_question("income1", sales_log).check_answer_prompt, href: "/sales-logs/#{sales_log.id}/buyer-1-income?referrer=check_answers_new_answer", class: "govuk-link govuk-link--no-visited-state")
           expect(page.all(:button, value: "Clear").count).to eq(0)
           expect(sales_log.reload.income1).to eq(nil)
           expect(sales_log.reload.la).to eq(nil)

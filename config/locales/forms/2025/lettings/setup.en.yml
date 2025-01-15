@@ -6,30 +6,35 @@ en:
           owning_organisation_id:
             page_header: ""
             check_answer_label: "Stock owner"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which organisation owns this property?"
 
           managing_organisation_id:
             page_header: ""
             check_answer_label: "Managing agent"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which organisation manages this letting?"
 
           assigned_to_id:
             page_header: ""
             check_answer_label: "Log owner"
+            check_answer_prompt: "Select user"
             hint_text: ""
             question_text: "Which user are you creating this log for?"
 
           needstype:
             page_header: ""
             check_answer_label: "Needs type"
+            check_answer_prompt: ""
             hint_text: "General needs housing includes both self-contained and shared housing without support or specific adaptations. Supported housing can include direct access hostels, group homes, residential care and nursing homes."
             question_text: "What is the needs type?"
 
           scheme_id:
             page_header: "Scheme"
             check_answer_label: "Scheme name"
+            check_answer_prompt: ""
             hint_text: "Enter postcode or scheme name.<br><br>A supported housing scheme provides shared or self-contained housing for a particular client group, for example younger or vulnerable people."
             question_text: "What scheme is this log for?"
 
@@ -37,23 +42,27 @@ en:
             less_than_twenty:
               page_header: "Location"
               check_answer_label: "Location"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Which location is this letting for?"
             twenty_or_more:
               page_header: "Location"
               check_answer_label: "Location"
+              check_answer_prompt: ""
               hint_text: '<div class="govuk-inset-text">This scheme has 20 or more locations.</div>Enter postcode or address.'
               question_text: "Which location is this letting for?"
 
           renewal:
             page_header: ""
             check_answer_label: "Property renewal"
+            check_answer_prompt: "Tell us if it's a property renewal"
             hint_text: "If the property was previously being used as temporary accommodation, then answer 'no'."
             question_text: "Is this letting a renewal of social housing to the same tenant in the same property?"
 
           startdate:
             page_header: ""
             check_answer_label: "Tenancy start date"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the tenancy start date?"
 
@@ -61,27 +70,32 @@ en:
             page_header: "Rent Type"
             rent_type:
               check_answer_label: "Rent type"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "What is the rent type?"
             irproduct_other:
               check_answer_label: "Product name"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Name of rent product"
 
           tenancycode:
             page_header: ""
             check_answer_label: "Tenant code"
+            check_answer_prompt: ""
             hint_text: "This is how you usually refer to this tenancy on your own systems."
             question_text: "What is the tenant code?"
 
           propcode:
             page_header: ""
             check_answer_label: "Property reference"
+            check_answer_prompt: ""
             hint_text: "This is how you usually refer to this property on your own systems."
             question_text: "What is the property reference?"
 
           declaration:
             page_header: "Ministry of Housing, Communities and Local Government privacy notice"
             check_answer_label: "Tenant has seen the privacy notice"
+            check_answer_prompt: "Tell us if tenant has seen the privacy notice"
             hint_text: ""
             question_text: "Declaration"

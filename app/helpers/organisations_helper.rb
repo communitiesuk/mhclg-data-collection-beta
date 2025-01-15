@@ -54,4 +54,17 @@ module OrganisationsHelper
   def delete_organisation_link(organisation)
     govuk_button_link_to "Delete this organisation", delete_confirmation_organisation_path(organisation), warning: true
   end
+
+  def organisation_action_text(attr, organisation)
+    return "" if attr[:value].blank? || (attr[:attribute] == "phone" && organisation.phone.blank?)
+
+    "Change"
+  end
+
+  def organisation_details_link_message(attribute)
+    text = lowercase_first_letter(attribute[:name])
+    return "Add #{text}" if attribute[:name] == "Rent periods"
+
+    "Enter #{text}"
+  end
 end

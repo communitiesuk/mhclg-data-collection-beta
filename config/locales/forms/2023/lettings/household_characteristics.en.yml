@@ -6,35 +6,41 @@ en:
           declaration:
             page_header: "Ministry of Housing, Communities and Local Government privacy notice"
             check_answer_label: "Tenant has seen the privacy notice"
+            check_answer_prompt: "Tell us if tenant has seen the privacy notice"
             hint_text: ""
             question_text: "Declaration"
 
           hhmemb:
             page_header: ""
             check_answer_label: "Number of household members"
+            check_answer_prompt: "Enter total number of household members"
             hint_text: "You can provide details for a maximum of 8 people."
             question_text: "How many people live in the household for this letting?"
 
           age1:
             page_header: ""
             age1_known:
-              check_answer_label: ""
+              check_answer_label: "Lead tenant's age"
+              check_answer_prompt: "Enter lead tenant's age if known"
               hint_text: "The lead tenant is the person in the household who does the most paid work. If several people do the same paid work, the lead tenant is whoever is the oldest."
               question_text: "Do you know the lead tenant’s age?"
             age1:
               check_answer_label: "Lead tenant’s age"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Age"
 
           sex1:
             page_header: ""
             check_answer_label: "Lead tenant’s gender identity"
+            check_answer_prompt: ""
             hint_text: "The lead tenant is the person in the household who does the most paid work. If several people do the same paid work, the lead tenant is whoever is the oldest."
             question_text: "Which of these best describes the lead tenant’s gender identity?"
 
           ethnic_group:
             page_header: ""
             check_answer_label: "Lead tenant’s ethnic group"
+            check_answer_prompt: ""
             hint_text: "The lead tenant is the person in the household who does the most paid work. If several people do the same paid work, the lead tenant is whoever is the oldest."
             question_text: "What is the lead tenant’s ethnic group?"
 
@@ -42,282 +48,331 @@ en:
             ethnic_background_black:
               page_header: ""
               check_answer_label: "Lead tenant’s ethnic background"
+              check_answer_prompt: ""
               hint_text: "The lead tenant is the person in the household who does the most paid work. If several people do the same paid work, the lead tenant is whoever is the oldest."
               question_text: "Which of the following best describes lead tenant’s Black, African, Caribbean or Black British background?"
             ethnic_background_asian:
               page_header: ""
               check_answer_label: "Lead tenant’s ethnic background"
+              check_answer_prompt: ""
               hint_text: "The lead tenant is the person in the household who does the most paid work. If several people do the same paid work, the lead tenant is whoever is the oldest."
               question_text: "Which of the following best describes lead tenant’s Asian or Asian British background?"
             ethnic_background_arab:
               page_header: ""
               check_answer_label: "Lead tenant’s ethnic background"
+              check_answer_prompt: ""
               hint_text: "The lead tenant is the person in the household who does the most paid work. If several people do the same paid work, the lead tenant is whoever is the oldest."
               question_text: "Which of the following best describes the lead tenant’s Arab background?"
             ethnic_background_mixed:
               page_header: ""
               check_answer_label: "Lead tenant’s ethnic background"
+              check_answer_prompt: ""
               hint_text: "The lead tenant is the person in the household who does the most paid work. If several people do the same paid work, the lead tenant is whoever is the oldest."
               question_text: "Which of the following best describes lead tenant’s Mixed or Multiple ethnic groups background?"
             ethnic_background_white:
               page_header: ""
               check_answer_label: "Lead tenant’s ethnic background"
+              check_answer_prompt: ""
               hint_text: "The lead tenant is the person in the household who does the most paid work. If several people do the same paid work, the lead tenant is whoever is the oldest."
               question_text: "Which of the following best describes lead tenant’s White background?"
 
           national:
             page_header: ""
             check_answer_label: "Lead tenant’s nationality"
+            check_answer_prompt: ""
             hint_text: "The lead tenant is the person in the household who does the most paid work. If several people do the same paid work, the lead tenant is whoever is the oldest."
             question_text: "What is the nationality of the lead tenant?"
 
           ecstat1:
             page_header: ""
             check_answer_label: "Lead tenant’s working situation"
+            check_answer_prompt: ""
             hint_text: "The lead tenant is the person in the household who does the most paid work. If several people do the same paid work, the lead tenant is whoever is the oldest."
             question_text: "Which of these best describes the lead tenant’s working situation?"
 
           details_known_2:
             page_header: "You’ve given us the details for 1 person in the household"
             check_answer_label: "Details known for person 2"
+            check_answer_prompt: "Tell us if you know person 2's details"
             hint_text: "You must provide details for everyone in the household if you know them."
             question_text: "Do you know details for person 2?"
 
           relat2:
             page_header: ""
             check_answer_label: "Person 2’s relationship to the lead tenant"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is person 2’s relationship to the lead tenant?"
 
           age2:
             page_header: ""
             age2_known:
-              check_answer_label: ""
+              check_answer_label: "Person 2’s age"
+              check_answer_prompt: "Enter person 2's age if known"
               hint_text: ""
               question_text: "Do you know person 2’s age?"
             age2:
               check_answer_label: "Person 2’s age"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Age"
 
           sex2:
             page_header: ""
             check_answer_label: "Person 2’s gender identity"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 2’s gender identity?"
 
           ecstat2:
             page_header: ""
             check_answer_label: "Person 2’s working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 2’s working situation?"
 
           details_known_3:
             page_header: "You’ve given us the details for 2 people in the household"
             check_answer_label: "Details known for person 3"
+            check_answer_prompt: "Tell us if you know person 3's details"
             hint_text: "You must provide details for everyone in the household if you know them."
             question_text: "Do you know details for person 3?"
 
           relat3:
             page_header: ""
             check_answer_label: "Person 3’s relationship to the lead tenant"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is person 3’s relationship to the lead tenant?"
 
           age3:
             page_header: ""
             age3_known:
-              check_answer_label: ""
+              check_answer_label: "Person 3’s age"
+              check_answer_prompt: "Enter person 3's age if known"
               hint_text: ""
               question_text: "Do you know person 3’s age?"
             age3:
               check_answer_label: "Person 3’s age"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Age"
 
           sex3:
             page_header: ""
             check_answer_label: "Person 3’s gender identity"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 3’s gender identity?"
 
           ecstat3:
             page_header: ""
             check_answer_label: "Person 3’s working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 3’s working situation?"
 
           details_known_4:
             page_header: "You’ve given us the details for 3 people in the household"
             check_answer_label: "Details known for person 4"
+            check_answer_prompt: "Tell us if you know person 4's details"
             hint_text: "You must provide details for everyone in the household if you know them."
             question_text: "Do you know details for person 4?"
 
           relat4:
             page_header: ""
             check_answer_label: "Person 4’s relationship to the lead tenant"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is person 4’s relationship to the lead tenant?"
 
           age4:
             page_header: ""
             age4_known:
-              check_answer_label: ""
+              check_answer_label: "Person 4’s age"
+              check_answer_prompt: "Enter person 4's age if known"
               hint_text: ""
               question_text: "Do you know person 4’s age?"
             age4:
               check_answer_label: "Person 4’s age"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Age"
 
           sex4:
             page_header: ""
             check_answer_label: "Person 4’s gender identity"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 4’s gender identity?"
 
           ecstat4:
             page_header: ""
             check_answer_label: "Person 4’s working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 4’s working situation?"
 
           details_known_5:
             page_header: "You’ve given us the details for 4 people in the household"
             check_answer_label: "Details known for person 5"
+            check_answer_prompt: "Tell us if you know person 5's details"
             hint_text: "You must provide details for everyone in the household if you know them."
             question_text: "Do you know details for person 5?"
 
           relat5:
             page_header: ""
             check_answer_label: "Person 5’s relationship to the lead tenant"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is person 5’s relationship to the lead tenant?"
 
           age5:
             page_header: ""
             age5_known:
-              check_answer_label: ""
+              check_answer_label: "Person 5’s age"
+              check_answer_prompt: "Enter person 5's age if known"
               hint_text: ""
               question_text: "Do you know person 5’s age?"
             age5:
               check_answer_label: "Person 5’s age"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Age"
 
           sex5:
             page_header: ""
             check_answer_label: "Person 5’s gender identity"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 5’s gender identity?"
 
           ecstat5:
             page_header: ""
             check_answer_label: "Person 5’s working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 5’s working situation?"
 
           details_known_6:
             page_header: "You’ve given us the details for 5 people in the household"
             check_answer_label: "Details known for person 6"
+            check_answer_prompt: "Tell us if you know person 6's details"
             hint_text: "You must provide details for everyone in the household if you know them."
             question_text: "Do you know details for person 6?"
 
           relat6:
             page_header: ""
             check_answer_label: "Person 6’s relationship to the lead tenant"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is person 6’s relationship to the lead tenant?"
 
           age6:
             page_header: ""
             age6_known:
-              check_answer_label: ""
+              check_answer_label: "Person 6’s age"
+              check_answer_prompt: "Enter person 6's age if known"
               hint_text: ""
               question_text: "Do you know person 6’s age?"
             age6:
               check_answer_label: "Person 6’s age"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Age"
 
           sex6:
             page_header: ""
             check_answer_label: "Person 6’s gender identity"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 6’s gender identity?"
 
           ecstat6:
             page_header: ""
             check_answer_label: "Person 6’s working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 6’s working situation?"
 
           details_known_7:
             page_header: "You’ve given us the details for 6 people in the household"
             check_answer_label: "Details known for person 7"
+            check_answer_prompt: "Tell us if you know person 7's details"
             hint_text: "You must provide details for everyone in the household if you know them."
             question_text: "Do you know details for person 7?"
 
           relat7:
             page_header: ""
             check_answer_label: "Person 7’s relationship to the lead tenant"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is person 7’s relationship to the lead tenant?"
 
           age7:
             page_header: ""
             age7_known:
-              check_answer_label: ""
+              check_answer_label: "Person 7’s age"
+              check_answer_prompt: "Enter person 7's age if known"
               hint_text: ""
               question_text: "Do you know person 7’s age?"
             age7:
               check_answer_label: "Person 7’s age"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Age"
 
           sex7:
             page_header: ""
             check_answer_label: "Person 7’s gender identity"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 7’s gender identity?"
 
           ecstat7:
             page_header: ""
             check_answer_label: "Person 7’s working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 7’s working situation?"
 
           details_known_8:
             page_header: "You’ve given us the details for 7 people in the household"
             check_answer_label: "Details known for person 8"
+            check_answer_prompt: "Tell us if you know person 8's details"
             hint_text: "You must provide details for everyone in the household if you know them."
             question_text: "Do you know details for person 8?"
 
           relat8:
             page_header: ""
             check_answer_label: "Person 8’s relationship to the lead tenant"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is person 8’s relationship to the lead tenant?"
 
           age8:
             page_header: ""
             age8_known:
-              check_answer_label: ""
+              check_answer_label: "Person 8’s age"
+              check_answer_prompt: "Enter person 8's age if known"
               hint_text: ""
               question_text: "Do you know person 8’s age?"
             age8:
               check_answer_label: "Person 8’s age"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Age"
 
           sex8:
             page_header: ""
             check_answer_label: "Person 8’s gender identity"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 8’s gender identity?"
 
           ecstat8:
             page_header: ""
             check_answer_label: "Person 8’s working situation"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "Which of these best describes person 8’s working situation?"

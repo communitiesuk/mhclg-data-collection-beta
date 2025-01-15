@@ -6,17 +6,20 @@ en:
           uprn:
             page_header: ""
             uprn_known:
-              check_answer_label: "UPRN known?"
+              check_answer_label: "UPRN known"
+              check_answer_prompt: "Enter UPRN if known"
               hint_text: "The Unique Property Reference Number (UPRN) is a unique number system created by Ordnance Survey and used by housing providers and various industries across the UK. An example UPRN is 10010457355.<br><br>The UPRN may not be the same as the property reference assigned by your organisation.<br><br>If you don’t know the UPRN you can enter the address of the property instead on the next screen."
               question_text: "Do you know the property's UPRN?"
             uprn:
               check_answer_label: "UPRN"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "What is the property's UPRN?"
 
           uprn_confirmed:
             page_header: "We found an address that might be this property"
             check_answer_label: "Is this the right address?"
+            check_answer_prompt: "Tell us if this is the right address"
             hint_text: ""
             question_text: "Is this the property address?"
 
@@ -24,81 +27,96 @@ en:
             page_header: "Q12 - What is the property's address?"
             address_line1:
               check_answer_label: "Address lines 1 and 2"
+              check_answer_prompt: "Enter address lines 1 and 2"
               hint_text: ""
               question_text: "Address line 1"
             address_line2:
               check_answer_label: ""
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Address line 2 (optional)"
             town_or_city:
               check_answer_label: "Town or city"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Town or city"
             county:
               check_answer_label: "County"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "County (optional)"
             postcode_full:
               check_answer_label: "Postcode"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Postcode"
 
           la:
             page_header: ""
             check_answer_label: "Local authority"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the property’s local authority?"
 
           first_time_property_let_as_social_housing:
             page_header: ""
-            check_answer_label: "First time being let as social-housing?"
+            check_answer_label: "First time being let as social housing"
+            check_answer_prompt: "Tell us if it's the first time being let as social housing"
             hint_text: ""
             question_text: "Is this the first time the property has been let as social housing?"
 
           unitletas:
             page_header: ""
             check_answer_label: "Most recent let type"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What type was the property most recently let as?"
 
           rsnvac:
             page_header: ""
             check_answer_label: "Vacancy reason"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the reason for the property being vacant?"
 
           offered:
             page_header: ""
             check_answer_label: "Times previously offered since becoming available."
+            check_answer_prompt: ""
             hint_text: "Do not include the offer that led to this letting. This is after the last tenancy ended. If the property is being offered for let for the first time, enter 0."
             question_text: "How many times was the property offered between becoming vacant and this letting?"
 
           unittype_gn:
             page_header: ""
             check_answer_label: "Type of unit"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What type of unit is the property?"
 
           builtype:
             page_header: ""
             check_answer_label: "Type of building"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What type of building is the property?"
 
           wchair:
             page_header: ""
             check_answer_label: "Property built or adapted to wheelchair-user standards"
+            check_answer_prompt: "Tell us if property is built or adapted to wheelchair-user standards"
             hint_text: ""
             question_text: "Is the property built or adapted to wheelchair-user standards?"
 
           beds:
             page_header: ""
             check_answer_label: "Number of bedrooms"
+            check_answer_prompt: ""
             hint_text: "If shared accommodation, enter the number of bedrooms occupied by this household. A bedsit has 1 bedroom."
             question_text: "How many bedrooms does the property have?"
 
           voiddate:
             page_header: "Void date"
             check_answer_label: "Void date"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the void date?"

@@ -6,17 +6,20 @@ en:
           prevten:
             page_header: ""
             check_answer_label: "Buyer 1’s previous tenure"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What was buyer 1’s previous tenure?"
 
           last_accommodation:
             page_header: ""
             ppcodenk:
-              check_answer_label: "Buyer 1’s last settled accommodation"
+              check_answer_label: "Postcode of buyer 1’s last settled accommodation"
+              check_answer_prompt: "Enter the postcode of the buyer’s last settled accommodation if known"
               hint_text: "This is also known as the household’s 'last settled home'"
               question_text: "Do you know the postcode of buyer 1’s last settled accommodation?"
             ppostcode_full:
               check_answer_label: "Postcode of buyer 1’s last settled accommodation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Postcode"
 
@@ -24,27 +27,32 @@ en:
             page_header: ""
             previous_la_known:
               check_answer_label: "Local authority of buyer 1’s last settled accommodation"
+              check_answer_prompt: "Enter the local authority of the buyer's last settled accommodation if known"
               hint_text: "This is also known as the household’s 'last settled home'"
               question_text: "Do you know the local authority of buyer 1’s last settled accommodation?"
             prevloc:
               check_answer_label: "Local authority of buyer 1’s last settled accommodation"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Select a local authority"
 
           buyers_organisations:
             page_header: ""
             check_answer_label: "Organisations buyers were registered with"
+            check_answer_prompt: ""
             hint_text: "Select all that apply. This question is optional. If no options are applicable, leave the options blank, and select save and continue."
             question_text: "What organisations were the buyers registered with?"
 
           buy2living:
             page_header: ""
             check_answer_label: "Buyer 2 living at the same address"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "At the time of purchase, was buyer 2 living at the same address as buyer 1?"
 
           prevtenbuy2:
             page_header: ""
             check_answer_label: "Buyer 2’s previous tenure"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What was buyer 2’s previous tenure?"

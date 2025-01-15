@@ -5,24 +5,28 @@ en:
         property_information:
           first_time_property_let_as_social_housing:
             page_header: ""
-            check_answer_label: "First time being let as social-housing?"
+            check_answer_label: "First time being let as social housing"
+            check_answer_prompt: "Tell us if it's the first time being let as social housing"
             hint_text: ""
             question_text: "Is this the first time the property has been let as social housing?"
 
           uprn:
             page_header: ""
             uprn_known:
-              check_answer_label: "UPRN known?"
+              check_answer_label: "UPRN known"
+              check_answer_prompt: "Enter UPRN if known"
               hint_text: "The Unique Property Reference Number (UPRN) is a unique number system created by Ordnance Survey and used by housing providers and various industries across the UK. An example UPRN is 10010457355.<br><br>The UPRN may not be the same as the property reference assigned by your organisation.<br><br>If you don’t know the UPRN you can enter the address of the property instead on the next screen."
               question_text: "Do you know the property's UPRN?"
             uprn:
               check_answer_label: "UPRN"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "What is the property's UPRN?"
 
           uprn_confirmed:
             page_header: "We found an address that might be this property"
             check_answer_label: "Is this the right address?"
+            check_answer_prompt: "Tell us if this is the right address"
             hint_text: ""
             question_text: "Is this the property address?"
 
@@ -30,16 +34,19 @@ en:
             page_header: "Find an address"
             address_line1_input:
               check_answer_label: "Find address"
+              check_answer_prompt: "Try find address"
               hint_text: ""
               question_text: "Address line 1"
             postcode_full_input:
               check_answer_label: ""
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Postcode"
 
           uprn_selection:
             page_header: "We found an address that might be this property"
-            check_answer_label: "Select the correct address"
+            check_answer_label: "Select correct address"
+            check_answer_prompt: "Select correct address"
             hint_text: ""
             question_text: "Select the correct address"
 
@@ -47,71 +54,83 @@ en:
             page_header: "Q12 - What is the property's address?"
             address_line1:
               check_answer_label: "Address lines 1 and 2"
+              check_answer_prompt: "Enter address lines 1 and 2"
               hint_text: ""
               question_text: "Address line 1"
             address_line2:
               check_answer_label: ""
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Address line 2 (optional)"
             town_or_city:
               check_answer_label: "Town or city"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Town or city"
             county:
               check_answer_label: "County"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "County (optional)"
             postcode_full:
               check_answer_label: "Postcode"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Postcode"
 
           la:
             page_header: ""
             check_answer_label: "Local authority"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the property’s local authority?"
-
 
           unitletas:
             page_header: ""
             check_answer_label: "Most recent let type"
+            check_answer_prompt: ""
             hint_text: "This is the rent type of the previous tenancy in this property."
             question_text: "What type was the property most recently let as?"
 
           rsnvac:
             page_header: ""
             check_answer_label: "Vacancy reason"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the reason for the property being vacant?"
 
           unittype_gn:
             page_header: ""
             check_answer_label: "Type of unit"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What type of unit is the property?"
 
           builtype:
             page_header: ""
             check_answer_label: "Type of building"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What type of building is the property?"
 
           wchair:
             page_header: ""
             check_answer_label: "Property built or adapted to wheelchair-user standards"
+            check_answer_prompt: "Tell us if the property is built or adapted to wheelchair-user standards"
             hint_text: "This is whether someone who uses a wheelchair is able to make full use of all of the property’s rooms and facilities, including use of both inside and outside space, and entering and exiting the property."
             question_text: "Is the property built or adapted to wheelchair-user standards?"
 
           beds:
             page_header: ""
             check_answer_label: "Number of bedrooms"
+            check_answer_prompt: ""
             hint_text: "If shared accommodation, enter the number of bedrooms occupied by this household."
             question_text: "How many bedrooms does the property have?"
 
           voiddate:
             page_header: "Void date"
             check_answer_label: "Void date"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the void date?"
 
@@ -119,9 +138,11 @@ en:
             page_header: ""
             majorrepairs:
               check_answer_label: "Major repairs carried out during void period"
+              check_answer_prompt: ""
               hint_text: "Major repairs are works that could not be reasonably carried out with a tenant living at the property. For example, structural repairs."
               question_text: "Were any major repairs carried out during the void period?"
             mrcdate:
               check_answer_label: "Completion date of repairs"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "When were the repairs completed?"

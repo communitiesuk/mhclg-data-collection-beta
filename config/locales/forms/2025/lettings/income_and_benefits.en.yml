@@ -5,7 +5,8 @@ en:
         income_and_benefits:
           net_income_known:
             page_header: "Household’s combined income after tax"
-            check_answer_label: "Do you know the household’s combined total income after tax?"
+            check_answer_label: "Household’s combined total income after tax"
+            check_answer_prompt: "Tell us if you know the household’s combined total income after tax"
             hint_text: ""
             question_text: "Do you know the household’s combined income after tax?"
 
@@ -13,34 +14,40 @@ en:
             page_header: "Total household income"
             incfreq:
               check_answer_label: "How often does the household receive this amount?"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "How often does the household receive this amount?"
             earnings:
               check_answer_label: "Total household income"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "How much income does the household have in total?"
 
           hb:
             page_header: ""
             check_answer_label: "Housing-related benefits received"
+            check_answer_prompt: "Tell us if household receives housing-related benefits"
             hint_text: "This is about when the tenant is in their new let. If they are unsure about the situation for their new let and their financial and working situation hasn’t changed significantly, answer based on what housing-related benefits they currently receive."
             question_text: "Is the household likely to be receiving any of these housing-related benefits?"
 
           benefits:
             page_header: ""
             check_answer_label: "Household income from Universal Credit, state pension or benefit"
+            check_answer_prompt: "Tell us if household income is from Universal Credit, state pension or benefit"
             hint_text: "This excludes child and housing benefit, council tax support and tax credits."
             question_text: "How much of the household’s income is from Universal Credit, state pensions or benefits?"
 
           household_charge:
             page_header: ""
             check_answer_label: "Does the household pay rent or charges"
+            check_answer_prompt: "Tell us if the household pay rent or charges"
             hint_text: "If rent is charged on the property then answer Yes to this question, even if the tenants do not pay it themselves."
             question_text: "Does the household pay rent or other charges for the accommodation?"
 
           period:
             page_header: ""
             check_answer_label: "Frequency of household rent and charges"
+            check_answer_prompt: ""
             hint_text: "Select how often the household is charged. This may be different to how often they pay."
             question_text: "How often does the household pay rent and other charges?"
 
@@ -48,22 +55,27 @@ en:
             page_header: ""
             is_carehome:
               check_answer_label: "Care home accommodation"
+              check_answer_prompt: "Tell us if care home accommodation"
               hint_text: ""
               question_text: "Is this accommodation a care home?"
             chcharge_weekly:
               check_answer_label: "Care home charges"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "How much does the household pay every week?"
             chcharge_bi_weekly:
               check_answer_label: "Care home charges"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "How much does the household pay every 2 weeks?"
             chcharge_4_weekly:
               check_answer_label: "Care home charges"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "How much does the household pay every 4 weeks?"
             chcharge_monthly:
               check_answer_label: "Care home charges"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "How much does the household pay every month?"
 
@@ -71,38 +83,46 @@ en:
             page_header: "Household rent and charges"
             brent:
               check_answer_label: "Basic rent"
+              check_answer_prompt: ""
               hint_text: "This is the amount paid before any charges are added for services (for example, hot water or cleaning). Households may receive housing benefit or Universal Credit towards basic rent."
               question_text: "What is the basic rent?"
             scharge:
               check_answer_label: "Service charge"
+              check_answer_prompt: ""
               hint_text: "For example, for cleaning. Households may receive housing benefit or Universal Credit towards the service charge."
               question_text: "What is the service charge?"
             pscharge:
               check_answer_label: "Personal service charge"
+              check_answer_prompt: ""
               hint_text: "For example, for heating or hot water. This doesn’t include housing benefit or Universal Credit."
               question_text: "What is the personal service charge?"
             supcharg:
               check_answer_label: "Support charge"
+              check_answer_prompt: ""
               hint_text: "Any charges made to fund support services included in tenancy agreement."
               question_text: "What is the support charge?"
             tcharge:
               check_answer_label: "Household rent and charges"
+              check_answer_prompt: ""
               hint_text: "This is the total for rent and all charges."
               question_text: "Total charge"
 
           hbrentshortfall:
             page_header: ""
             check_answer_label: "Any outstanding amount for basic rent and charges"
+            check_answer_prompt: "Tell us if any outstanding amount for basic rent and charges"
             hint_text: "Also known as the ‘outstanding amount’."
             question_text: "After the household has received any housing-related benefits, will they still need to pay for rent and charges?"
 
           outstanding_amount:
             page_header: ""
             tshortfall_known:
-              check_answer_label: "Do you know the outstanding amount?"
+              check_answer_label: "Outstanding amount known"
+              check_answer_prompt: "Tell us if you know the outstanding amount"
               hint_text: "You only need to give an approximate figure."
               question_text: "Can you estimate the outstanding amount?"
             tshortfall:
               check_answer_label: "Estimated outstanding amount"
+              check_answer_prompt: ""
               hint_text: "Also known as the ‘outstanding amount’."
               question_text: "Estimated outstanding amount"

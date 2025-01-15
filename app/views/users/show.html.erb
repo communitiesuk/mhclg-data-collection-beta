@@ -52,9 +52,14 @@
 
       <%= summary_list.with_row do |row|
             row.with_key { "Telephone number" }
-            row.with_value { @user.phone_with_extension }
-            if UserPolicy.new(current_user, @user).edit_telephone_numbers?
-              row.with_action(visually_hidden_text: "telephone number", href: aliased_user_edit(@user, current_user), html_attributes: { "data-qa": "change-telephone-number" })
+            row.with_value { user_details_html(@user, current_user, "phone") }
+            if UserPolicy.new(current_user, @user).edit_telephone_numbers? && @user.phone.present?
+              row.with_action(
+                text: user_action_text(@user, "phone"),
+                visually_hidden_text: "telephone number",
+                href: aliased_user_edit(@user, current_user),
+                html_attributes: { "data-qa": "change-telephone-number" },
+              )
             else
               row.with_action
             end
@@ -90,9 +95,10 @@
 
       <%= summary_list.with_row do |row|
             row.with_key { "Role" }
-            row.with_value { @user.role&.humanize }
-            if UserPolicy.new(current_user, @user).edit_roles?
+            row.with_value { user_details_html(@user, current_user, "role") }
+            if UserPolicy.new(current_user, @user).edit_roles? && @user.role
               row.with_action(
+                text: user_action_text(@user, "role"),
                 visually_hidden_text: "role",
                 href: aliased_user_edit(@user, current_user),
                 html_attributes: { "data-qa": "change-role" },

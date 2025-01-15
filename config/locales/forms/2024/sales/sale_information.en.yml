@@ -8,69 +8,82 @@ en:
               page_header: ""
               proplen:
                 check_answer_label: "Number of years living in the property before purchase"
+                check_answer_prompt: ""
                 hint_text: "You should round up to the nearest year"
                 question_text: "How long did they live there?"
               proplen_asked:
                 check_answer_label: "Buyers lived in the property before purchasing"
+                check_answer_prompt: "Tell us if buyers lived in the property before purchase"
                 hint_text: ""
                 question_text: "Did the buyers live in the property before purchasing it?"
             not_joint_purchase:
               page_header: ""
               proplen:
                 check_answer_label: "Number of years living in the property before purchase"
+                check_answer_prompt: ""
                 hint_text: "You should round up to the nearest year"
                 question_text: "How long did they live there?"
               proplen_asked:
                 check_answer_label: "Buyer lived in the property before purchasing"
+                check_answer_prompt: "Tell us if the buyer lived in the property before purchasing"
                 hint_text: ""
                 question_text: "Did the buyer live in the property before purchasing it?"
 
           staircasing:
             page_header: ""
             check_answer_label: "Staircasing transaction"
+            check_answer_prompt: "Tell us if it's a staircasing transaction"
             hint_text: "A staircasing transaction is when the household purchases more shares in their property, increasing the proportion they own and decreasing the proportion the housing association owns. Once the household purchases 100% of the shares, they own the property."
             question_text: "Is this a staircasing transaction?"
           about_staircasing:
-              page_header: "About the staircasing transaction"
-              stairbought:
-                check_answer_label: "Percentage bought in this staircasing transaction"
+            page_header: "About the staircasing transaction"
+            stairbought:
+              check_answer_label: "Percentage bought in this staircasing transaction"
+              check_answer_prompt: ""
+              hint_text: ""
+              question_text: "What percentage of the property has been bought in this staircasing transaction?"
+            stairowned:
+              joint_purchase:
+                check_answer_label: "Percentage the buyers now own in total"
+                check_answer_prompt: ""
                 hint_text: ""
-                question_text: "What percentage of the property has been bought in this staircasing transaction?"
-              stairowned:
-                joint_purchase:
-                  check_answer_label: "Percentage the buyers now own in total"
-                  hint_text: ""
-                  question_text: "What percentage of the property do the buyers now own in total?"
-                not_joint_purchase:
-                  check_answer_label: "Percentage the buyer now owns in total"
-                  hint_text: ""
-                  question_text: "What percentage of the property does the buyer now own in total?"
-              staircasesale:
-                check_answer_label: "Part of a back-to-back staircasing transaction"
+                question_text: "What percentage of the property do the buyers now own in total?"
+              not_joint_purchase:
+                check_answer_label: "Percentage the buyer now owns in total"
+                check_answer_prompt: ""
                 hint_text: ""
-                question_text: "Is this transaction part of a back-to-back staircasing transaction to facilitate sale of the home on the open market?"
+                question_text: "What percentage of the property does the buyer now own in total?"
+            staircasesale:
+              check_answer_label: "Part of a back-to-back staircasing transaction"
+              check_answer_prompt: ""
+              hint_text: ""
+              question_text: "Is this transaction part of a back-to-back staircasing transaction to facilitate sale of the home on the open market?"
 
           resale:
             page_header: ""
             check_answer_label: "Is this a resale?"
+            check_answer_prompt: ""
             hint_text: "If the social landlord has previously sold the property to another buyer and is now reselling the property, select 'yes'. If this is the first time the property has been sold, select 'no'."
             question_text: "Is this a resale?"
 
           exchange_date:
             page_header: ""
             check_answer_label: "Exchange of contracts date"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the exchange of contracts date?"
 
           handover_date:
             page_header: ""
             check_answer_label: "Practical completion or handover date"
+            check_answer_prompt: ""
             hint_text: "This is the date on which the building contractor hands over responsibility for the completed property to the private registered provider (PRP)"
             question_text: "What is the practical completion or handover date?"
 
           la_nominations:
             page_header: ""
-            check_answer_label: "Household rehoused under a local authority nominations agreement?"
+            check_answer_label: "Household rehoused under a local authority nominations agreement"
+            check_answer_prompt: "Tell us if household rehoused under a local authority nominations agreement"
             hint_text: "A local authority nominations agreement is a written agreement between a local authority and private registered provider (PRP) that some or all of its sales vacancies are offered to local authorities for rehousing"
             question_text: "Was the household rehoused under a 'local authority nominations agreement'?"
 
@@ -78,106 +91,124 @@ en:
             joint_purchase:
               page_header: ""
               check_answer_label: "Any buyers were registered providers, housing association or local authority tenants immediately before this sale?"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Were any of the buyers private registered providers, housing association or local authority tenants immediately before this sale?"
             not_joint_purchase:
               page_header: ""
               check_answer_label: "Buyer was a registered provider, housing association or local authority tenant immediately before this sale?"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Was the buyer a private registered provider, housing association or local authority tenant immediately before this sale?"
 
           frombeds:
             page_header: ""
             check_answer_label: "Number of bedrooms in previous property"
+            check_answer_prompt: ""
             hint_text: "A bedsit has 1 bedroom."
             question_text: "How many bedrooms did the property have?"
 
           fromprop:
             page_header: ""
             check_answer_label: "Previous property type"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What was the previous property type?"
 
           socprevten:
             page_header: ""
             check_answer_label: "Previous property tenure"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What was the previous tenure of the buyer?"
 
           value:
             page_header: "About the price of the property"
             check_answer_label: "Full purchase price"
+            check_answer_prompt: ""
             hint_text: "Enter the full purchase price of the property before any discounts are applied. For shared ownership, enter the full purchase price paid for 100% equity (this is equal to the value of the share owned by the PRP plus the value bought by the purchaser)"
             question_text: "What was the full purchase price?"
 
           equity:
             page_header: "About the price of the property"
             check_answer_label: "Initial percentage equity stake"
+            check_answer_prompt: ""
             hint_text: "Enter the amount of initial equity held by the purchaser (for example, 25% or 50%)"
             question_text: "What was the initial percentage equity stake purchased?"
 
           mortgageused:
             page_header: ""
             check_answer_label: "Mortgage used"
+            check_answer_prompt: "Tell us if a mortgage was used"
             hint_text: ""
             question_text: "Was a mortgage used for the purchase of this property?"
 
           mortgage:
             page_header: ""
             check_answer_label: "Mortgage amount"
+            check_answer_prompt: ""
             hint_text: "Enter the amount of mortgage agreed with the mortgage lender. Exclude any deposits or cash payments. Numeric in pounds. Rounded to the nearest pound."
             question_text: "What is the mortgage amount?"
 
           mortgagelender:
             page_header: ""
             check_answer_label: "Mortgage lender"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the name of the mortgage lender?"
 
           mortgagelenderother:
             page_header: ""
             check_answer_label: "Other Mortgage Lender"
+            check_answer_prompt: ""
             hint_text: ""
             question_text: "What is the other mortgage lender?"
 
           mortlen:
             page_header: ""
             check_answer_label: "Length of mortgage"
+            check_answer_prompt: ""
             hint_text: "You should round up to the nearest year. Value should not exceed 60 years."
             question_text: "What is the length of the mortgage?"
 
           extrabor:
             page_header: ""
-            check_answer_label: "Any other borrowing?"
+            check_answer_label: "Any other borrowing"
+            check_answer_prompt: "Tell us if there is any other borrowing"
             hint_text: ""
             question_text: "Does this include any extra borrowing?"
 
           deposit:
             page_header: "About the deposit"
             check_answer_label: "Deposit amount"
+            check_answer_prompt: ""
             hint_text: "Enter the total cash sum paid by the buyer towards the property that was not funded by the mortgage. This excludes any grant or loan. As this is a fully staircased sale this question is optional. If you do not have the information available click save and continue"
             question_text: "How much cash deposit was paid on the property?"
 
           cashdis:
             page_header: "About the deposit"
             check_answer_label: "Cash discount through SocialHomeBuy"
+            check_answer_prompt: ""
             hint_text: "Enter the total cash discount given on the property being purchased through the Social HomeBuy scheme"
             question_text: "How much cash discount was given through Social HomeBuy?"
 
           mrent:
             page_header: ""
             check_answer_label: "Monthly rent"
+            check_answer_prompt: ""
             hint_text: "Amount paid before any charges"
             question_text: "What is the basic monthly rent?"
 
           leaseholdcharges:
             page_header: ""
             has_mscharge:
-              check_answer_label: "Does the property have any monthly leasehold charges?"
+              check_answer_label: "Property has monthly leasehold charges"
+              check_answer_prompt: "Tell us if the property has any monthly leasehold charges"
               hint_text: "For example, service and management charges"
               question_text: "Does the property have any monthly leasehold charges?"
             mscharge:
               check_answer_label:  "Monthly leasehold charges"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "Enter the total monthly charge"
 
@@ -185,23 +216,26 @@ en:
             discounted_ownership:
               page_header: "About the price of the property"
               check_answer_label: "Purchase price"
+              check_answer_prompt: ""
               hint_text: "For all schemes, including Right to Acquire (RTA), Right to Buy (RTB), Voluntary Right to Buy (VRTB) or Preserved Right to Buy (PRTB) sales, enter the full price of the property without any discount"
               question_text: "What is the full purchase price?"
             outright_sale:
               page_header: "About the price of the property"
               check_answer_label: "Purchase price"
+              check_answer_prompt: ""
               hint_text: ""
               question_text: "What is the full purchase price?"
 
           discount:
             page_header: "About the price of the property"
             check_answer_label: "Percentage discount"
+            check_answer_prompt: ""
             hint_text: "For Right to Buy (RTB), Preserved Right to Buy (PRTB), and Voluntary Right to Buy (VRTB)</br></br>If discount capped, enter capped %</br></br>If the property is being sold to an existing tenant under the RTB, PRTB, or VRTB schemes, enter the % discount from the full market value that is being given."
             question_text: "What was the percentage discount?"
 
           grant:
             page_header: "About the price of the property"
             check_answer_label: "Amount of any loan, grant or subsidy"
+            check_answer_prompt: ""
             hint_text: "For all schemes except Right to Buy (RTB), Preserved Right to Buy (PRTB), Voluntary Right to Buy (VRTB) and Rent to Buy"
             question_text: "What was the amount of any loan, grant, discount or subsidy given?"
-

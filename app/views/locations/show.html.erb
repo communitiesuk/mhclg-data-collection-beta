@@ -27,18 +27,14 @@
               <% end %>
             <% elsif attr[:attribute].eql?("postcode") && @location.is_la_inferred %>
               <% row.with_value do %>
-                <%= details_html(attr) %>
+                <%= details_html(attr, @location) %>
                 <span class="govuk-!-font-weight-regular app-!-colour-muted"><%= formatted_local_authority_timeline(@location) %></span>
               <% end %>
             <% else %>
-              <%= row.with_value { details_html(attr) } %>
+              <%= row.with_value { details_html(attr, @location) } %>
             <% end %>
             <% if LocationPolicy.new(current_user, @location).update? %>
-              <% row.with_action(text: "Change", href: scheme_location_postcode_path(@scheme, @location, referrer: "details")) if attr[:attribute] == "postcode" && current_user.support? %>
-              <% row.with_action(text: "Change", href: scheme_location_name_path(@scheme, @location, referrer: "details")) if attr[:attribute] == "name" %>
-              <% row.with_action(text: "Change", href: scheme_location_units_path(@scheme, @location, referrer: "details")) if attr[:attribute] == "units" && current_user.support? %>
-              <% row.with_action(text: "Change", href: scheme_location_type_of_unit_path(@scheme, @location, referrer: "details")) if attr[:attribute] == "type_of_unit" && current_user.support? %>
-              <% row.with_action(text: "Change", href: scheme_location_mobility_standards_path(@scheme, @location, referrer: "details")) if attr[:attribute] == "mobility_standards" && current_user.support? %>
+              <%= row.with_action(text: "Change", href: location_action_link(attr, @scheme, @location, current_user)) if location_editable_attributes.include?(attr[:attribute]) %>
             <% end %>
           <% end %>
         <% end %>
