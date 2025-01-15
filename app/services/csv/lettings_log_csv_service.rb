@@ -249,6 +249,7 @@ module Csv
       "letting_allocation_unknown" => %w[letting_allocation_none],
     }.freeze
 
+    
     ORDERED_ADDRESS_FIELDS = %w[uprn address_line1 address_line2 town_or_city county postcode_full is_la_inferred la_label la uprn_known uprn_selection address_search_value_check address_line1_input postcode_full_input address_line1_as_entered address_line2_as_entered town_or_city_as_entered county_as_entered postcode_full_as_entered la_as_entered].freeze
 
     SUPPORT_ONLY_ATTRIBUTES = %w[postcode_known is_la_inferred totchild totelder totadult net_income_known previous_la_known is_previous_la_inferred age1_known age2_known age3_known age4_known age5_known age6_known age7_known age8_known details_known_2 details_known_3 details_known_4 details_known_5 details_known_6 details_known_7 details_known_8 wrent wscharge wpschrge wsupchrg wtcharge wtshortfall old_form_id old_id tshortfall_known hhtype la prevloc updated_by_id uprn_confirmed address_line1_input postcode_full_input uprn_selection address_line1_as_entered address_line2_as_entered town_or_city_as_entered county_as_entered postcode_full_as_entered la_as_entered created_by].freeze
