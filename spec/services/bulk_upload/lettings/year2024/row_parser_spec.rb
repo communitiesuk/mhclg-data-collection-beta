@@ -1769,21 +1769,23 @@ RSpec.describe BulkUpload::Lettings::Year2024::RowParser do
         end
 
         context "when it is a new build" do
-          let(:attributes) { setup_section_params.merge({ 
-            field_24: "15",
-            field_17: "Address line 1",
-            field_18: "Address line 2",
-            field_19: "Town or city",
-            field_20: "County",
-            field_21: "DS1",
-            field_22: "1AA",
-            field_23: "E09000008",
-            }) }
+          let(:attributes) do
+            setup_section_params.merge({
+              field_24: "15",
+              field_17: "Address line 1",
+              field_18: "Address line 2",
+              field_19: "Town or city",
+              field_20: "County",
+              field_21: "DS1",
+              field_22: "1AA",
+              field_23: "E09000008",
+            })
+          end
 
           it "sets manual address entry fields" do
             stub_request(:get, /api\.postcodes\.io/)
             .to_return(status: 200, body: "{\"status\":200,\"result\":{}", headers: {})
-      
+
             parser.valid?
             expect(parser.log.select_best_address_match).to be_nil
             expect(parser.log.uprn_selection).to eq("uprn_not_listed")
