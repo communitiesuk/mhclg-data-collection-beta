@@ -17,9 +17,13 @@ RSpec.describe Exports::SalesLogExportService do
 
   def replace_entity_ids(sales_log, export_template)
     export_template.sub!(/\{owning_org_id\}/, sales_log["owning_organisation_id"].to_s)
+    export_template.sub!(/\{owning_org_name\}/, sales_log.owning_organisation.name.to_s)
     export_template.sub!(/\{managing_org_id\}/, sales_log["managing_organisation_id"].to_s)
+    export_template.sub!(/\{managing_org_name\}/, sales_log.managing_organisation.name.to_s)
     export_template.sub!(/\{assigned_to_id\}/, sales_log["assigned_to_id"].to_s)
+    export_template.sub!(/\{assigned_to_email\}/, sales_log.assigned_to&.email.to_s)
     export_template.sub!(/\{created_by_id\}/, sales_log["created_by_id"].to_s)
+    export_template.sub!(/\{created_by_email\}/, sales_log.created_by&.email.to_s)
     export_template.sub!(/\{id\}/, sales_log["id"].to_s)
   end
 

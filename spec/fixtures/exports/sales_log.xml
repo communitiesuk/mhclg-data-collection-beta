@@ -3,66 +3,38 @@
   <form>
     <id>{id}</id>
     <status>1</status>
-    <saledate>2026-03-01 00:00:00 UTC</saledate>
-    <created_at>2026-03-01 00:00:00 UTC</created_at>
-    <updated_at>2026-03-01 00:00:00 UTC</updated_at>
-    <owning_organisation_id>{owning_org_id}</owning_organisation_id>
-    <assigned_to_id>{assigned_to_id}</assigned_to_id>
     <purchid>123</purchid>
     <type>8</type>
-    <ownershipsch>2</ownershipsch>
-    <othtype/>
     <jointmore>1</jointmore>
-    <jointpur>1</jointpur>
     <beds>2</beds>
-    <companybuy/>
     <age1>27</age1>
-    <age1_known>0</age1_known>
     <sex1>F</sex1>
     <ethnic>17</ethnic>
-    <ethnic_group>17</ethnic_group>
-    <buy1livein>1</buy1livein>
-    <buylivein/>
     <builtype>1</builtype>
     <proptype>1</proptype>
     <age2>33</age2>
-    <age2_known>0</age2_known>
     <relat2>P</relat2>
     <sex2>X</sex2>
     <noint>2</noint>
-    <buy2livein>1</buy2livein>
     <ecstat2>1</ecstat2>
     <privacynotice>1</privacynotice>
     <ecstat1>1</ecstat1>
     <wheel>1</wheel>
     <hholdcount>4</hholdcount>
     <age3>14</age3>
-    <age3_known>0</age3_known>
     <la>E09000033</la>
-    <la_known>1</la_known>
     <income1>10000</income1>
-    <income1nk>0</income1nk>
-    <details_known_2/>
-    <details_known_3>1</details_known_3>
-    <details_known_4>1</details_known_4>
     <age4>18</age4>
-    <age4_known>0</age4_known>
     <age5>40</age5>
-    <age5_known>0</age5_known>
     <age6>40</age6>
-    <age6_known>0</age6_known>
     <inc1mort>1</inc1mort>
     <income2>10000</income2>
-    <income2nk>0</income2nk>
     <savingsnk>1</savingsnk>
     <savings/>
     <prevown>1</prevown>
     <sex3>F</sex3>
-    <updated_by_id/>
-    <income1_value_check/>
     <mortgage>20000.0</mortgage>
     <inc2mort>1</inc2mort>
-    <mortgage_value_check/>
     <ecstat3>9</ecstat3>
     <ecstat4>3</ecstat4>
     <ecstat5>2</ecstat5>
@@ -75,133 +47,107 @@
     <sex4>X</sex4>
     <sex5>M</sex5>
     <sex6>X</sex6>
-    <savings_value_check/>
-    <deposit_value_check/>
     <frombeds/>
     <staircase/>
     <stairbought/>
     <stairowned/>
     <mrent/>
-    <exdate/>
-    <exday/>
-    <exmonth/>
-    <exyear/>
     <resale/>
     <deposit>80000.0</deposit>
     <cashdis/>
     <disabled>1</disabled>
-    <lanomagr/>
-    <wheel_value_check/>
-    <soctenant/>
     <value>110000.0</value>
     <equity/>
     <discount/>
     <grant>10000.0</grant>
-    <pregyrha>1</pregyrha>
-    <pregla>1</pregla>
-    <pregghb>1</pregghb>
-    <pregother>1</pregother>
-    <ppostcode_full>SW1A 1AA</ppostcode_full>
-    <is_previous_la_inferred>true</is_previous_la_inferred>
     <ppcodenk>0</ppcodenk>
     <ppostc1>SW1A</ppostc1>
     <ppostc2>1AA</ppostc2>
     <prevloc>E09000033</prevloc>
-    <previous_la_known>1</previous_la_known>
     <hhregres>7</hhregres>
     <hhregresstill/>
     <proplen/>
-    <has_mscharge>1</has_mscharge>
     <mscharge>100.0</mscharge>
     <prevten>1</prevten>
     <mortgageused>1</mortgageused>
     <wchair>1</wchair>
-    <income2_value_check/>
     <armedforcesspouse>5</armedforcesspouse>
-    <hodate/>
     <hoday/>
     <homonth/>
     <hoyear/>
     <fromprop/>
     <socprevten/>
-    <mortgagelender>5</mortgagelender>
-    <mortgagelenderother/>
-    <mortlen>10</mortlen>
     <extrabor>1</extrabor>
-    <hhmemb>6</hhmemb>
-    <totadult>5</totadult>
-    <totchild>1</totchild>
     <hhtype>6</hhtype>
-    <pcode1>SW1A</pcode1>
-    <pcode2>1AA</pcode2>
-    <pcodenk>0</pcodenk>
-    <postcode_full>AA1 1AA</postcode_full>
-    <is_la_inferred>true</is_la_inferred>
-    <bulk_upload_id/>
-    <retirement_value_check/>
-    <hodate_check/>
-    <extrabor_value_check/>
-    <deposit_and_mortgage_value_check/>
-    <shared_ownership_deposit_value_check/>
-    <grant_value_check/>
     <value_value_check/>
-    <old_persons_shared_ownership_value_check/>
-    <staircase_bought_value_check/>
-    <monthly_charges_value_check/>
-    <details_known_5>1</details_known_5>
-    <details_known_6>1</details_known_6>
-    <saledate_check/>
     <prevshared>2</prevshared>
     <staircasesale/>
-    <ethnic_group2>17</ethnic_group2>
-    <ethnicbuy2/>
-    <proplen_asked/>
-    <old_id/>
     <buy2living>3</buy2living>
-    <prevtenbuy2/>
-    <pregblank/>
     <uprn>1</uprn>
-    <uprn_known>1</uprn_known>
-    <uprn_confirmed>1</uprn_confirmed>
-    <address_line1>1, Test Street</address_line1>
-    <address_line2/>
-    <town_or_city>Test Town</town_or_city>
     <county/>
-    <nationalbuy2>13</nationalbuy2>
-    <discounted_sale_value_check/>
-    <student_not_child_value_check/>
-    <percentage_discount_value_check/>
-    <combined_income_value_check/>
-    <buyer_livein_value_check/>
-    <discarded_at/>
-    <stairowned_value_check/>
-    <creation_method>1</creation_method>
-    <old_form_id/>
-    <managing_organisation_id>{managing_org_id}</managing_organisation_id>
     <duplicate_set_id/>
-    <nationality_all>826</nationality_all>
-    <nationality_all_group>826</nationality_all_group>
-    <nationality_all_buyer2>826</nationality_all_buyer2>
-    <nationality_all_buyer2_group>826</nationality_all_buyer2_group>
-    <address_line1_input>Address line 1</address_line1_input>
-    <postcode_full_input>SW1A 1AA</postcode_full_input>
     <address_search_value_check/>
-    <uprn_selection/>
-    <address_line1_as_entered/>
-    <address_line2_as_entered/>
-    <town_or_city_as_entered/>
-    <county_as_entered/>
-    <postcode_full_as_entered/>
-    <la_as_entered/>
-    <partner_under_16_value_check/>
-    <multiple_partners_value_check/>
-    <created_by_id>{created_by_id}</created_by_id>
-    <has_management_fee/>
-    <management_fee/>
     <firststair/>
     <numstair/>
-    <mrentprestaircasing/>
-    <lasttransaction/>
-    <initialpurchase/>
+    <day>1</day>
+    <month>3</month>
+    <year>2026</year>
+    <createddate>2026-03-01T00:00:00+00:00</createddate>
+    <createdby>{created_by_email}</createdby>
+    <createdbyid>{created_by_id}</createdbyid>
+    <username>{assigned_to_email}</username>
+    <usernameid>{assigned_to_id}</usernameid>
+    <uploaddate>2026-03-01T00:00:00+00:00</uploaddate>
+    <amendedby/>
+    <amendedbyid/>
+    <owningorgid>{owning_org_id}</owningorgid>
+    <owningorgname>{owning_org_name}</owningorgname>
+    <maningorgid>{managing_org_id}</maningorgid>
+    <maningorgname>{managing_org_name}</maningorgname>
+    <creationmethod>1</creationmethod>
+    <bulkuploadid/>
+    <collectionyear>2025</collectionyear>
+    <ownership>2</ownership>
+    <joint>1</joint>
+    <ethnicgroup1>17</ethnicgroup1>
+    <ethnicgroup2>17</ethnicgroup2>
+    <previouslaknown>1</previouslaknown>
+    <hasmscharge>1</hasmscharge>
+    <inc1nk>0</inc1nk>
+    <inc2nk>0</inc2nk>
+    <postcode>AA1 1AA</postcode>
+    <islainferred>true</islainferred>
+    <mortlen1>10</mortlen1>
+    <ethnic2/>
+    <prevten2/>
+    <address1>1, Test Street</address1>
+    <address2/>
+    <towncity>Test Town</towncity>
+    <laname>Westminster</laname>
+    <address1input>Address line 1</address1input>
+    <postcodeinput>SW1A 1AA</postcodeinput>
+    <uprnselected/>
+    <bulkaddress1/>
+    <bulkaddress2/>
+    <bulktowncity/>
+    <bulkcounty/>
+    <bulkpostcode/>
+    <bulkla/>
+    <nationalityall1>826</nationalityall1>
+    <nationalityall2>826</nationalityall2>
+    <prevlocname>Westminster</prevlocname>
+    <liveinbuyer1>1</liveinbuyer1>
+    <liveinbuyer2>1</liveinbuyer2>
+    <has_estate_fee/>
+    <estate_fee/>
+    <stairlastday/>
+    <stairlastmonth/>
+    <stairlastyear/>
+    <stairinitialday/>
+    <stairinitialmonth/>
+    <stairinitialyear/>
+    <mscharge_value_check/>
+    <hasservicecharges>1</hasservicecharges><!-- #?? -->
+    <servicecharges>100.0</servicecharges><!-- #?? -->
   </form>
 </forms>
