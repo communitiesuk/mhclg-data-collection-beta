@@ -438,7 +438,7 @@ class BulkUpload::Lettings::Year2024::RowParser
   validate :validate_assigned_to_when_support, on: :after_log
   validate :validate_all_charges_given, on: :after_log, if: proc { is_carehome.zero? }
 
-  validate :validate_address_option_found, on: :after_log, unless: -> { supported_housing? }
+  validate :validate_address_option_found, on: :after_log, unless: -> { supported_housing? || rsnvac == 15 }
   validate :validate_uprn_exists_if_any_key_address_fields_are_blank, on: :after_log, unless: -> { supported_housing? }
   validate :validate_address_fields, on: :after_log, unless: -> { supported_housing? }
 
@@ -1340,7 +1340,9 @@ private
 
       attributes["address_line1_input"] = address_line1_input
       attributes["postcode_full_input"] = postcode_full
-      attributes["select_best_address_match"] = true if field_16.blank?
+      attributes["select_best_address_match"] = true if field_16.blank? && rsnvac != 15
+      attributes["uprn_selection"] = "uprn_not_listed" if rsnvac == 15
+      attributes["bu_newbuilds_address_entry"] = true if field_16.blank? && rsnvac == 15
     end
 
     attributes

@@ -57,7 +57,7 @@ class Log < ApplicationRecord
   scope :filter_by_owning_organisation_text_search, ->(param, _user) { where(owning_organisation: Organisation.search_by(param)) }
   scope :filter_by_managing_organisation_text_search, ->(param, _user) { where(managing_organisation: Organisation.search_by(param)) }
 
-  attr_accessor :skip_update_status, :skip_update_uprn_confirmed, :select_best_address_match, :skip_dpo_validation
+  attr_accessor :skip_update_status, :skip_update_uprn_confirmed, :select_best_address_match, :skip_dpo_validation, :bu_newbuilds_address_entry
 
   delegate :present?, to: :address_options, prefix: true
 
@@ -102,21 +102,23 @@ class Log < ApplicationRecord
         end
       end
 
-      if uprn_selection == "uprn_not_listed"
-        self.uprn_known = 0
-        self.uprn_confirmed = nil
-        self.uprn = nil
-        self.address_line1 = address_line1_input
-        self.address_line2 = nil
-        self.town_or_city = nil
-        self.county = nil
-        self.postcode_full = postcode_full_input if postcode_full_input.match(POSTCODE_REGEXP)
-        process_postcode_changes!
-      else
-        self.uprn = uprn_selection
-        self.uprn_confirmed = 1
-        self.skip_update_uprn_confirmed = true
-        process_uprn_change!
+      unless bu_newbuilds_address_entry
+        if uprn_selection == "uprn_not_listed"
+          self.uprn_known = 0
+          self.uprn_confirmed = nil
+          self.uprn = nil
+          self.address_line1 = address_line1_input
+          self.address_line2 = nil
+          self.town_or_city = nil
+          self.county = nil
+          self.postcode_full = postcode_full_input if postcode_full_input.match(POSTCODE_REGEXP)
+          process_postcode_changes!
+        else
+          self.uprn = uprn_selection
+          self.uprn_confirmed = 1
+          self.skip_update_uprn_confirmed = true
+          process_uprn_change!
+        end
       end
     end
   end
