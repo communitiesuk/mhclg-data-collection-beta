@@ -104,6 +104,8 @@ class BulkUpload < ApplicationRecord
                  end
 
     year_class = case year
+                 when 2025
+                   "Year2025"
                  when 2024
                    "Year2024"
                  when 2023

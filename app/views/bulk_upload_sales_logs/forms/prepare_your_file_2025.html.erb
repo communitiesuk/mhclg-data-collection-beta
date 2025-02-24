@@ -1,0 +1,36 @@
+<% content_for :before_content do %>
+  <%= govuk_back_link href: @form.back_path %>
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= form_with model: @form, scope: :form, url: bulk_upload_sales_log_path(id: "prepare-your-file"), method: :patch do |f| %>
+      <%= f.hidden_field :year %>
+      <%= f.hidden_field :organisation_id %>
+
+      <span class="govuk-caption-l">Upload sales logs in bulk (<%= @form.year_combo %>)</span>
+      <h1 class="govuk-heading-l">Prepare your file</h1>
+      <p class="govuk-body govuk-!-margin-bottom-2"><%= govuk_link_to "Read the full guidance", bulk_upload_sales_log_path(id: "guidance", form: { year: @form.year }, referrer: "prepare-your-file") %> before you start if you have not used bulk upload before.</p>
+
+      <h2 class="govuk-heading-s">Download template</h2>
+
+      <p class="govuk-body govuk-!-margin-bottom-2">Use one of these templates to upload logs for 2025/26:</p>
+      <p class="govuk-body govuk-!-margin-bottom-2"><%= govuk_link_to "Download the sales bulk upload template (2025 to 2026)", @form.template_path %>: In this template, the questions are in the same order as the 2025/26 paper form and web form.</p>
+      <p class="govuk-body govuk-!-margin-bottom-2">There are 8 rows of content in the templates. These rows are called the ‘headers’. They contain the CORE form questions and guidance about which questions are required and how to format your answers.</p>
+
+      <h2 class="govuk-heading-s">Create your file</h2>
+      <%= govuk_list [
+        "Fill in the template with data from your housing management system. Your data should go below the headers, with one row per log. The bulk upload fields start at column B. Leave column A blank.",
+        "Make sure each column of your data aligns with the matching headers above. You may need to reorder your data.",
+        "Use the #{govuk_link_to 'Sales bulk upload Specification (2025 to 2026)', @form.specification_path} to check your data is in the correct format.".html_safe,
+        "<strong>Username field:</strong> To assign a log to someone else, enter the email address they use to log into CORE.".html_safe,
+        "If you have reordered the headers, keep the headers in the file.",
+        ], type: :bullet %>
+
+      <h2 class="govuk-heading-s">Save your file</h2>
+      <%= govuk_list ["Save your file as a CSV.", "Your file should now be ready to upload."], type: :bullet %>
+
+      <%= f.govuk_submit %>
+    <% end %>
+  </div>
+</div>

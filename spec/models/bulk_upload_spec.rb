@@ -41,6 +41,7 @@ RSpec.describe BulkUpload, type: :model do
     [
       { year: 2023, expected_value: "2023 to 2024" },
       { year: 2024, expected_value: "2024 to 2025" },
+      { year: 2025, expected_value: "2025 to 2026" },
     ].each do |test_case|
       context "when the bulk upload year is #{test_case[:year]}" do
         let(:bulk_upload) { build(:bulk_upload, year: test_case[:year]) }

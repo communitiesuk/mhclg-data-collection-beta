@@ -13,6 +13,8 @@ module Forms
         case year
         when 2024
           "bulk_upload_#{log_type}_logs/forms/prepare_your_file_2024"
+        when 2025
+          "bulk_upload_#{log_type}_logs/forms/prepare_your_file_2025"
         end
       end
 

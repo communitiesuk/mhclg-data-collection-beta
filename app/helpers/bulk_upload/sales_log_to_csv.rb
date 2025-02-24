@@ -19,7 +19,7 @@ class BulkUpload::SalesLogToCsv
     case year
     when 2022
       to_2022_csv_row
-    when 2023, 2024
+    when 2023, 2024, 2025
       to_year_csv_row(year, seed:)
     else
       raise NotImplementedError "No mapping function implemented for year #{year}"
@@ -67,6 +67,8 @@ class BulkUpload::SalesLogToCsv
       [6, 3, 4, 5, nil, 28, 30, 38, 47, 51, 55, 59, 31, 39, 48, 52, 56, 60, 37, 46, 50, 54, 58, 35, 43, 49, 53, 57, 61, 32, 33, 78, 80, 79, 81, 83, 84, nil, 62, 66, 64, 65, 63, 67, 69, 70, 68, 76, 77, 16, 17, 18, 26, 24, 25, 27, 8, 91, 95, 96, 97, 92, 93, 94, 98, 100, 101, 103, 104, 106, 110, 111, 112, 113, 114, 9, 116, 117, 118, 120, 124, 125, 126, 10, 11, nil, 127, 129, 133, 134, 135, 1, 2, nil, 73, nil, 75, 107, 108, 121, 122, 130, 131, 82, 109, 123, 132, 115, 15, 86, 87, 29, 7, 12, 13, 14, 36, 44, 45, 88, 89, 102, 105, 119, 128, 19, 20, 21, 22, 23, 34, 40, 41, 42, 71, 72, 74, 85, 90, 99]
     when 2024
       (1..131).to_a
+    when 2025
+      (1..121).to_a
     else
       raise NotImplementedError "No mapping function implemented for year #{year}"
     end
@@ -391,6 +393,141 @@ class BulkUpload::SalesLogToCsv
       log.mortlen,
       log.extrabor,
       log.deposit, # 130
+      log.mscharge,
+    ]
+  end
+
+  def to_2025_row
+    [
+      log.saledate&.day,
+      log.saledate&.month,
+      log.saledate&.strftime("%y"),
+      overrides[:organisation_id] || log.owning_organisation&.old_visible_id,
+      overrides[:managing_organisation_id] || log.managing_organisation&.old_visible_id,
+      log.assigned_to&.email,
+      log.purchid,
+      log.ownershipsch,
+      log.ownershipsch == 1 ? log.type : "", # field_9: "What is the type of shared ownership sale?",
+      log.staircase, # 10
+      log.ownershipsch == 2 ? log.type : "", # field_11: "What is the type of discounted ownership sale?",
+      log.jointpur,
+      log.jointmore,
+      log.noint,
+      log.privacynotice,
+
+      log.proptype,
+      log.beds,
+      log.builtype,
+      log.uprn,
+      log.address_line1&.tr(",", " "), # 20
+      log.address_line2&.tr(",", " "),
+      log.town_or_city&.tr(",", " "),
+      log.county&.tr(",", " "),
+      ((log.postcode_full || "").split(" ") || [""]).first,
+      ((log.postcode_full || "").split(" ") || [""]).last,
+      log.la,
+      log.wchair,
+
+      log.age1,
+      log.sex1,
+      log.ethnic, # 30
+      log.nationality_all_group,
+      log.ecstat1,
+      log.buy1livein,
+      log.relat2,
+      log.age2,
+      log.sex2,
+      log.ethnic_group2,
+      log.nationality_all_buyer2_group,
+      log.ecstat2,
+      log.buy2livein, # 40
+      log.hholdcount,
+
+      log.relat3,
+      log.age3,
+      log.sex3,
+      log.ecstat3,
+      log.relat4,
+      log.age4,
+      log.sex4,
+      log.ecstat4,
+      log.relat5, # 50
+      log.age5,
+      log.sex5,
+      log.ecstat5,
+      log.relat6,
+      log.age6,
+      log.sex6,
+      log.ecstat6,
+
+      log.prevten,
+      log.ppcodenk,
+      ((log.ppostcode_full || "").split(" ") || [""]).first, # 60
+      ((log.ppostcode_full || "").split(" ") || [""]).last,
+      log.prevloc,
+      log.buy2living,
+      log.prevtenbuy2,
+
+      log.hhregres,
+      log.hhregresstill,
+      log.armedforcesspouse,
+      log.disabled,
+      log.wheel,
+
+      log.income1, # 70
+      log.inc1mort,
+      log.income2,
+      log.inc2mort,
+      log.hb,
+      log.savings.present? || "R",
+      log.prevown,
+      log.prevshared,
+
+      log.resale,
+      log.proplen,
+      log.hodate&.day, # 80
+      log.hodate&.month,
+      log.hodate&.strftime("%y"),
+      log.frombeds,
+      log.fromprop,
+      log.socprevten,
+      log.value,
+      log.equity,
+      log.mortgageused,
+      log.mortgage,
+      log.mortlen, # 90
+      log.deposit,
+      log.cashdis,
+      log.mrent,
+      log.mscharge,
+      log.management_fee,
+
+      log.stairbought,
+      log.stairowned,
+      log.staircasesale,
+      log.firststair,
+      log.initialpurchase&.day, # 100
+      log.initialpurchase&.month,
+      log.initialpurchase&.strftime("%y"),
+      log.numstair,
+      log.lasttransaction&.day,
+      log.lasttransaction&.month,
+      log.lasttransaction&.strftime("%y"),
+      log.value,
+      log.equity,
+      log.mortgageused,
+      log.mrentprestaircasing, # 110
+      log.mrent,
+
+      log.proplen,
+      log.value,
+      log.grant,
+      log.discount,
+      log.mortgageused,
+      log.mortgage,
+      log.mortlen,
+      log.extrabor,
+      log.deposit, # 120
       log.mscharge,
     ]
   end

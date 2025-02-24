@@ -58,6 +58,22 @@ RSpec.describe BulkUpload::Sales::Validator do
       end
     end
 
+    context "when trying to upload 2024 logs for 2025 bulk upload" do
+      let(:bulk_upload) { create(:bulk_upload, user:, year: 2025) }
+      let(:log) { build(:sales_log, :completed, saledate: Time.zone.local(2024, 10, 10), assigned_to: user) }
+
+      before do
+        file.write(log_to_csv.default_2025_field_numbers_row)
+        file.write(log_to_csv.to_2025_csv_row)
+        file.rewind
+      end
+
+      it "is not valid" do
+        expect(validator).not_to be_valid
+        expect(validator.errors["base"]).to eql([I18n.t("validations.sales.2025.bulk_upload.wrong_template.wrong_template")])
+      end
+    end
+
     [
       { line_ending: "\n", name: "unix" },
       { line_ending: "\r\n", name: "windows" },

@@ -57,6 +57,8 @@ en:
           <<: *bulk_upload__row_parser__base
         bulk_upload/lettings/year2023/row_parser:
           <<: *bulk_upload__row_parser__base
+        bulk_upload/sales/year2025/row_parser:
+          <<: *bulk_upload__row_parser__base
         bulk_upload/sales/year2024/row_parser:
           <<: *bulk_upload__row_parser__base
         bulk_upload/sales/year2023/row_parser:

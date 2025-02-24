@@ -1,0 +1,46 @@
+en:
+  validations:
+    sales:
+      2025:
+        bulk_upload:
+          not_answered: "You must answer %{question}"
+          invalid_option: "Enter a valid value for %{question}"
+          spreadsheet_dupe: "This is a duplicate of a log in your file."
+          duplicate: "This is a duplicate log."
+          blank_file: "Template is blank - The template must be filled in for us to create the logs and check if data is correct."
+          wrong_template:
+            over_max_column_count: "Too many columns, please ensure you have used the correct template."
+            no_headers: "Your file does not contain the required header rows. Add or check the header rows and upload your file again. [Read more about using the template headers](%{guidance_link})."
+            wrong_field_numbers_count: "Incorrect number of fields, please ensure you have used the correct template."
+            wrong_template: "Incorrect sale dates, please ensure you have used the correct template."
+          numeric:
+            within_range: "%{field} must be between %{min} and %{max}."
+          owning_organisation:
+            not_found: "The owning organisation code is incorrect."
+            not_stock_owner: "The owning organisation code provided is for an organisation that does not own stock."
+            not_permitted:
+              support: "This owning organisation is not affiliated with %{name}."
+              not_support: "You do not have permission to add logs for this owning organisation."
+          assigned_to:
+            not_found: "User with the specified email could not be found."
+            organisation_not_related: "User must be related to owning organisation or managing organisation."
+            managing_organisation_not_related: "This organisation does not have a relationship with the owning organisation."
+          saledate:
+            outside_collection_window: "Enter a date within the %{year_combo} collection year, which is between 1st April %{start_year} and 31st March %{end_year}."
+            year_not_two_or_four_digits: "Sale completion year must be 2 or 4 digits."
+          ecstat1:
+            buyer_cannot_be_over_16_and_child: "Buyer 1's age cannot be 16 or over if their working situation is child under 16."
+            buyer_cannot_be_child: "Buyer 1 cannot have a working situation of child under 16."
+          age1:
+            buyer_cannot_be_over_16_and_child: "Buyer 1's age cannot be 16 or over if their working situation is child under 16."
+          ecstat2:
+            buyer_cannot_be_over_16_and_child: "Buyer 2's age cannot be 16 or over if their working situation is child under 16."
+            buyer_cannot_be_child: "Buyer 2 cannot have a working situation of child under 16."
+          age2:
+            buyer_cannot_be_over_16_and_child: "Buyer 2's age cannot be 16 or over if their working situation is child under 16."
+          address:
+            not_found: "We could not find this address. Check the address data in your CSV file is correct and complete, or select the correct address using the CORE site."
+            not_determined: "There are multiple matches for this address. Either select the correct address manually or correct the UPRN in the CSV file."
+            not_answered: "Enter either the UPRN or the full address."
+          nationality:
+            invalid: "Select a valid nationality."
