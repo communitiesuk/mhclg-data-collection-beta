@@ -24,13 +24,6 @@ RSpec.describe Form::Lettings::Pages::AddressFallback, type: :model do
   end
 
   it "has correct depends_on" do
-    expect(page.depends_on).to eq([
-      { "is_supported_housing?" => false, "uprn_known" => nil, "uprn_selection" => "uprn_not_listed" },
-      { "is_supported_housing?" => false, "uprn_known" => 0, "uprn_selection" => "uprn_not_listed" },
-      { "is_supported_housing?" => false, "uprn_confirmed" => 0, "uprn_selection" => "uprn_not_listed" },
-      { "is_supported_housing?" => false, "uprn_known" => nil, "address_options_present?" => false },
-      { "is_supported_housing?" => false, "uprn_known" => 0, "address_options_present?" => false },
-      { "is_supported_housing?" => false, "uprn_confirmed" => 0, "address_options_present?" => false },
-    ])
+    expect(page.depends_on).to eq([{ "manual_address_entry_selected" => true, "is_supported_housing?" => false }])
   end
 end

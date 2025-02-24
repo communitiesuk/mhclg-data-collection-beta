@@ -75,8 +75,7 @@ class Log < ApplicationRecord
       presenter = UprnDataPresenter.new(service.result)
 
       self.uprn_known = 1
-      self.uprn_confirmed = nil unless skip_update_uprn_confirmed
-      self.uprn_selection = nil
+      self.uprn_selection = uprn
       self.address_line1 = presenter.address_line1
       self.address_line2 = presenter.address_line2
       self.town_or_city = presenter.town_or_city
@@ -126,16 +125,27 @@ class Log < ApplicationRecord
   end
 
   def address_options
-    return @address_options if @address_options && @last_searched_address_string == address_string
+    if uprn.present?
+      service = UprnClient.new(uprn)
+      service.call
+      if service.result.blank? || service.error.present?
+        @address_options = []
+        return @address_options
+      end
 
-    if [address_line1_input, postcode_full_input].all?(&:present?)
+      presenter = UprnDataPresenter.new(service.result)
+      @address_options = [{ address: presenter.address, uprn: presenter.uprn }]
+    else
+      return @address_options if @address_options && @last_searched_address_string == address_string
+      return if address_string.blank?
+
       @last_searched_address_string = address_string
 
       service = AddressClient.new(address_string)
       service.call
       if service.result.blank? || service.error.present?
         @address_options = []
-        return @answer_options
+        return @address_options
       end
 
       address_opts = []

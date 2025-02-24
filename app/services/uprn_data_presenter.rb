@@ -55,4 +55,12 @@ class UprnDataPresenter
   def result_from_lpi?
     data["LPI_KEY"].present?
   end
+
+  def uprn
+    data["UPRN"]
+  end
+
+  def address
+    data["ADDRESS"]
+  end
 end

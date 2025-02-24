@@ -1,0 +1,7 @@
+<%= govuk_details(summary_text: I18n.t("forms.#{@log.form.start_date.year}.#{@log.form.type}.guidance.address_search.title")) do %>
+  <%= I18n.t("forms.#{@log.form.start_date.year}.#{@log.form.type}.guidance.address_search.content").html_safe %>
+<% end %>
+
+<div class="govuk-button-group">
+  <%= govuk_link_to "Enter the address manually instead", address_manual_input_path(@log.log_type, @log.id), class: "govuk-button govuk-button--secondary" %>
+</div>

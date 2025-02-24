@@ -44,3 +44,10 @@ en:
           privacy_notice_buyer:
             content: "Make sure the buyer has seen or been given access to %{privacy_notice_link} before completing this log. This is a legal requirement under data protection legislation."
             privacy_notice_link_text: "the Ministry of Housing, Communities and Local Government (MHCLG) privacy notice"
+
+          address_search:
+            title: "Can’t find the address you’re looking for?"
+            content: "<ul class=\"govuk-list govuk-list--bullet\">
+                <li>Some properties may not be available yet e.g. new builds; you might need to enter them manually instead</li>
+                <li>For UPRN (Unique Property Reference Number), please enter the full value exactly</li>
+              </ul>"

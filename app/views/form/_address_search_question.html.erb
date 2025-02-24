@@ -4,7 +4,8 @@
 
 <%= f.govuk_select(question.id.to_sym,
        label: legend(question, page_header, conditional),
-       "data-controller": "accessible-autocomplete",
+       "data-controller": "address-search",
+       "data-info": { search_url: address_search_url }.to_json,
        caption: caption(caption_text, page_header, conditional),
        hint: { text: question.hint_text&.html_safe }) do %>
   <% if answers.any? %>
@@ -16,7 +17,7 @@
               <%= question.answer_selected?(@log, answer) ? "selected" : "" %>><%= answer.name || answer.resource %></option>
     <% end %>
   <% else %>
-    <option value="" disabled></option>
+    <option value="" disabled>Javascript is disabled. Please enter the address manually.</option>
   <% end %>
 <% end %>
 

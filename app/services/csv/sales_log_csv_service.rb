@@ -152,6 +152,15 @@ module Csv
       "uprn_confirmed" => "UPRNCONFIRMED",
     }.freeze
 
+    UPRN_CONFIRMED_LABELS = {
+      0 => "No",
+      1 => "Yes",
+    }.freeze
+
+    LABELS = {
+      "uprn_confirmed" => UPRN_CONFIRMED_LABELS,
+    }.freeze
+
     def formatted_attribute_headers
       return @attributes unless @user.support?
 
@@ -207,6 +216,9 @@ module Csv
       }
       unless @user.support? && @year >= 2024
         mappings["postcode_full"] = %w[pcode1 pcode2]
+      end
+      if @year >= 2024
+        mappings["uprn"] = %w[uprn uprn_confirmed address_line1_input postcode_full_input uprn_selection]
       end
       mappings
     end
@@ -280,6 +292,8 @@ module Csv
     end
 
     def get_label(value, attribute, log)
+      return LABELS[attribute][value] if LABELS.key?(attribute)
+
       log.form
          .get_question(attribute, log)
          &.label_from_value(value)

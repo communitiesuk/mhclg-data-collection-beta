@@ -64,11 +64,7 @@ RSpec.describe Form::Lettings::Subsections::PropertyInformation, type: :model do
       it "has correct pages" do
         expect(property_information.pages.map(&:id)).to eq(
           %w[
-            uprn
-            uprn_confirmation
-            address_matcher
-            no_address_found
-            uprn_selection
+            address_search
             address
             property_local_authority
             local_authority_rent_value_check
@@ -101,11 +97,7 @@ RSpec.describe Form::Lettings::Subsections::PropertyInformation, type: :model do
       it "has correct pages" do
         expect(property_information.pages.map(&:id)).to eq(
           %w[
-            uprn
-            uprn_confirmation
-            address_matcher
-            no_address_found
-            uprn_selection
+            address_search
             address
             property_local_authority
             local_authority_rent_value_check

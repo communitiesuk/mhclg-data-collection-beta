@@ -24,13 +24,6 @@ RSpec.describe Form::Sales::Pages::AddressFallback, type: :model do
   end
 
   it "has correct depends_on" do
-    expect(page.depends_on).to eq([
-      { "uprn_known" => nil, "uprn_selection" => "uprn_not_listed" },
-      { "uprn_known" => 0, "uprn_selection" => "uprn_not_listed" },
-      { "uprn_confirmed" => 0, "uprn_selection" => "uprn_not_listed" },
-      { "uprn_known" => nil, "address_options_present?" => false },
-      { "uprn_known" => 0, "address_options_present?" => false },
-      { "uprn_confirmed" => 0, "address_options_present?" => false },
-    ])
+    expect(page.depends_on).to eq([{ "manual_address_entry_selected" => true }])
   end
 end

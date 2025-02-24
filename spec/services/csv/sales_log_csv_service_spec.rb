@@ -199,7 +199,7 @@ RSpec.describe Csv::SalesLogCsvService do
       let(:fixed_time) { Time.zone.local(2024, 5, 1) }
 
       before do
-        log.update!(nationality_all: 36)
+        log.update!(nationality_all: 36, manual_address_entry_selected: false, uprn: "1", uprn_known: 1)
       end
 
       it "exports the CSV with the 2024 ordering and all values correct" do
@@ -286,6 +286,10 @@ RSpec.describe Csv::SalesLogCsvService do
       let(:fixed_time) { Time.zone.local(2024, 5, 1) }
       let(:year) { 2024 }
 
+      before do
+        log.update!(manual_address_entry_selected: false, uprn: "1", uprn_known: 1)
+      end
+
       it "exports the CSV with all values correct" do
         expected_content = CSV.read("spec/fixtures/files/sales_logs_csv_export_codes_24.csv")
         values_to_delete = %w[ID]
@@ -338,7 +342,7 @@ RSpec.describe Csv::SalesLogCsvService do
       let(:fixed_time) { Time.zone.local(2024, 5, 1) }
 
       before do
-        log.update!(nationality_all: 36)
+        log.update!(nationality_all: 36, manual_address_entry_selected: false, uprn: "1", uprn_known: 1)
       end
 
       context "and exporting with labels" do

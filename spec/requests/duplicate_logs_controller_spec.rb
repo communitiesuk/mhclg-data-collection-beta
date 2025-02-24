@@ -77,8 +77,8 @@ RSpec.describe DuplicateLogsController, type: :request do
             end
 
             it "displays check your answers for each log with correct questions where UPRN is given" do
-              lettings_log.update!(uprn: "123", uprn_known: 1, uprn_confirmed: 1)
-              duplicate_logs[0].update!(uprn: "123", uprn_known: 1, uprn_confirmed: 1)
+              lettings_log.update!(uprn: "123", uprn_known: 1, uprn_confirmed: 1, manual_address_entry_selected: false)
+              duplicate_logs[0].update!(uprn: "123", uprn_known: 1, uprn_confirmed: 1, manual_address_entry_selected: false)
               get "/lettings-logs/#{lettings_log.id}/duplicate-logs?original_log_id=#{lettings_log.id}"
 
               expect(page).to have_content("Q5 - Tenancy start date", count: 3)
@@ -186,9 +186,9 @@ RSpec.describe DuplicateLogsController, type: :request do
             end
 
             it "displays check your answers for each log with correct questions when UPRN is given" do
-              sales_log.update!(uprn: "123", uprn_known: 1)
-              duplicate_logs[0].update!(uprn: "123", uprn_known: 1)
-              duplicate_logs[1].update!(uprn: "123", uprn_known: 1)
+              sales_log.update!(uprn: "123", uprn_known: 1, manual_address_entry_selected: false)
+              duplicate_logs[0].update!(uprn: "123", uprn_known: 1, manual_address_entry_selected: false)
+              duplicate_logs[1].update!(uprn: "123", uprn_known: 1, manual_address_entry_selected: false)
               get "/sales-logs/#{sales_log.id}/duplicate-logs?original_log_id=#{sales_log.id}"
 
               expect(page).to have_content("Q1 - Sale completion date", count: 3)
