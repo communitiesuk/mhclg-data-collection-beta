@@ -418,6 +418,7 @@ class BulkUpload::Lettings::Year2024::RowParser
   validate :validate_no_and_dont_know_disabled_needs_conjunction, on: :after_log
   validate :validate_no_housing_needs_questions_answered, on: :after_log
   validate :validate_reasonable_preference_homeless, on: :after_log
+  validate :validate_reasonable_preference_dont_know, on: :after_log
   validate :validate_condition_effects, on: :after_log
   validate :validate_if_log_already_exists, on: :after_log, if: -> { FeatureToggle.bulk_upload_duplicate_log_check_enabled? }
 
@@ -744,6 +745,23 @@ private
     if field_106 == 1 && reason_fields.all? { |field| attributes[field.to_s].blank? }
       reason_fields.each do |field|
         errors.add(field, I18n.t("#{ERROR_BASE_KEY}.not_answered", question: "reason for reasonable preference."))
+      end
+    end
+  end
+
+  def validate_reasonable_preference_dont_know
+    other_reason_fields = %i[field_107 field_108 field_109 field_110]
+    if field_106 == 1
+      selected_reasons = other_reason_fields.select { |field| send(field) == 1 }
+      dont_know_selected = field_111 == 1
+
+      if selected_reasons.any? && dont_know_selected
+        block_log_creation!
+
+        errors.add(:field_111, I18n.t("#{ERROR_BASE_KEY}.reasonpref.conflict.dont_know"))
+        selected_reasons.each do |field|
+          errors.add(field, I18n.t("#{ERROR_BASE_KEY}.reasonpref.conflict.other"))
+        end
       end
     end
   end
