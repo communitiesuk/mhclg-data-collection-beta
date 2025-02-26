@@ -202,5 +202,109 @@ FactoryBot.define do
         instance.save!(validate: false)
       end
     end
+    trait :export do
+      purchid { "123" }
+      ownershipsch { 2 }
+      type { 8 }
+      saledate_today
+      jointpur { 1 }
+      beds { 2 }
+      jointmore { 1 }
+      noint { 2 }
+      privacynotice { 1 }
+      age1_known { 0 }
+      age1 { 27 }
+      sex1 { "F" }
+      national { 18 }
+      buy1livein { 1 }
+      relat2 { "P" }
+      proptype { 1 }
+      age2_known { 0 }
+      age2 { 33 }
+      builtype { 1 }
+      ethnic { 3 }
+      ethnic_group { 17 }
+      sex2 { "X" }
+      buy2livein { "1" }
+      ecstat1 { "1" }
+      ecstat2 { "1" }
+      hholdcount { "4" }
+      wheel { 1 }
+      details_known_3 { 1 }
+      age3_known { 0 }
+      age3 { 14 }
+      details_known_4 { 1 }
+      age4_known { 0 }
+      age4 { 18 }
+      details_known_5 { 1 }
+      age5_known { 0 }
+      age5 { 40 }
+      details_known_6 { 1 }
+      age6_known { 0 }
+      age6 { 40 }
+      income1nk { 0 }
+      income1 { 10_000 }
+      inc1mort { 1 }
+      income2nk { 0 }
+      income2 { 10_000 }
+      inc2mort { 1 }
+      uprn_known { 0 }
+      address_line1 { "Address line 1" }
+      town_or_city { "City" }
+      la_known { 1 }
+      la { "E09000003" }
+      savingsnk { 1 }
+      prevown { 1 }
+      prevshared { 2 }
+      sex3 { "F" }
+      sex4 { "X" }
+      sex5 { "M" }
+      sex6 { "X" }
+      mortgage { 20_000 }
+      ecstat3 { 9 }
+      ecstat4 { 3 }
+      ecstat5 { 2 }
+      ecstat6 { 1 }
+      disabled { 1 }
+      deposit { 80_000 }
+      value { 110_000 }
+      value_value_check { 0 }
+      grant { 10_000 }
+      proplen { 10 }
+      pregyrha { 1 }
+      pregla { 1 }
+      pregother { 1 }
+      pregghb { 1 }
+      hhregres { 7 }
+      ppcodenk { 1 }
+      prevten { 1 }
+      previous_la_known { 0 }
+      relat3 { "X" }
+      relat4 { "X" }
+      relat5 { "R" }
+      relat6 { "R" }
+      hb { 4 }
+      mortgageused { 1 }
+      wchair { 1 }
+      armedforcesspouse { 5 }
+      has_mscharge { 1 }
+      mscharge { 100 }
+      mortlen { 10 }
+      pcodenk { 0 }
+      postcode_full { "SW1A 1AA" }
+      is_la_inferred { false }
+      mortgagelender { 5 }
+      extrabor { 1 }
+      ethnic_group2 { 17 }
+      nationalbuy2 { 13 }
+      buy2living { 3 }
+      proplen_asked { 1 }
+      address_line1_input { "Address line 1" }
+      postcode_full_input { "SW1A 1AA" }
+      nationality_all_group { 826 }
+      nationality_all_buyer2_group { 826 }
+      uprn { "10033558653" }
+      uprn_selection { 1 }
+    end
   end
 end

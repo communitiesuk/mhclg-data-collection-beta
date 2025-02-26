@@ -11,6 +11,7 @@ module Exports
       start_time = Time.zone.now
       daily_run_number = get_daily_run_number
       lettings_archives_for_manifest = {}
+      sales_archives_for_manifest = {}
       users_archives_for_manifest = {}
       organisations_archives_for_manifest = {}
 
@@ -20,16 +21,19 @@ module Exports
           users_archives_for_manifest = get_user_archives(start_time, full_update)
         when "organisations"
           organisations_archives_for_manifest = get_organisation_archives(start_time, full_update)
-        else
+        when "lettings"
           lettings_archives_for_manifest = get_lettings_archives(start_time, full_update, year)
+        when "sales"
+          sales_archives_for_manifest = get_sales_archives(start_time, full_update, year)
         end
       else
         users_archives_for_manifest = get_user_archives(start_time, full_update)
         organisations_archives_for_manifest = get_organisation_archives(start_time, full_update)
         lettings_archives_for_manifest = get_lettings_archives(start_time, full_update, year)
+        sales_archives_for_manifest = get_sales_archives(start_time, full_update, year) if Time.zone.now >= Time.zone.local(2025, 4, 1)
       end
 
-      write_master_manifest(daily_run_number, lettings_archives_for_manifest.merge(users_archives_for_manifest).merge(organisations_archives_for_manifest))
+      write_master_manifest(daily_run_number, lettings_archives_for_manifest.merge(sales_archives_for_manifest).merge(users_archives_for_manifest).merge(organisations_archives_for_manifest))
     end
 
   private
@@ -73,6 +77,11 @@ module Exports
     def get_lettings_archives(start_time, full_update, collection_year)
       lettings_export_service = Exports::LettingsLogExportService.new(@storage_service, start_time)
       lettings_export_service.export_xml_lettings_logs(full_update:, collection_year:)
+    end
+
+    def get_sales_archives(start_time, full_update, collection_year)
+      sales_export_service = Exports::SalesLogExportService.new(@storage_service, start_time)
+      sales_export_service.export_xml_sales_logs(full_update:, collection_year:)
     end
   end
 end
