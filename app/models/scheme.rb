@@ -330,11 +330,11 @@ class Scheme < ApplicationRecord
   def status_at(date)
     return :deleted if discarded_at.present?
     return :deactivated if owning_organisation.status_at(date) == :deactivated || owning_organisation.status_at(date) == :merged ||
-      (open_deactivation&.deactivation_date.present? && date >= open_deactivation.deactivation_date)
+      (open_deactivation&.deactivation_date.present? && date.beginning_of_day >= open_deactivation.deactivation_date.beginning_of_day)
     return :incomplete unless confirmed && locations.confirmed.any?
-    return :deactivating_soon if open_deactivation&.deactivation_date.present? && date < open_deactivation.deactivation_date
-    return :reactivating_soon if last_deactivation_before(date)&.reactivation_date.present? && date < last_deactivation_before(date).reactivation_date
-    return :activating_soon if startdate.present? && date < startdate
+    return :deactivating_soon if open_deactivation&.deactivation_date.present? && date.beginning_of_day < open_deactivation.deactivation_date.beginning_of_day
+    return :reactivating_soon if last_deactivation_before(date)&.reactivation_date.present? && date.beginning_of_day < last_deactivation_before(date).reactivation_date.beginning_of_day
+    return :activating_soon if startdate.present? && date.beginning_of_day < startdate.beginning_of_day
 
     :active
   end

@@ -232,10 +232,10 @@ class Location < ApplicationRecord
     return :deleted if discarded_at.present?
     return :incomplete unless confirmed
     return :deactivated if scheme.owning_organisation.status_at(date) == :deactivated || scheme.owning_organisation.status_at(date) == :merged ||
-      open_deactivation&.deactivation_date.present? && date >= open_deactivation.deactivation_date || scheme.status_at(date) == :deactivated
-    return :deactivating_soon if open_deactivation&.deactivation_date.present? && date < open_deactivation.deactivation_date || scheme.status_at(date) == :deactivating_soon
-    return :activating_soon if startdate.present? && date < startdate
-    return :reactivating_soon if last_deactivation_before(date)&.reactivation_date.present? && date < last_deactivation_before(date).reactivation_date || scheme.status_at(date) == :reactivating_soon
+      open_deactivation&.deactivation_date.present? && date.beginning_of_day >= open_deactivation.deactivation_date.beginning_of_day || scheme.status_at(date) == :deactivated
+    return :deactivating_soon if open_deactivation&.deactivation_date.present? && date.beginning_of_day < open_deactivation.deactivation_date.beginning_of_day || scheme.status_at(date) == :deactivating_soon
+    return :activating_soon if startdate.present? && date.beginning_of_day < startdate.beginning_of_day
+    return :reactivating_soon if last_deactivation_before(date)&.reactivation_date.present? && date.beginning_of_day < last_deactivation_before(date).reactivation_date.beginning_of_day || scheme.status_at(date) == :reactivating_soon
 
     :active
   end

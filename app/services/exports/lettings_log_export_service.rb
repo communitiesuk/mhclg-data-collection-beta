@@ -129,7 +129,7 @@ module Exports
       attribute_hash["support"] = scheme.support_type_before_type_cast
       attribute_hash["units_scheme"] = scheme.locations.map(&:units).compact.sum
       attribute_hash["scheme"] = scheme.id
-      attribute_hash["scheme_status"] = scheme.status_at(attribute_hash["startdate"])
+      attribute_hash["scheme_status"] = scheme.status_at(attribute_hash["startdate"].to_date)
     end
 
     def add_location_fields!(location, attribute_hash)
@@ -137,7 +137,7 @@ module Exports
       attribute_hash["scheme_old"] = location.old_visible_id
       attribute_hash["units"] = location.units
       attribute_hash["location_code"] = location.id
-      attribute_hash["location_status"] = location.status_at(attribute_hash["startdate"])
+      attribute_hash["location_status"] = location.status_at(attribute_hash["startdate"].to_date)
     end
 
     def is_omitted_field?(field_name, lettings_log)
