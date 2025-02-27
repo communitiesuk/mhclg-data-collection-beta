@@ -159,6 +159,7 @@ FactoryBot.define do
       is_carehome { 0 }
       declaration { 1 }
       first_time_property_let_as_social_housing { 0 }
+      referral_type { 101 }
       referral { 2 }
       uprn_known { 0 }
       joint { 3 }

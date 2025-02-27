@@ -168,6 +168,7 @@ RSpec.describe Validations::PropertyValidations do
 
         it "expects that the letting source can be a referral" do
           log.prevten = 0
+          log.referral_type = 101
           log.referral = 2
           property_validator.validate_rsnvac(log)
           expect(log.errors["rsnvac"]).to be_empty

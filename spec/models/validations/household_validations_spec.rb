@@ -129,11 +129,14 @@ RSpec.describe Validations::HouseholdValidations do
     context "when referral is not internal transfer" do
       it "cannot be permanently decanted from another property owned by this landlord" do
         record.reason = 1
+        record.referral_type = 101
         record.referral = 2
         household_validator.validate_reason_for_leaving_last_settled_home(record)
         expect(record.errors["reason"])
           .to include(match(I18n.t("validations.lettings.household.reason.leaving_last_settled_home.not_internal_transfer")))
         expect(record.errors["referral"])
+          .to include(match(I18n.t("validations.lettings.household.referral.leaving_last_settled_home.reason_permanently_decanted")))
+        expect(record.errors["referral_type"])
           .to include(match(I18n.t("validations.lettings.household.referral.leaving_last_settled_home.reason_permanently_decanted")))
       end
     end
@@ -141,20 +144,26 @@ RSpec.describe Validations::HouseholdValidations do
     context "when referral is internal transfer" do
       it "can be permanently decanted from another property owned by this landlord" do
         record.reason = 1
+        record.referral_type = 103
         record.referral = 1
         household_validator.validate_reason_for_leaving_last_settled_home(record)
         expect(record.errors["reason"])
           .to be_empty
         expect(record.errors["referral"])
           .to be_empty
+        expect(record.errors["referral_type"])
+          .to be_empty
       end
 
       it "cannot have a PRP as landlord and Housing situation before this letting cannot be LA general needs" do
         record.owning_organisation.provider_type = "PRP"
         record.prevten = 30
+        record.referral_type = 103
         record.referral = 1
         household_validator.validate_referral(record)
         expect(record.errors["referral"])
+          .to include(match(I18n.t("validations.lettings.household.referral.la_general_needs.internal_transfer")))
+        expect(record.errors["referral_type"])
           .to include(match(I18n.t("validations.lettings.household.referral.la_general_needs.internal_transfer")))
         expect(record.errors["prevten"])
           .to include(match(I18n.t("validations.lettings.household.prevten.la_general_needs.internal_transfer")))
@@ -162,6 +171,8 @@ RSpec.describe Validations::HouseholdValidations do
         record.prevten = 31
         household_validator.validate_referral(record)
         expect(record.errors["referral"])
+          .to include(match(I18n.t("validations.lettings.household.referral.la_general_needs.internal_transfer")))
+        expect(record.errors["referral_type"])
           .to include(match(I18n.t("validations.lettings.household.referral.la_general_needs.internal_transfer")))
         expect(record.errors["prevten"])
           .to include(match(I18n.t("validations.lettings.household.prevten.la_general_needs.internal_transfer")))
@@ -603,37 +614,45 @@ RSpec.describe Validations::HouseholdValidations do
     context "when homelessness is assessed" do
       it "can be internal transfer" do
         record.homeless = 11
+        record.referral_type = 103
         record.referral = 1
         household_validator.validate_referral(record)
         expect(record.errors["referral"]).to be_empty
+        expect(record.errors["referral_type"]).to be_empty
         expect(record.errors["homeless"]).to be_empty
       end
 
       it "can be non internal transfer" do
         record.owning_organisation.provider_type = "PRP"
         record.homeless = 0
+        record.referral_type = 102
         record.referral = 3
         household_validator.validate_referral(record)
         expect(record.errors["referral"]).to be_empty
+        expect(record.errors["referral_type"]).to be_empty
         expect(record.errors["homeless"]).to be_empty
       end
     end
 
     context "when homelessness is other" do
       it "cannot be internal transfer" do
+        record.referral_type = 103
         record.referral = 1
         record.homeless = 7
         household_validator.validate_referral(record)
         expect(record.errors["referral"]).to be_empty
+        expect(record.errors["referral_type"]).to be_empty
         expect(record.errors["homeless"]).to be_empty
       end
 
       it "can be non internal transfer" do
         record.owning_organisation.provider_type = "PRP"
+        record.referral_type = 102
         record.referral = 3
         record.homeless = 1
         household_validator.validate_referral(record)
         expect(record.errors["referral"]).to be_empty
+        expect(record.errors["referral_type"]).to be_empty
         expect(record.errors["homeless"]).to be_empty
       end
     end
@@ -715,12 +734,15 @@ RSpec.describe Validations::HouseholdValidations do
 
     context "when the referral is internal transfer" do
       it "prevten can be 9" do
+        record.referral_type = 103
         record.referral = 1
         record.prevten = 9
         household_validator.validate_previous_housing_situation(record)
         expect(record.errors["prevten"])
           .to be_empty
         expect(record.errors["referral"])
+          .to be_empty
+        expect(record.errors["referral_type"])
           .to be_empty
       end
 
@@ -740,6 +762,7 @@ RSpec.describe Validations::HouseholdValidations do
         { code: 29, label: "Prison or approved probation hostel" },
       ].each do |prevten|
         it "prevten cannot be #{prevten[:code]}" do
+          record.referral_type = 103
           record.referral = 1
           record.prevten = prevten[:code]
           household_validator.validate_previous_housing_situation(record)
@@ -747,6 +770,8 @@ RSpec.describe Validations::HouseholdValidations do
           expect(record.errors["prevten"])
             .to include(match I18n.t("validations.lettings.household.prevten.internal_transfer", prevten: label))
           expect(record.errors["referral"])
+            .to include(match I18n.t("validations.lettings.household.referral.prevten_invalid", prevten: ""))
+          expect(record.errors["referral_type"])
             .to include(match I18n.t("validations.lettings.household.referral.prevten_invalid", prevten: ""))
         end
       end

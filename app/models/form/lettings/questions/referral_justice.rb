@@ -1,8 +1,8 @@
-class Form::Lettings::Questions::ReferralPrp < ::Form::Question
+class Form::Lettings::Questions::ReferralJustice < ::Form::Question
   def initialize(id, hsh, page)
     super
     @id = "referral"
-    @copy_key = "lettings.household_situation.referral.prp"
+    @copy_key = "lettings.household_situation.referral.justice"
     @type = "radio"
     @check_answers_card_number = 0
     @question_number = QUESTION_NUMBER_FROM_YEAR[form.start_date.year] || QUESTION_NUMBER_FROM_YEAR[QUESTION_NUMBER_FROM_YEAR.keys.max]
@@ -10,14 +10,11 @@ class Form::Lettings::Questions::ReferralPrp < ::Form::Question
 
   def answer_options
     {
-      "1" => {
-        "value" => "Internal transfer from another property with the same landlord",
+      "18" => {
+        "value" => "With a custodial sentence",
       },
-      "10" => {
-        "value" => "A different PRP landlord",
-      },
-      "23" => {
-        "value" => "Other",
+      "19" => {
+        "value" => "No custodial sentence",
       },
     }.freeze
   end

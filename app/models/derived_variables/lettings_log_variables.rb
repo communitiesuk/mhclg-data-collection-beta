@@ -142,6 +142,10 @@ module DerivedVariables::LettingsLogVariables
       self.is_la_inferred = false
     end
 
+    if referral_type == 7 || referral_type == 16
+      self.referral = referral_type
+    end
+
     reset_address_fields! if is_supported_housing?
 
     set_checkbox_values!
@@ -208,6 +212,9 @@ private
     end
     if form.start_year_2024_or_later? && (unittype_gn_changed? && unittype_gn_was == 2)
       self.beds = nil
+    end
+    if referral_type_changed? && (referral_type_was == 7 || referral_type_was == 16)
+      self.referral = nil
     end
   end
 

@@ -112,29 +112,39 @@ en:
             question_text: "How was this letting allocated?"
 
           referral:
-            supported_housing:
-              prp:
-                page_header: ""
-                check_answer_label: "Source of referral for letting"
-                check_answer_prompt: ""
-                hint_text: ""
-                question_text: "What was the source of referral for this letting?"
-              la:
-                page_header: ""
-                check_answer_label: "Source of referral for letting"
-                check_answer_prompt: ""
-                hint_text: "You told us that you are a local authority. We have removed some options because of this."
-                question_text: "What was the source of referral for this letting?"
-            general_needs:
-              prp:
-                page_header: ""
-                check_answer_label: "Source of referral for letting"
-                check_answer_prompt: ""
-                hint_text: "You told us that the needs type is general needs. We have removed some options because of this."
-                question_text: "What was the source of referral for this letting?"
-              la:
-                page_header: ""
-                check_answer_label: "Source of referral for letting"
-                check_answer_prompt: ""
-                hint_text: "You told us that you are a local authority and that the needs type is general needs. We have removed some options because of this."
-                question_text: "What was the source of referral for this letting?"
+            type:
+              page_header: ""
+              check_answer_label: "Source of referral for letting"
+              check_answer_prompt: "Select source of referral"
+              hint_text: ""
+              question_text: "What was the source of referral for this letting?"
+            direct:
+              page_header: ""
+              check_answer_label: "Source of referral for letting"
+              check_answer_prompt: "Select source of referral"
+              hint_text: ""
+              question_text: "What was the source of referral for this letting?"
+            la:
+              page_header: ""
+              check_answer_label: "Source of referral for letting"
+              check_answer_prompt: "Select source of referral"
+              hint_text: ""
+              question_text: "What was the source of referral for this letting?"
+            prp:
+              page_header: ""
+              check_answer_label: "Source of referral for letting"
+              check_answer_prompt: "Select source of referral"
+              hint_text: ""
+              question_text: "What was the source of referral for this letting?"
+            hsc:
+              page_header: ""
+              check_answer_label: "Source of referral for letting"
+              check_answer_prompt: "Select source of referral"
+              hint_text: ""
+              question_text: "What was the source of referral for this letting?"
+            justice:
+              page_header: ""
+              check_answer_label: "Source of referral for letting"
+              check_answer_prompt: "Select source of referral"
+              hint_text: ""
+              question_text: "What was the source of referral for this letting?"

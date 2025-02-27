@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Form::Lettings::Questions::ReferralPrp, type: :model do
+RSpec.describe Form::Lettings::Questions::ReferralGeneralNeeds, type: :model do
   subject(:question) { described_class.new(question_id, question_definition, page) }
 
   let(:question_id) { nil }

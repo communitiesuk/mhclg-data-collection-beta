@@ -21,11 +21,28 @@ class Form::Lettings::Subsections::HouseholdSituation < ::Form::Subsection
       Form::Lettings::Pages::ReasonablePreference.new("reasonable_preference", nil, self),
       Form::Lettings::Pages::ReasonablePreferenceReason.new(nil, nil, self),
       Form::Lettings::Pages::AllocationSystem.new("allocation_system", nil, self),
-      Form::Lettings::Pages::Referral.new(nil, nil, self),
-      Form::Lettings::Pages::ReferralPrp.new(nil, nil, self),
-      Form::Lettings::Pages::ReferralSupportedHousing.new(nil, nil, self),
-      Form::Lettings::Pages::ReferralSupportedHousingPrp.new(nil, nil, self),
+      referral_questions,
       Form::Lettings::Pages::ReferralValueCheck.new(nil, nil, self),
-    ].compact
+    ].flatten.compact
+  end
+
+  def referral_questions
+    if form.start_year_2025_or_later?
+      [
+        Form::Lettings::Pages::ReferralType.new(nil, nil, self),
+        Form::Lettings::Pages::ReferralDirect.new(nil, nil, self),
+        Form::Lettings::Pages::ReferralLa.new(nil, nil, self),
+        Form::Lettings::Pages::ReferralPrp.new(nil, nil, self),
+        Form::Lettings::Pages::ReferralHsc.new(nil, nil, self),
+        Form::Lettings::Pages::ReferralJustice.new(nil, nil, self),
+      ]
+    else
+      [
+        Form::Lettings::Pages::Referral.new(nil, nil, self),
+        Form::Lettings::Pages::ReferralGeneralNeeds.new(nil, nil, self),
+        Form::Lettings::Pages::ReferralSupportedHousing.new(nil, nil, self),
+        Form::Lettings::Pages::ReferralSupportedHousingPrp.new(nil, nil, self),
+      ]
+    end
   end
 end
