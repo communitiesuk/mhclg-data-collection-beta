@@ -47,8 +47,8 @@ RSpec.describe BulkUpload::Sales::Validator do
       let(:log) { build(:sales_log, :completed, saledate: Time.zone.local(2023, 10, 10), assigned_to: user) }
 
       before do
-        file.write(log_to_csv.default_2024_field_numbers_row)
-        file.write(log_to_csv.to_2024_csv_row)
+        file.write(log_to_csv.default_field_numbers_row_for_year(2024))
+        file.write(log_to_csv.to_year_csv_row(2024))
         file.rewind
       end
 
