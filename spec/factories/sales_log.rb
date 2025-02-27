@@ -184,6 +184,39 @@ FactoryBot.define do
         end
       end
     end
+    trait :discounted_2025_completed do
+      completed
+      discount { 20 }
+    end
+    trait :shared_2025_completed do
+      completed
+      shared_ownership
+      staircase { 2 }
+      resale { 2 }
+      frombeds { 2 }
+      fromprop { 1 }
+      socprevten { 3 }
+      mrent { 900 }
+      equity { 30 }
+      ppostcode_full { "SW1A 1AA" }
+      hodate { Time.zone.today }
+    end
+    trait :staircasing_2025_completed do
+      completed
+      shared_ownership
+      staircase { 1 }
+      stairbought { 10 }
+      stairowned { 60 }
+      staircasesale { 2 }
+      firststair { 2 }
+      initialpurchase { Time.zone.today - 2.years }
+      numstair { 2 }
+      lasttransaction { Time.zone.today - 1.year }
+      mrentprestaircasing { 1000 }
+      mrent { 900 }
+      equity { 30 }
+      ppostcode_full { "SW1A 1AA" }
+    end
     trait :with_uprn do
       uprn { rand(999_999_999_999).to_s }
       uprn_known { 1 }
