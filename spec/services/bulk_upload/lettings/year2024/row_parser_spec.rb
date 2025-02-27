@@ -1247,7 +1247,7 @@ RSpec.describe BulkUpload::Lettings::Year2024::RowParser do
         end
       end
 
-      context "when some reasonable preference options are seleceted" do
+      context "when some reasonable preference options are selected" do
         let(:attributes) { setup_section_params.merge({ bulk_upload:, field_106: "1", field_107: "1", field_108: nil, field_109: "1", field_110: nil, field_111: nil }) }
 
         it "sets the rest of the options to 0" do
@@ -1260,7 +1260,7 @@ RSpec.describe BulkUpload::Lettings::Year2024::RowParser do
         end
       end
 
-      context "when some reasonable preference options are seleceted but reasonpref is No" do
+      context "when some reasonable preference options are selected but reasonpref is No" do
         let(:attributes) { setup_section_params.merge({ bulk_upload:, field_106: "2", field_107: "1", field_108: nil, field_109: "1", field_110: nil, field_111: nil }) }
 
         it "sets the options to nil" do
@@ -1270,6 +1270,20 @@ RSpec.describe BulkUpload::Lettings::Year2024::RowParser do
           expect(parser.log.rp_medwel).to be_nil
           expect(parser.log.rp_hardship).to be_nil
           expect(parser.log.rp_dontknow).to be_nil
+        end
+      end
+
+      context "when reasonpref is Yes, some reasonable preferences are selected but also so is 'Don't know'" do
+        let(:attributes) { setup_section_params.merge({ bulk_upload:, field_106: "1", field_107: "1", field_108: "1", field_109: nil, field_110: nil, field_111: "1" }) }
+
+        it "is not permitted" do
+          parser.valid?
+          expect(parser.errors[:field_107]).to be_present
+          expect(parser.errors[:field_108]).to be_present
+          expect(parser.errors[:field_111]).to be_present
+          expect(parser.errors[:field_107]).to include(I18n.t("validations.lettings.2024.bulk_upload.reasonpref.conflict.other"))
+          expect(parser.errors[:field_108]).to include(I18n.t("validations.lettings.2024.bulk_upload.reasonpref.conflict.other"))
+          expect(parser.errors[:field_111]).to include(I18n.t("validations.lettings.2024.bulk_upload.reasonpref.conflict.dont_know"))
         end
       end
     end
@@ -2511,7 +2525,7 @@ RSpec.describe BulkUpload::Lettings::Year2024::RowParser do
         end
       end
 
-      context "when some illness type values are seleceted" do
+      context "when some illness type values are selected" do
         let(:attributes) { setup_section_params.merge({ bulk_upload:, field_85: "1", field_94: "1", field_87: "1" }) }
 
         it "sets the rest of the values to 0" do
@@ -2529,7 +2543,7 @@ RSpec.describe BulkUpload::Lettings::Year2024::RowParser do
         end
       end
 
-      context "when none of the illness type values are seleceted" do
+      context "when none of the illness type values are selected" do
         let(:attributes) { setup_section_params.merge({ bulk_upload:, field_85: "1" }) }
 
         it "sets the values to nil" do
