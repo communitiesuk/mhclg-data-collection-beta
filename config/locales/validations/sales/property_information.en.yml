@@ -7,7 +7,7 @@ en:
             joint_purchase: "Buyers’ last accommodation and discounted ownership postcodes must match."
             not_joint_purchase: "Buyer’s last accommodation and discounted ownership postcodes must match."
           invalid: "Enter a postcode in the correct format, for example AA1 1AA."
-          not_in_england: "It looks like you have entered a postcode outside of England - only submit Lettings forms for Lettings that occur in England"
+          not_in_england: "It looks like you have an entered a postcode outside of England. Only create logs for sales in England."
         ppostcode_full:
           postcode_must_match_previous:
             joint_purchase: "Buyers’ last accommodation and discounted ownership postcodes must match."
@@ -21,7 +21,7 @@ en:
             joint_purchase: "Buyers’ last accommodation and discounted ownership postcodes must match."
             not_joint_purchase: "Buyer’s last accommodation and discounted ownership postcodes must match."
           invalid: "UPRN must be 12 digits or less."
-          not_in_england: "It looks like you have an entered a postcode outside of England. Only create logs for lettings in England."
+          not_in_england: "It looks like you have entered an address outside of England. Only create logs for sales in England."
         beds:
           bedsits_have_max_one_bedroom: "Number of bedrooms must be 1 if the property is a bedsit."
         proptype:
@@ -29,11 +29,11 @@ en:
         uprn_known:
           invalid: "You must answer UPRN known?"
         la:
-          not_in_england: "It looks like you have entered an address outside of England. Only create logs for lettings in England."
+          not_in_england: "It looks like you have entered an address outside of England. Only create logs for sales in England."
         uprn_confirmation:
-          not_in_england: "It looks like you have entered an address outside of England. Only create logs for lettings in England."
+          not_in_england: "It looks like you have entered an address outside of England. Only create logs for sales in England."
         uprn_selection:
-          not_in_england: "It looks like you have entered an address outside of England. Only create logs for lettings in England."
+          not_in_england: "It looks like you have entered an address outside of England. Only create logs for sales in England."
         saledate:
-          postcode_not_in_england: "It looks like you have an entered a postcode outside of England. Only create logs for lettings in England."
-          address_not_in_england: "It looks like you have entered an address outside of England. Only create logs for lettings in England."
+          postcode_not_in_england: "It looks like you have an entered a postcode outside of England. Only create logs for sales in England."
+          address_not_in_england: "It looks like you have entered an address outside of England. Only create logs for sales in England."

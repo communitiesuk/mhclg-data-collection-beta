@@ -1336,6 +1336,7 @@ private
       attributes["address_line1_input"] = address_line1_input
       attributes["postcode_full_input"] = postcode_full
       attributes["select_best_address_match"] = true if field_18.blank?
+      attributes["manual_address_entry_selected"] = field_18.blank?
     end
 
     attributes

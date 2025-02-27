@@ -61,3 +61,10 @@ en:
                 <li>child benefit</li>
                 <li>council tax support</li>
               </ul>"
+
+          address_search:
+            title: "Can’t find the address you’re looking for?"
+            content: "<ul class=\"govuk-list govuk-list--bullet\">
+                <li>Some properties may not be available yet e.g. new builds; you might need to enter them manually instead</li>
+                <li>For UPRN (Unique Property Reference Number), please enter the full value exactly</li>
+              </ul>"

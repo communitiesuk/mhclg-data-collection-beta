@@ -113,6 +113,21 @@ module DerivedVariables::LettingsLogVariables
       self.previous_la_known = nil if is_renewal?
     end
 
+    if form.start_year_2024_or_later?
+      if manual_address_entry_selected
+        self.uprn_known = 0
+        self.uprn_selection = nil
+        self.uprn_confirmed = nil
+      else
+        self.uprn_confirmed = 1 if uprn.present?
+        self.uprn_known = 1 if uprn.present?
+        reset_address_fields! if uprn.blank?
+        if uprn_changed?
+          self.uprn_selection = uprn
+        end
+      end
+    end
+
     if is_renewal?
       self.underoccupation_benefitcap = 2 if collection_start_year == 2021
       self.voiddate = startdate

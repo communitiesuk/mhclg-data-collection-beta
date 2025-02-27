@@ -4,14 +4,14 @@ class TestDataController < ApplicationController
   def create_test_lettings_log
     return render_not_found unless FeatureToggle.create_test_logs_enabled?
 
-    log = FactoryBot.create(:lettings_log, :completed, assigned_to: current_user, ppostcode_full: "SW1A 1AA")
+    log = FactoryBot.create(:lettings_log, :completed, assigned_to: current_user, ppostcode_full: "SW1A 1AA", manual_address_entry_selected: false)
     redirect_to lettings_log_path(log)
   end
 
   def create_setup_test_lettings_log
     return render_not_found unless FeatureToggle.create_test_logs_enabled?
 
-    log = FactoryBot.create(:lettings_log, :setup_completed, assigned_to: current_user)
+    log = FactoryBot.create(:lettings_log, :setup_completed, assigned_to: current_user, manual_address_entry_selected: false)
     redirect_to lettings_log_path(log)
   end
 
@@ -40,14 +40,14 @@ class TestDataController < ApplicationController
   def create_test_sales_log
     return render_not_found unless FeatureToggle.create_test_logs_enabled?
 
-    log = FactoryBot.create(:sales_log, :completed, assigned_to: current_user)
+    log = FactoryBot.create(:sales_log, :completed, assigned_to: current_user, manual_address_entry_selected: false)
     redirect_to sales_log_path(log)
   end
 
   def create_setup_test_sales_log
     return render_not_found unless FeatureToggle.create_test_logs_enabled?
 
-    log = FactoryBot.create(:sales_log, :shared_ownership_setup_complete, assigned_to: current_user)
+    log = FactoryBot.create(:sales_log, :shared_ownership_setup_complete, assigned_to: current_user, manual_address_entry_selected: false)
     redirect_to sales_log_path(log)
   end
 

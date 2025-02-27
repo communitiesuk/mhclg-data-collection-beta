@@ -7,6 +7,10 @@ RSpec.describe Form::Sales::Pages::UprnConfirmation, type: :model do
   let(:page_definition) { nil }
   let(:subsection) { instance_double(Form::Subsection) }
 
+  before do
+    allow(subsection).to receive(:form).and_return(instance_double(Form, start_year_2024_or_later?: false))
+  end
+
   it "has correct subsection" do
     expect(page.subsection).to eq(subsection)
   end

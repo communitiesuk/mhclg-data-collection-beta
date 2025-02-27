@@ -208,6 +208,11 @@ module Csv
       3 => "Intermediate Rent",
     }.freeze
 
+    UPRN_KNOWN_LABELS = {
+      0 => "No",
+      1 => "Yes",
+    }.freeze
+
     LABELS = {
       "lettype" => LETTYPE_LABELS,
       "irproduct" => IRPRODUCT_LABELS,
@@ -215,6 +220,7 @@ module Csv
       "newprop" => NEWPROP_LABELS,
       "incref" => INCREF_LABELS,
       "renttype" => RENTTYPE_LABELS,
+      "uprn_known" => UPRN_KNOWN_LABELS,
     }.freeze
 
     CONVENTIONAL_YES_NO_ATTRIBUTES = %w[illness_type_1 illness_type_2 illness_type_3 illness_type_4 illness_type_5 illness_type_6 illness_type_7 illness_type_8 illness_type_9 illness_type_10 refused cbl cap chr accessible_register letting_allocation_none housingneeds_a housingneeds_b housingneeds_c housingneeds_d housingneeds_e housingneeds_f housingneeds_g housingneeds_h has_benefits nocharge postcode_known].freeze
@@ -249,6 +255,18 @@ module Csv
       "letting_allocation_unknown" => %w[letting_allocation_none],
     }.freeze
 
+    ATTRIBUTE_MAPPINGS_2024 = {
+      "uprn" => %w[uprn_known uprn],
+    }.freeze
+
+    def attribute_mappings
+      if @year >= 2024
+        ATTRIBUTE_MAPPINGS.merge(ATTRIBUTE_MAPPINGS_2024)
+      else
+        ATTRIBUTE_MAPPINGS
+      end
+    end
+
     ORDERED_ADDRESS_FIELDS = %w[uprn address_line1 address_line2 town_or_city county postcode_full is_la_inferred la_label la uprn_known uprn_selection address_search_value_check address_line1_input postcode_full_input address_line1_as_entered address_line2_as_entered town_or_city_as_entered county_as_entered postcode_full_as_entered la_as_entered].freeze
 
     SUPPORT_ONLY_ATTRIBUTES = %w[postcode_known is_la_inferred totchild totelder totadult net_income_known previous_la_known is_previous_la_inferred age1_known age2_known age3_known age4_known age5_known age6_known age7_known age8_known details_known_2 details_known_3 details_known_4 details_known_5 details_known_6 details_known_7 details_known_8 wrent wscharge wpschrge wsupchrg wtcharge wtshortfall old_form_id old_id tshortfall_known hhtype la prevloc updated_by_id uprn_confirmed address_line1_input postcode_full_input uprn_selection address_line1_as_entered address_line2_as_entered town_or_city_as_entered county_as_entered postcode_full_as_entered la_as_entered created_by].freeze
@@ -279,10 +297,10 @@ module Csv
       ordered_questions.flat_map do |question|
         if question.type == "checkbox"
           question.answer_options.keys.reject { |key| key == "divider" }.map { |key|
-            ATTRIBUTE_MAPPINGS.fetch(key, key)
+            attribute_mappings.fetch(key, key)
           }.flatten
         else
-          ATTRIBUTE_MAPPINGS.fetch(question.id, question.id)
+          attribute_mappings.fetch(question.id, question.id)
         end
       end
     end

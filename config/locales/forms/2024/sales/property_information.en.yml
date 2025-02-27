@@ -43,6 +43,13 @@ en:
             hint_text: ""
             question_text: "Select the correct address"
 
+          address_search:
+            page_header: "What is the property's address?"
+            check_answer_label: "Address"
+            check_answer_prompt: "Enter address or UPRN"
+            hint_text: "For example, '1 Victoria Road' or '10010457355'"
+            question_text: "Enter address or UPRN"
+
           address:
             page_header: "What is the property's address?"
             address_line1:

@@ -24,11 +24,7 @@ class Form::Sales::Subsections::PropertyInformation < ::Form::Subsection
   def uprn_questions
     if form.start_year_2024_or_later?
       [
-        Form::Sales::Pages::Uprn.new(nil, nil, self),
-        Form::Sales::Pages::UprnConfirmation.new(nil, nil, self),
-        Form::Sales::Pages::AddressMatcher.new(nil, nil, self),
-        Form::Sales::Pages::NoAddressFound.new(nil, nil, self),
-        Form::Sales::Pages::UprnSelection.new(nil, nil, self),
+        Form::Sales::Pages::AddressSearch.new(nil, nil, self),
         Form::Sales::Pages::AddressFallback.new(nil, nil, self),
         Form::Sales::Pages::PropertyLocalAuthority.new(nil, nil, self),
         Form::Sales::Pages::Buyer1IncomeDiscountedMaxValueCheck.new("local_authority_buyer_1_income_max_value_check", nil, self, check_answers_card_number: nil),

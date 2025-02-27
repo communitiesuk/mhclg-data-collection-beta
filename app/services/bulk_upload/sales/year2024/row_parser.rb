@@ -986,6 +986,7 @@ private
     attributes["address_line1_input"] = address_line1_input
     attributes["postcode_full_input"] = postcode_full
     attributes["select_best_address_match"] = true if field_22.blank?
+    attributes["manual_address_entry_selected"] = field_22.blank?
 
     attributes["ethnic_group2"] = infer_buyer2_ethnic_group_from_ethnic
     attributes["ethnicbuy2"] = field_40

@@ -10,45 +10,12 @@ en:
             hint_text: ""
             question_text: "Is this the first time the property has been let as social housing?"
 
-          uprn:
-            page_header: ""
-            uprn_known:
-              check_answer_label: "UPRN known"
-              check_answer_prompt: "Enter UPRN if known"
-              hint_text: "The Unique Property Reference Number (UPRN) is a unique number system created by Ordnance Survey and used by housing providers and various industries across the UK. An example UPRN is 10010457355.<br><br>The UPRN may not be the same as the property reference assigned by your organisation.<br><br>If you don’t know the UPRN you can enter the address of the property instead on the next screen."
-              question_text: "Do you know the property's UPRN?"
-            uprn:
-              check_answer_label: "UPRN"
-              check_answer_prompt: ""
-              hint_text: ""
-              question_text: "What is the property's UPRN?"
-
-          uprn_confirmed:
-            page_header: "We found an address that might be this property"
-            check_answer_label: "Is this the right address?"
-            check_answer_prompt: "Tell us if this is the right address"
-            hint_text: ""
-            question_text: "Is this the property address?"
-
-          address_matcher:
-            page_header: "Find an address"
-            address_line1_input:
-              check_answer_label: "Find address"
-              check_answer_prompt: "Try find address"
-              hint_text: ""
-              question_text: "Address line 1"
-            postcode_full_input:
-              check_answer_label: ""
-              check_answer_prompt: ""
-              hint_text: ""
-              question_text: "Postcode"
-
-          uprn_selection:
-            page_header: "We found an address that might be this property"
-            check_answer_label: "Select correct address"
-            check_answer_prompt: "Select correct address"
-            hint_text: ""
-            question_text: "Select the correct address"
+          address_search:
+            page_header: "What is the property's address?"
+            check_answer_label: "Address"
+            check_answer_prompt: "Enter address or UPRN"
+            hint_text: "For example, '1 Victoria Road' or '10010457355'"
+            question_text: "Enter address or UPRN"
 
           address:
             page_header: "What is the property's address?"

@@ -16,7 +16,6 @@ class Form::Sales::Pages::NoAddressFound < ::Form::Page
       { "uprn_known" => nil, "address_options_present?" => false },
       { "uprn_known" => 0, "address_options_present?" => false },
       { "uprn_confirmed" => 0, "address_options_present?" => false },
-
     ]
   end
 

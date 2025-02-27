@@ -136,9 +136,9 @@ RSpec.describe Validations::Sales::PropertyValidations do
     context "when within the limit and only numeric" do
       let(:record) { build(:sales_log, uprn: "123456789012") }
 
-      it "does not add an error" do
+      it "does not add an invalid UPRN error" do
         property_validator.validate_uprn(record)
-        expect(record.errors).not_to be_present
+        expect(record.errors.added?(:uprn, I18n.t("validations.sales.property_information.uprn.invalid"))).to be false
       end
     end
   end

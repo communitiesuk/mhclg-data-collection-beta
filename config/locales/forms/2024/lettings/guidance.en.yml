@@ -14,7 +14,7 @@ en:
               <p>If your organisation’s schemes were migrated from old CORE, they may have new names and codes. Search by postcode to find your scheme.</p>"
             scheme_changes_link_text: "Read more about how schemes have changed"
             view_schemes_link_text: "View your organisation’s schemes"
-            
+
           privacy_notice_tenant:
             content: "Make sure the lead tenant has seen or been given access to %{privacy_notice_link} before completing this log. This is a legal requirement under data protection legislation."
             privacy_notice_link_text: "the Ministry of Housing, Communities and Local Government (MHCLG) privacy notice"
@@ -60,4 +60,11 @@ en:
                 <li>housing benefit</li>
                 <li>child benefit</li>
                 <li>council tax support</li>
+              </ul>"
+
+          address_search:
+            title: "Can’t find the address you’re looking for?"
+            content: "<ul class=\"govuk-list govuk-list--bullet\">
+                <li>Some properties may not be available yet e.g. new builds; you might need to enter them manually instead</li>
+                <li>For UPRN (Unique Property Reference Number), please enter the full value exactly</li>
               </ul>"

@@ -6,6 +6,7 @@ FactoryBot.define do
     managing_organisation { assigned_to.organisation }
     created_at { Time.zone.today }
     updated_at { Time.zone.today }
+    manual_address_entry_selected { true }
 
     before(:create) do |log, _evaluator|
       if log.period && !log.managing_organisation.organisation_rent_periods.exists?(rent_period: log.period)
@@ -166,13 +167,11 @@ FactoryBot.define do
       town_or_city { Faker::Address.city }
       ppcodenk { 1 }
       tshortfall_known { 1 }
-      after(:build) do |log, _evaluator|
+      after(:build) do |log, evaluator|
         if log.startdate >= Time.zone.local(2024, 4, 1)
-          log.address_line1_input = log.address_line1
-          log.postcode_full_input = log.postcode_full
           log.nationality_all_group = 826
-          log.uprn = "10033558653"
-          log.uprn_selection = 1
+          log.uprn = evaluator.uprn || "10033558653"
+          log.uprn_selection = evaluator.uprn_selection || "10033558653"
         end
       end
     end
