@@ -8,13 +8,11 @@ class Form::Lettings::Subsections::PropertyInformation < ::Form::Subsection
 
   def pages
     @pages ||= [
+      (first_let_questions if form.start_year_2025_or_later?),
       uprn_questions,
       Form::Lettings::Pages::PropertyLocalAuthority.new(nil, nil, self),
       Form::Lettings::Pages::RentValueCheck.new("local_authority_rent_value_check", nil, self, check_answers_card_number: nil),
-      Form::Lettings::Pages::FirstTimePropertyLetAsSocialHousing.new(nil, nil, self),
-      Form::Lettings::Pages::PropertyLetType.new(nil, nil, self),
-      Form::Lettings::Pages::PropertyVacancyReasonNotFirstLet.new(nil, nil, self),
-      Form::Lettings::Pages::PropertyVacancyReasonFirstLet.new(nil, nil, self),
+      (first_let_questions unless form.start_year_2025_or_later?),
       number_of_times_relet,
       Form::Lettings::Pages::PropertyUnitType.new(nil, nil, self),
       Form::Lettings::Pages::PropertyBuildingType.new(nil, nil, self),
@@ -50,6 +48,15 @@ class Form::Lettings::Subsections::PropertyInformation < ::Form::Subsection
 
   def number_of_times_relet
     Form::Lettings::Pages::PropertyNumberOfTimesRelet.new(nil, nil, self) unless form.start_year_2024_or_later?
+  end
+
+  def first_let_questions
+    [
+      Form::Lettings::Pages::FirstTimePropertyLetAsSocialHousing.new(nil, nil, self),
+      Form::Lettings::Pages::PropertyLetType.new(nil, nil, self),
+      Form::Lettings::Pages::PropertyVacancyReasonNotFirstLet.new(nil, nil, self),
+      Form::Lettings::Pages::PropertyVacancyReasonFirstLet.new(nil, nil, self),
+    ]
   end
 
   def displayed_in_tasklist?(log)
