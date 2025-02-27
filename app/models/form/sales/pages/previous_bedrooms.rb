@@ -9,6 +9,10 @@ class Form::Sales::Pages::PreviousBedrooms < ::Form::Page
       {
         "soctenant" => 0,
       },
+      { "soctenant_is_inferred?" => true, "ownershipsch" => 1, "prevten" => 1 },
+      { "soctenant_is_inferred?" => true, "ownershipsch" => 1, "prevten" => 2 },
+      { "soctenant_is_inferred?" => true, "ownershipsch" => 1, "prevtenbuy2" => 1 },
+      { "soctenant_is_inferred?" => true, "ownershipsch" => 1, "prevtenbuy2" => 2 },
     ]
   end
 
