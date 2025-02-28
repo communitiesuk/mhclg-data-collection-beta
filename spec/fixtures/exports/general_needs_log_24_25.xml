@@ -52,9 +52,9 @@
     <waityear>7</waityear>
     <postcode_full>AA1 1AA</postcode_full>
     <reasonpref>1</reasonpref>
-    <cbl>2</cbl>
+    <cbl>0</cbl>
     <chr>1</chr>
-    <cap>2</cap>
+    <cap>0</cap>
     <reasonother/>
     <housingneeds_a>1</housingneeds_a>
     <housingneeds_b>0</housingneeds_b>
@@ -151,7 +151,7 @@
     <scharge_value_check/>
     <pscharge_value_check/>
     <duplicate_set_id/>
-    <accessible_register>2</accessible_register>
+    <accessible_register>0</accessible_register>
     <nationality_all>826</nationality_all>
     <address_line1_as_entered>address line 1 as entered</address_line1_as_entered>
     <address_line2_as_entered>address line 2 as entered</address_line2_as_entered>

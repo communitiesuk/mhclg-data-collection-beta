@@ -74,11 +74,6 @@ module Exports
       attribute_hash["voiddate"] = lettings_log.voiddate&.iso8601
       attribute_hash["discarded_at"] = lettings_log.discarded_at&.iso8601
 
-      attribute_hash["cbl"] = 2 if attribute_hash["cbl"]&.zero?
-      attribute_hash["cap"] = 2 if attribute_hash["cap"]&.zero?
-      attribute_hash["chr"] = 2 if attribute_hash["chr"]&.zero?
-      attribute_hash["accessible_register"] = 2 if attribute_hash["accessible_register"]&.zero?
-
       # Age refused
       (1..8).each do |index|
         attribute_hash["age#{index}"] = -9 if attribute_hash["age#{index}_known"] == 1
